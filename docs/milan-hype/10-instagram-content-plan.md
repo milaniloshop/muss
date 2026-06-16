@@ -1,6 +1,6 @@
-# Milan Hype — Instagram Strategy (@milanhype)
+# Milan Hype — Instagram Strategy (@Milanhype_)
 
-**Handle:** [@milanhype](https://instagram.com/milanhype)  
+**Handle:** [@Milanhype_](https://instagram.com/Milanhype_)  
 **Hashtag:** #MilanHype  
 **Bio recommendation:**
 
@@ -174,7 +174,7 @@
 | **Hook** | "POV: your wardrobe just leveled up" |
 | **Body** | Show product on model, highlight fit + quality |
 | **CTA** | Shop Now |
-| **Copy** | The [Product Name] — [benefit]. Free shipping $75+. Shop @milanhype. |
+| **Copy** | The [Product Name] — [benefit]. Free shipping $75+. Shop @Milanhype_. |
 
 ### Ad 3 — Social Proof (Retargeting)
 
@@ -256,7 +256,7 @@
 
 - Primary: **#MilanHype**
 - Secondary: #DressTheMoment #MilanHypeStyle
-- Incentivize: Repost best UGC weekly on @milanhype Stories + feed
+- Incentivize: Repost best UGC weekly on @Milanhype_ Stories + feed
 
 ### Gifting Tiers
 
@@ -277,7 +277,7 @@
 > - Show the product in natural lighting
 > - Include try-on or styling moment
 > - Mention fit honestly
-> - Tag @milanhype and use #MilanHype
+> - Tag @Milanhype_ and use #MilanHype
 > - Post within 14 days of receiving
 > - We may repost on our channels (with credit)
 
@@ -332,4 +332,4 @@
 
 ---
 
-*No password or account access needed — execute this plan from @milanhype directly.*
+*No password or account access needed — execute this plan from @Milanhype_ directly.*

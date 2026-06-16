@@ -2,7 +2,7 @@
 
 **Theme:** Prestige  
 **Design direction:** Mobile-first · Premium · Minimalist · Fashion editorial  
-**Instagram:** @milanhype
+**Instagram:** @Milanhype_
 
 ---
 
@@ -182,15 +182,15 @@
 
 ## Section 9 — Instagram Feed
 
-**Section heading:** @milanhype
+**Section heading:** @Milanhype_
 
 **Subheading:** Follow us for daily style inspiration, behind-the-scenes, and new drops.
 
 **Layout:** 6-image grid (3×2 mobile, 6×1 or 3×2 desktop)  
-**Link:** https://instagram.com/milanhype  
+**Link:** https://instagram.com/Milanhype_  
 **Button:** Follow on Instagram
 
-**App:** Instafeed or Foursixty connected to @milanhype
+**App:** Instafeed or Foursixty connected to @Milanhype_
 
 **Hashtag to promote:** `#MilanHype`
 
@@ -241,7 +241,7 @@
 
 **Page title:** Milan Hype | Premium Contemporary Fashion — Dress the Moment
 
-**Meta description:** Shop premium men's and women's fashion at Milan Hype. New arrivals, best sellers, free shipping over $75, and easy 30-day returns. Follow @milanhype.
+**Meta description:** Shop premium men's and women's fashion at Milan Hype. New arrivals, best sellers, free shipping over $75, and easy 30-day returns. Follow @Milanhype_.
 
 **H1 (hero):** Dress the Moment
 

@@ -58,10 +58,10 @@ We're not here to be the loudest brand in your feed. We're here to be the one yo
 
 ### Join the Movement
 
-Follow us on Instagram [@milanhype](https://instagram.com/milanhype) for new drops, styling inspiration, and behind-the-scenes content. Tag your looks with **#MilanHype** — we love seeing how you style it.
+Follow us on Instagram [@Milanhype_](https://instagram.com/Milanhype_) for new drops, styling inspiration, and behind-the-scenes content. Tag your looks with **#MilanHype** — we love seeing how you style it.
 
 **Button:** Shop New Arrivals → `/collections/new-arrivals`  
-**Button:** Follow on Instagram → `https://instagram.com/milanhype`
+**Button:** Follow on Instagram → `https://instagram.com/Milanhype_`
 
 ---
 

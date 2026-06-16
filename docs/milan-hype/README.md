@@ -1,7 +1,7 @@
 # Milan Hype — Store Build Index
 
 **Status:** Ready to implement in Shopify (Prestige theme)  
-**Instagram:** [@milanhype](https://instagram.com/milanhype)  
+**Instagram:** [@Milanhype_](https://instagram.com/Milanhype_)  
 **Shipping:** Free over $75 · $6.95 below · 30-day returns
 
 ---
@@ -33,7 +33,7 @@
 4. Build **navigation** menus
 5. Paste **pages** (About, FAQ, Shipping, Returns)
 6. Build **homepage** sections from doc 02
-7. Install **Klaviyo** + **Judge.me** + **Instafeed** (@milanhype)
+7. Install **Klaviyo** + **Judge.me** + **Instafeed** (@Milanhype_)
 8. Save **support templates** in helpdesk
 9. Start **Instagram** content from doc 10
 10. **Upload products** when ready (use doc 03 template)

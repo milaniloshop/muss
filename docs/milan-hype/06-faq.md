@@ -29,7 +29,7 @@ Shipping rates are calculated at checkout based on your order total.
 
 ### Do you ship internationally?
 
-At this time, Milan Hype ships within the **United States only**. International shipping is coming soon — follow [@milanhype](https://instagram.com/milanhype) for updates.
+At this time, Milan Hype ships within the **United States only**. International shipping is coming soon — follow [@Milanhype_](https://instagram.com/Milanhype_) for updates.
 
 ### How do I track my order?
 
@@ -92,7 +92,7 @@ Care instructions are listed on each product page under Details. Following these
 
 ### Will sold-out items be restocked?
 
-Some items are restocked based on demand. Follow [@milanhype](https://instagram.com/milanhype) or join our email list for restock announcements. Limited-run pieces may not return.
+Some items are restocked based on demand. Follow [@Milanhype_](https://instagram.com/Milanhype_) or join our email list for restock announcements. Limited-run pieces may not return.
 
 ### Are your product photos accurate?
 
@@ -140,7 +140,7 @@ Reply **STOP** to any SMS from Milan Hype, or email us at **support@milanhype.co
 
 ### How can I collaborate with Milan Hype?
 
-We love working with creators who align with our brand. DM us on Instagram [@milanhype](https://instagram.com/milanhype) or email **collab@milanhype.com** with your handle, audience size, and content style.
+We love working with creators who align with our brand. DM us on Instagram [@Milanhype_](https://instagram.com/Milanhype_) or email **collab@milanhype.com** with your handle, audience size, and content style.
 
 ### Do you offer wholesale?
 
@@ -152,7 +152,7 @@ Not at this time. For partnership inquiries, email **support@milanhype.com**.
 
 **Email:** support@milanhype.com  
 **Response time:** Within 24 hours (Monday–Friday)  
-**Instagram:** [@milanhype](https://instagram.com/milanhype)
+**Instagram:** [@Milanhype_](https://instagram.com/Milanhype_)
 
 **Button:** Contact Us → `/pages/contact`
 

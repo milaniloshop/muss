@@ -154,7 +154,7 @@ Enable sort:
 Add collapsed SEO text at bottom of each main collection (visible on desktop, collapsed on mobile):
 
 **Women — SEO footer:**
-> Milan Hype offers premium women's fashion designed for the modern style-setter. From elevated everyday essentials to statement pieces for nights out, every item is crafted with intention. Shop with confidence — free shipping on US orders over $75 and easy 30-day returns. Follow us on Instagram @milanhype for daily styling inspiration.
+> Milan Hype offers premium women's fashion designed for the modern style-setter. From elevated everyday essentials to statement pieces for nights out, every item is crafted with intention. Shop with confidence — free shipping on US orders over $75 and easy 30-day returns. Follow us on Instagram @Milanhype_ for daily styling inspiration.
 
 **Men — SEO footer:**
 > Discover Milan Hype men's fashion — contemporary pieces with clean lines and modern energy. Our collection includes premium tops, bottoms, outerwear, and accessories designed for comfort and confidence. Free US shipping on orders over $75. Easy 30-day returns.
@@ -168,7 +168,7 @@ Until products are uploaded, set collection pages to:
 - Hide product grid or show "Coming Soon" rich text block:
 
 > **Coming Soon**  
-> New pieces are on the way. Follow [@milanhype](https://instagram.com/milanhype) on Instagram for the first look.
+> New pieces are on the way. Follow [@Milanhype_](https://instagram.com/Milanhype_) on Instagram for the first look.
 
 ---
 

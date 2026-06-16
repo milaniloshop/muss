@@ -1,7 +1,7 @@
 # Milan Hype — Customer Support SOPs & Templates
 
 **Support email:** support@milanhype.com  
-**Instagram:** [@milanhype](https://instagram.com/milanhype)  
+**Instagram:** [@Milanhype_](https://instagram.com/Milanhype_)  
 **Response SLA:** Within 24 hours (Monday–Friday)  
 **Tone:** Professional · Friendly · Helpful · Brand-focused
 
@@ -76,7 +76,7 @@ Customer contacts → Categorize ticket → Respond with template (personalized)
 > **Carrier:** {{ carrier }}  
 > **Estimated delivery:** {{ delivery_estimate }}
 >
-> We can't wait for you to see it. Tag us @milanhype when it arrives — we'd love to see how you style it.
+> We can't wait for you to see it. Tag us @Milanhype_ when it arrives — we'd love to see how you style it.
 >
 > — Milan Hype Support
 
@@ -177,7 +177,7 @@ Customer contacts → Categorize ticket → Respond with template (personalized)
 >
 > Your refund of **{{ refund_amount }}** for order #{{ order_number }} has been processed. It should appear on your original payment method within 5–10 business days.
 >
-> We're sorry this one didn't work out — we hope to see you again soon. New arrivals drop regularly at milanhype.com, and we're always on Instagram @milanhype.
+> We're sorry this one didn't work out — we hope to see you again soon. New arrivals drop regularly at milanhype.com, and we're always on Instagram @Milanhype_.
 >
 > — Milan Hype Support
 

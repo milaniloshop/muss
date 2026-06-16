@@ -124,7 +124,7 @@ Questions about returns? We're here to help.
 
 **Email:** support@milanhype.com  
 **Response time:** Within 24 hours (Monday–Friday)  
-**Instagram:** [@milanhype](https://instagram.com/milanhype)
+**Instagram:** [@Milanhype_](https://instagram.com/Milanhype_)
 
 ---
 

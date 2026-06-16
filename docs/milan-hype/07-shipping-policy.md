@@ -92,7 +92,7 @@ We'll send a replacement or issue a full refund — your choice.
 
 ### International Shipping
 
-Milan Hype currently ships to the **United States only**. International shipping is not available at this time. Follow [@milanhype](https://instagram.com/milanhype) for updates on international expansion.
+Milan Hype currently ships to the **United States only**. International shipping is not available at this time. Follow [@Milanhype_](https://instagram.com/Milanhype_) for updates on international expansion.
 
 ---
 

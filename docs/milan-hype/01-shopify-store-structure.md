@@ -1,7 +1,7 @@
 # Milan Hype — Shopify Store Structure (Prestige Theme)
 
 **Theme:** Prestige by Maestrooo  
-**Instagram:** [@milanhype](https://instagram.com/milanhype)  
+**Instagram:** [@Milanhype_](https://instagram.com/Milanhype_)  
 **Market:** United States  
 **Shipping:** Free over $75 · Customer-paid below $75  
 **Returns:** 30 days
@@ -101,7 +101,7 @@ Sale                  →  /collections/sale
 
 **Column 3 — Company**
 - About Us
-- Instagram → https://instagram.com/milanhype
+- Instagram → https://instagram.com/Milanhype_
 
 **Column 4 — Legal**
 - Shipping Policy
@@ -207,7 +207,7 @@ Create these collections in **Products → Collections**:
 
 Rotate seasonally:
 > New arrivals just dropped — Shop now
-> Join us on Instagram @milanhype
+> Join us on Instagram @Milanhype_
 
 ---
 
@@ -232,7 +232,7 @@ Rotate seasonally:
 > Milan Hype | Premium Contemporary Fashion — Dress the Moment
 
 **Homepage meta description:**
-> Shop premium men's and women's fashion at Milan Hype. Elevated everyday style, free shipping over $75, and easy 30-day returns. Follow @milanhype on Instagram.
+> Shop premium men's and women's fashion at Milan Hype. Elevated everyday style, free shipping over $75, and easy 30-day returns. Follow @Milanhype_ on Instagram.
 
 **Social sharing image:** 1200×630px brand image with logo + tagline
 
@@ -253,7 +253,7 @@ Rotate seasonally:
 > © {{ year }} Milan Hype. All rights reserved.
 
 **Social links:**
-- Instagram: https://instagram.com/milanhype
+- Instagram: https://instagram.com/Milanhype_
 - TikTok: [add when ready]
 
 ---
@@ -268,7 +268,7 @@ Rotate seasonally:
 6. Build homepage sections (doc 02)
 7. Configure shipping rates
 8. Install Klaviyo + reviews + Instagram feed
-9. Connect Instagram @milanhype to Instafeed
+9. Connect Instagram @Milanhype_ to Instafeed
 10. Test mobile checkout end-to-end
 11. Upload products when ready
 
