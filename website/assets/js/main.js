@@ -1,9 +1,30 @@
-function resolveImage(sources) {
-  return sources[0];
+const uploadedImages = new Map();
+
+async function loadUploadedImages() {
+  try {
+    const res = await fetch('/api/images');
+    if (!res.ok) return;
+    const files = await res.json();
+    files.forEach((f) => uploadedImages.set(f.filename, f.exists));
+  } catch (_) {}
+}
+
+function resolveImage(sources, product) {
+  const slots = product?.imageSlots || [];
+  for (const slot of slots) {
+    if (uploadedImages.get(slot.filename)) {
+      return `assets/images/products/${slot.filename}`;
+    }
+  }
+  for (const src of sources) {
+    const name = src.split('/').pop();
+    if (uploadedImages.get(name)) return src;
+  }
+  return sources.find((s) => s.endsWith('.svg')) || sources[sources.length - 1];
 }
 
 function productCardHTML(product) {
-  const img = resolveImage(product.images);
+  const img = resolveImage(product.images, product);
   const badgeClass = product.badge === 'Sale' ? 'sale' : '';
   const compareHTML = product.compareAt
     ? `<span class="compare">${formatPrice(product.compareAt)}</span>`
@@ -88,7 +109,7 @@ function updateCartCount() {
 function addToCart(product, size) {
   const existing = cart.find((i) => i.id === product.id && i.size === size);
   if (existing) existing.qty++;
-  else cart.push({ id: product.id, title: product.title, price: product.price, size, qty: 1, image: resolveImage(product.images) });
+  else cart.push({ id: product.id, title: product.title, price: product.price, size, qty: 1, image: resolveImage(product.images, product) });
   saveCart();
   openCart();
   showToast('Added to bag');
@@ -179,6 +200,12 @@ function initHomepage() {
   if (newArr) {
     renderProductGrid(newArr, getCollectionProducts('new-arrivals').slice(0, 4));
   }
+
+  const banner = document.getElementById('photo-upload-banner');
+  if (banner) {
+    const anyUploaded = [...uploadedImages.values()].some(Boolean);
+    banner.hidden = anyUploaded;
+  }
 }
 
 /* Collection page */
@@ -210,7 +237,8 @@ function initProductPage() {
   document.title = `${product.title} | Milan Hype`;
 
   let images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
-  if (!images.length) images = product.images.filter((s) => !s.endsWith('.svg'));
+  images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
+  if (!images.length) images = product.images.filter((s) => s.endsWith('.svg'));
   const baseSlug = product.id;
   const fallback = `assets/images/products/${baseSlug}.svg`;
   const displayImages = images.length ? images : [fallback];
@@ -298,12 +326,14 @@ function initProductPage() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initMobileNav();
   initNewsletter();
   initContactForm();
   initCart();
   initFAQ();
+
+  await loadUploadedImages();
 
   if (document.body.dataset.page === 'home') initHomepage();
   if (document.body.dataset.page === 'collection') initCollectionPage();
