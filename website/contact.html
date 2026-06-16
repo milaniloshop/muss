@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Milan Hype</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><a href="index.html" class="logo">Milan Hype</a></div></header>
+  <div class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We respond within 24 hours (Monday–Friday).</p>
+    </div>
+  </div>
+  <div class="content-page">
+    <div class="container content-prose" style="text-align:center;">
+      <p><strong>Email:</strong> <a href="mailto:support@milanhype.com">support@milanhype.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/Milanhype_" target="_blank" rel="noopener">@Milanhype_</a></p>
+      <p style="color:var(--gray);">For order tracking, returns, sizing, or collaborations — we're here to help.</p>
+    </div>
+    <form class="contact-form" id="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="order">Order Number (optional)</label>
+        <input type="text" id="order" name="order">
+      </div>
+      <div class="form-group">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>Order tracking</option>
+          <option>Return / exchange</option>
+          <option>Sizing help</option>
+          <option>Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+    </form>
+  </div>
+  <footer class="site-footer"><div class="container footer-bottom">© 2026 Milan Hype</div></footer>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | Milan Hype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="product">
+
+  <div class="announcement">Free shipping on orders over $75 · Easy 30-day returns</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <a href="index.html" class="logo">Milan Hype</a>
+      <nav class="nav-desktop">
+        <a href="collection.html?c=new-arrivals">New Arrivals</a>
+        <a href="collection.html?c=women">Women</a>
+        <a href="collection.html?c=men">Men</a>
+        <a href="collection.html?c=best-sellers">Best Sellers</a>
+        <a href="collection.html?c=sale">Sale</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="icon-btn cart-open">Bag (<span class="cart-count">0</span>)</button>
+      </div>
+    </div>
+    <nav class="nav-mobile">
+      <a href="index.html">Home</a>
+      <a href="collection.html?c=new-arrivals">Shop</a>
+    </nav>
+  </header>
+
+  <main class="product-page" id="product-root">
+    <div class="container">
+      <div class="product-layout">
+        <div class="product-gallery">
+          <div class="product-main-image">
+            <img id="product-main-img" src="" alt="">
+          </div>
+          <div class="product-thumbs" id="product-thumbs"></div>
+        </div>
+        <div class="product-info">
+          <h1 id="product-title"></h1>
+          <p class="short-desc" id="product-short"></p>
+          <p class="price-row" id="product-price"></p>
+          <p class="product-rating"><span>★★★★★</span> 4.8 · Verified reviews</p>
+          <div class="fit-note" id="fit-note"></div>
+          <label class="size-label">Select Size</label>
+          <div class="size-grid" id="size-grid"></div>
+          <button type="button" class="btn btn-primary btn-block" id="add-to-cart">Add to Bag</button>
+          <p class="trust-micro">Free shipping $75+ · Easy 30-day returns · Ships in 1–2 days</p>
+          <div id="missing-photos" class="missing-photos-note"></div>
+        </div>
+      </div>
+
+      <div class="product-tabs">
+        <h3>Description</h3>
+        <p id="product-description" style="color:var(--gray);font-size:0.95rem;"></p>
+        <h3>Why You'll Love It</h3>
+        <ul id="product-benefits"></ul>
+        <h3>Details</h3>
+        <table class="spec-table" id="product-specs"></table>
+        <h3>Style It</h3>
+        <p id="product-style" style="color:var(--gray);font-size:0.95rem;"></p>
+        <h3>Product FAQ</h3>
+        <div class="faq-list" id="product-faqs"></div>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-section">
+    <div class="container">
+      <div class="section-header"><h2>You May Also Like</h2></div>
+      <div class="product-grid" id="related-grid"></div>
+    </div>
+  </section>
+
+  <div class="sticky-atc" id="sticky-atc">
+    <div class="sticky-atc-info">
+      <h4 id="sticky-title"></h4>
+      <p id="sticky-price"></p>
+    </div>
+    <button type="button" class="btn btn-primary" id="sticky-add">Add to Bag</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">© 2026 Milan Hype</div>
+  </footer>
+
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer">
+    <div class="cart-header"><h3>Your Bag</h3><button type="button" class="cart-close">✕</button></div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Subtotal</span><span class="cart-total-amount">$0.00</span></div>
+      <button type="button" class="btn btn-primary btn-block">Checkout</button>
+      <p class="shipping-note cart-shipping-note">Free shipping on orders over $75</p>
+    </div>
+  </aside>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
