@@ -1,254 +1,185 @@
 # Milan Hype — AI Product Photography Guide
 
-**Goal:** Create premium, conversion-ready product images without a full studio.  
-**Brand standard:** White/`#FAFAFA` hero shots · clean shadows · minimal aesthetic · no "reseller" look
+**Goal:** Create premium, conversion-ready product images using AI — **your way**.  
+**Brand photo style:** Light wood floor · in-hand presentation · box in frame · authentic hype aesthetic
 
 ---
 
-## 1. What AI Can Do for Milan Hype
+## 1. Milan Hype Photo Identity (Locked)
 
-| Shot type | AI capable? | Best for |
-|-----------|-------------|----------|
-| White background hero | ✅ Excellent | Main Shopify image, collection grid |
-| Shadow / grounding | ✅ Excellent | Premium Prestige look |
-| Background removal | ✅ Excellent | Fix wood floor, messy backgrounds |
-| Relighting / enhance | ✅ Good | Dark phone photos → brighter |
-| Upscale / sharpen | ✅ Good | Low-res phone shots |
-| Flat lay | ✅ Good | Top-down sneaker shots |
-| Pedestal / luxury staging | ✅ Good | Premium hero alternatives |
-| Lifestyle scene | ⚠️ Mixed | Background only — product must stay real |
-| On-foot / on-model | ⚠️ Mixed | Footwear is hardest — details can warp |
-| Macro texture / pins | ❌ Risky | AI may blur or alter small details |
-| 100% fake product from text | ❌ Avoid | Wrong colors, wrong pins, trust issues |
+This is your look. Keep it consistent on every product.
 
-**Rule for Milan Hype:** Start with a **real photo of your actual product**. Use AI to clean, stage, and enhance — not to invent the shoe.
+| Element | Standard |
+|---------|----------|
+| **Background** | Light wood floor (natural grain) — **keep it** |
+| **Presentation** | In-hand or on floor with box visible |
+| **Glove** | Black glove OK — part of the Milan Hype unboxing feel |
+| **Lighting** | Natural indoor light — bright, even |
+| **Box** | Original box + tissue in background when possible |
+| **Vibe** | Authentic · premium streetwear · collector energy |
+| **Aspect ratio** | 1:1 square (2048×2048px) for Shopify |
+| **Export** | JPG 85% or WebP · compress under 300KB |
 
----
-
-## 2. Recommended Tools (By Job)
-
-### Tier 1 — Start here (best ROI)
-
-| Tool | Best for | Price ballpark | Link |
-|------|----------|----------------|------|
-| **Photoroom** | Background removal, white studio, shadows, batch edit, virtual model (apparel) | Free tier + ~$15–30/mo | photoroom.com |
-| **Photta** | Studio white, flat lay, in-hand, pedestal, lifestyle scenes | Credit-based | photta.app |
-| **Claid.ai** | Relighting, upscale, background swap, batch for Shopify | Credit-based | claid.ai |
-
-### Tier 2 — Fashion / on-model (when you add apparel)
-
-| Tool | Best for |
-|------|----------|
-| **Rawshot.ai** | On-model fashion from flat-lay, brand presets, 2K/4K |
-| **Botika** | AI models for clothing |
-| **Lalaland.ai** | Diverse AI models, lookbook style |
-
-### Tier 3 — General AI (use carefully for sneakers)
-
-| Tool | Use case | Warning |
-|------|----------|---------|
-| **Midjourney / Leonardo** | Editorial lifestyle backgrounds, mood boards | Do not generate the product itself — only backgrounds |
-| **Canva AI** | Quick social crops, templates | Not for hero PDP images |
-| **Shopify Magic** | Basic background in Shopify admin | Quick fix only — not premium enough alone |
-
-### Milan Hype recommendation for footwear
-
-**Start with: Photoroom + Photta**  
-- Photoroom: clean white heroes from phone photos  
-- Photta: flat lay, pedestal, in-hand (without black glove look)
+**Do not** switch to plain white studio unless you choose to later. Wood floor is the brand look.
 
 ---
 
-## 3. Milan Hype AI Photo Settings (Lock These)
+## 2. What AI Should Do (Applied to Your Style)
 
-Use the same settings on every product for brand consistency.
+| Job | AI tool | What it does |
+|-----|---------|--------------|
+| **Enhance lighting** | Photoroom / Claid.ai | Brighten without killing wood tone |
+| **Sharpen details** | Claid.ai Upscale | Jacquard, pins, stitching stay crisp |
+| **Color accuracy** | Photoroom Enhance | Keep true product colors |
+| **Batch process** | Photoroom Pro | Same edit across all SKUs |
+| **Crop & resize** | Photoroom / Canva | Square 2048px for Shopify |
+| **Social crops** | Canva | 4:5 for @Milanhype_ feed |
+| **Subtle cleanup** | Photoroom Retouch | Dust on floor, minor distractions only |
+
+### What AI should NOT do
+
+| Avoid | Why |
+|-------|-----|
+| Remove wood floor → white background | That's not your brand anymore |
+| Generate shoe from text | Wrong product = refunds |
+| Heavy filters / oversaturation | Colors won't match what ships |
+| AI on macro pin shots | Pins can move or blur |
+
+**Rule:** Real photo of your product first → AI enhances **your** wood-floor style.
+
+---
+
+## 3. Recommended Tools
+
+| Tool | Use for Milan Hype | Link |
+|------|-------------------|------|
+| **Photoroom** | Brighten, sharpen, crop, batch — **keep background** | photoroom.com |
+| **Claid.ai** | Relight, upscale 2x, batch Shopify upload | claid.ai |
+| **Photta** | Extra in-hand / lifestyle variations (wood tone) | photta.app |
+| **Canva** | Instagram crops, story templates | canva.com |
+
+**Start with Photoroom** — use Enhance + Adjust, not background removal.
+
+---
+
+## 4. Step-by-Step Workflow (Your Style)
+
+### Step 1 — Shoot like you already do (15 min per product)
+
+| Angle | How |
+|-------|-----|
+| **Hero — in-hand side** | Black glove, wood floor, box behind — your signature shot |
+| **Pair on floor** | Both shoes, box open, tissue visible |
+| **Front angle** | In-hand or floor, toe facing camera |
+| **Back heel** | Same setup, heel toward camera |
+| **Macro — fabric** | Close-up on jacquard / details, wood floor OK in frame |
+| **Macro — pins** | Tight on pin cluster — minimal AI on this one |
+
+### Step 2 — AI enhance (Photoroom)
+
+1. Upload photo
+2. **Do NOT remove background** — keep wood floor
+3. Tap **Enhance** → slight brightness + clarity
+4. **Adjust** → exposure up slightly if dark, keep warm wood tone
+5. **Sharpen** if details look soft (jacquard, pins)
+6. Crop to **1:1 square** — center the shoe
+7. Export **2048×2048**
+
+### Step 3 — Optional upscale (Claid.ai)
+
+- If photo is low-res: Upscale 2x → then compress
+- Use **Relight** only if image is too dark — keep natural look
+
+### Step 4 — Compress & upload
+
+1. [TinyPNG](https://tinypng.com) → under 300KB
+2. Upload to Shopify in order below
+
+---
+
+## 5. Shopify Image Order (Wood Floor Style)
+
+| # | Shot |
+|---|------|
+| 1 | **Hero** — in-hand side profile, wood floor, box (your current style) |
+| 2 | Pair on floor — both shoes + box |
+| 3 | Front toe-on — in-hand or floor |
+| 4 | Macro — jacquard / pattern detail |
+| 5 | Macro — pin details |
+| 6 | Back heel view |
+| 7 | Top-down flat lay on wood floor |
+| 8 | Second colorway or alternate angle |
+| 9 | Box + tissue unboxing |
+| 10 | 15s video — slow pan (optional) |
+
+**Your current photo = Image #1 hero.** No change needed to the style.
+
+---
+
+## 6. AI Settings to Lock (Save as Preset)
+
+Save this in Photoroom as **"Milan Hype Wood"** preset:
 
 | Setting | Value |
 |---------|-------|
-| **Hero background** | Pure white `#FFFFFF` or soft white `#FAFAFA` |
-| **Shadow** | Soft natural drop shadow (not floating, not harsh) |
-| **Aspect ratio** | 1:1 square (2048×2048px) for Shopify |
-| **Lighting style** | Soft studio — no dramatic side shadows on hero |
-| **Lifestyle backgrounds** | Concrete, urban grey, minimal studio — never cluttered |
-| **Color tone** | Neutral — do not oversaturate jacquard/patterns |
-| **Export** | JPG 85% or WebP · max 300KB per image after compression |
+| Background | **Keep original** |
+| Enhance | +10 to +20 brightness |
+| Clarity | +5 to +10 |
+| Warmth | +5 (keeps wood tone natural) |
+| Saturation | 0 to +5 max — don't oversaturate patterns |
+| Crop | 1:1 center on product |
+| Export | 2048×2048 JPG |
+
+Apply same preset to every product = consistent feed + store.
 
 ---
 
-## 4. Step-by-Step Workflow (Footwear / Sneakers)
+## 7. Instagram + Ads (Same Look)
 
-### What you need first
-- 1 real photo per angle (phone is fine)
-- Good lighting (window, no direct sun)
-- Plain surface (white paper or poster board)
-- **No black gloves** in frame
-- Product fills 70–80% of frame
+Your wood-floor in-hand shots work for:
+- @Milanhype_ feed posts
+- Instagram Stories unboxing
+- TikTok "pickup" / "new heat" content
+- Meta ads — authentic converts better than sterile white for streetwear
 
-### Step 1 — Capture 4 base angles (15 min)
+**Caption style:** Short, confident. Link in bio.
 
-| Angle | How to shoot |
-|-------|--------------|
-| Side profile | Shoe on white paper, camera at mid-sole height |
-| Front toe-on | Shoe facing camera, slight downward angle |
-| Back heel | Heel toward camera |
-| Top-down | Flat lay, laces visible |
-
-### Step 2 — Photoroom (white studio heroes)
-
-1. Upload your phone photo
-2. **Remove background** → auto cutout
-3. Select **Studio** or **White** background
-4. Enable **AI Shadow** → soft drop shadow
-5. Adjust **Relight** slightly if too dark
-6. Export **2048×2048** square
-7. Repeat for all 4 angles
-
-### Step 3 — Photta (premium variations)
-
-1. Upload same cutout or original photo
-2. Generate these styles:
-   - **Studio Shot** → hero image #1
-   - **Flat Lay** → top-down editorial
-   - **Pedestal** → luxury staging (optional hero alt)
-   - **In-Hand** → scale shot (clean hand or no hand — crop if needed)
-3. Export highest resolution available
-
-### Step 4 — Macro details (real photo only — minimal AI)
-
-For jacquard weave, pins, stitching:
-- Shoot close-up with phone 2x zoom
-- Use Photoroom **only** for background removal
-- **Do not** use generative AI on macro shots — it will alter pin placement and fabric pattern
-
-### Step 5 — Compress and upload
-
-1. Run through [TinyPNG](https://tinypng.com) or Shopify's built-in compression
-2. Target < 300KB per image
-3. Upload to Shopify in this order:
-
-| # | Image |
-|---|-------|
-| 1 | Side profile — white studio |
-| 2 | Front toe-on — white studio |
-| 3 | Flat lay or pedestal |
-| 4 | Macro — jacquard/detail (real) |
-| 5 | Macro — pins (real) |
-| 6 | Back heel |
-| 7 | Top-down |
-| 8 | Lifestyle (AI background OK if product is real cutout) |
+**Do not** use a different style on Instagram vs Shopify — same wood floor look everywhere.
 
 ---
 
-## 5. Shot List — What to Generate with AI
+## 8. Quick Checklist Before Upload
 
-### Generate with AI ✅
-
-- [ ] White background hero (side)
-- [ ] White background hero (front)
-- [ ] White background hero (back)
-- [ ] Soft shadow under product
-- [ ] Flat lay staging
-- [ ] Pedestal / luxury platform shot
-- [ ] Clean lifestyle background (urban concrete, grey studio)
-- [ ] Social crop 4:5 for Instagram @Milanhype_
-
-### Keep as real photo only 📷
-
-- [ ] Macro — fabric weave / jacquard texture
-- [ ] Macro — pin details (must be accurate)
-- [ ] Sole / tread pattern
-- [ ] Interior lining color
-- [ ] Box + packaging shot
-- [ ] Any image where wrong detail = refund/complaint
-
-### Skip or use last ⚠️
-
-- [ ] Fully AI-generated shoe from text prompt
-- [ ] AI on-foot (unless tool preserves exact shoe — test first)
-- [ ] AI "enhance" on patterned uppers (colors will shift)
+- [ ] Wood floor visible and consistent tone
+- [ ] Product sharp — pins and pattern readable
+- [ ] Colors match real item
+- [ ] Square crop, shoe centered
+- [ ] Under 300KB
+- [ ] Box in at least 1–2 shots
+- [ ] Same preset applied as other products
 
 ---
 
-## 6. Fixing Your Current Photos with AI
+## 9. Cost
 
-Your existing in-hand shots can be salvaged:
-
-| Problem | AI fix |
-|---------|--------|
-| Wood floor background | Photoroom → remove → white studio |
-| Black glove | Crop out OR reshoot without glove; AI hand replacement is risky |
-| Dark / uneven lighting | Claid.ai Relight or Photoroom Enhance |
-| Low resolution | Claid.ai Upscale 2x |
-| Busy background | Background removal + white or grey minimal |
-
-**Best path:** Use AI to clean background from current side shot as temporary hero → reshoot properly within 1 week.
+| Setup | Cost |
+|-------|------|
+| Photoroom Pro | ~$15/mo |
+| + Claid.ai credits | ~$20–30/mo if upscaling a lot |
 
 ---
 
-## 7. Milan Hype Brand Consistency Checklist
+## 10. Do This Today
 
-Before uploading any AI image, check:
+1. Open **Photoroom** → upload your tapestry shoe photo  
+2. **Enhance** only — do not remove background  
+3. Crop 1:1 → export 2048px  
+4. Upload as **hero image #1** on Shopify  
+5. Shoot 3 more angles same way (pair on floor, front, macro)  
+6. Post hero to @Milanhype_  
 
-- [ ] Colors match real product (compare side by side)
-- [ ] Pins / logos / patterns are accurate (not blurred or moved)
-- [ ] Shadow looks natural (not floating)
-- [ ] Background is clean white or brand grey — no random scenes on hero
-- [ ] Same lighting style across all products in collection
-- [ ] No watermarks from AI tool
-- [ ] Image is sharp at mobile size (zoom to 100% on phone)
-- [ ] File under 300KB after compression
+**Time:** ~30 minutes for a full 4-image set in your style.
 
 ---
 
-## 8. Cost Estimate (Monthly)
-
-| Setup | Tools | Est. cost |
-|-------|-------|-----------|
-| **Starter** | Photoroom Pro | ~$15/mo |
-| **Recommended** | Photoroom + Photta credits | ~$30–50/mo |
-| **Scale (50+ SKUs)** | Photoroom + Claid.ai batch | ~$50–100/mo |
-
-Cheaper than one studio session. Good for launch phase.
-
----
-
-## 9. What NOT to Do (Premium Brand)
-
-| Don't | Why |
-|-------|-----|
-| Use obviously AI-generated models for footwear hero | Customers spot it — kills trust |
-| Over-smooth textures | Jacquard and leather look fake |
-| Different backgrounds per product | Store looks messy, not premium |
-| Use glove/hand reseller aesthetic | Conflicts with Milan Hype positioning |
-| Run ads before white heroes are live | High bounce, high return rate |
-| Generate product from text only | Wrong item shipped = chargebacks |
-
----
-
-## 10. Quick Start — Do This Today
-
-1. **Sign up:** [Photoroom](https://www.photoroom.com) (free to test)
-2. **Shoot:** 4 angles on white poster board by a window
-3. **Process:** Remove background → white studio → soft shadow → export 2048px
-4. **Upload:** First 4 images to Shopify product page
-5. **Post:** One clean hero to @Milanhype_ with caption from product listing doc
-6. **Upgrade:** Add Photta pedestal + flat lay when ready
-
-**Time:** ~45 minutes for your first product's full AI photo set.
-
----
-
-## 11. Shopify Integration
-
-- Upload processed images directly to product → media
-- Alt text: `[Product name] in [color] — [view]` (see product listing doc)
-- Enable zoom in Prestige theme settings
-- Set first image as hero (white side profile always)
-
-**Optional apps:**
-- **Claid.ai Shopify app** — batch process from admin
-- **SEO Image Optimizer** — compress on upload
-
----
-
-*AI gets you 80% of the way. Macro details and on-foot shots still need real photos for footwear. Hybrid = premium results at low cost.*
+*Wood floor stays. AI makes it sharper, brighter, and consistent — not different.*
