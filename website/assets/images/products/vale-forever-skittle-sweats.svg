@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#ffffff"/>
+  <ellipse cx="400" cy="720" rx="180" ry="18" fill="#000" opacity="0.06"/>
+  <g transform="translate(220, 120)">
+    <path d="M40 80 L320 80 L340 520 L20 520 Z" fill="#4a4a4a" opacity="0.9"/>
+    <path d="M40 80 L320 80 L330 140 L30 140 Z" fill="#5c5c5c"/>
+  </g>
+  <g transform="translate(280, 200)">
+    <path d="M0 40 Q60 0 120 40 Q180 80 240 40" fill="none" stroke="#e8e4dc" stroke-width="28" opacity="0.9"/>
+    <circle cx="30" cy="50" r="5" fill="#e74c3c"/><circle cx="50" cy="35" r="5" fill="#3498db"/>
+    <circle cx="70" cy="55" r="5" fill="#2ecc71"/><circle cx="90" cy="30" r="5" fill="#f1c40f"/>
+    <circle cx="110" cy="50" r="5" fill="#e67e22"/><circle cx="130" cy="35" r="5" fill="#9b59b6"/>
+    <circle cx="150" cy="55" r="5" fill="#e74c3c"/><circle cx="170" cy="30" r="5" fill="#3498db"/>
+    <circle cx="190" cy="50" r="5" fill="#2ecc71"/><circle cx="210" cy="35" r="5" fill="#f1c40f"/>
+  </g>
+  <line x1="230" y1="280" x2="230" y2="600" stroke="#e74c3c" stroke-width="3" opacity="0.5" stroke-dasharray="8 12"/>
+  <line x1="570" y1="280" x2="570" y2="600" stroke="#3498db" stroke-width="3" opacity="0.5" stroke-dasharray="8 12"/>
+  <text x="400" y="670" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#0a0a0a" opacity="0.75">Vale Forever Skittle Sweats</text>
+  <text x="400" y="700" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#0a0a0a" opacity="0.45">$100 · Upload photo at admin.html</text>
+</svg>

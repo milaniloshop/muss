@@ -9,24 +9,14 @@ const ROOT = __dirname;
 const UPLOAD_DIR = path.join(ROOT, 'assets/images/products');
 
 const ALLOWED_FILES = new Set([
-  'artisan-tapestry-low-top.jpg',
-  'artisan-tapestry-low-top-2.jpg',
-  'artisan-tapestry-low-top-3.jpg',
-  'tie-dye-custom-low-top.jpg',
-  'tie-dye-custom-low-top-2.jpg',
-  'tie-dye-custom-low-top-3.jpg',
-  'pink-lightning-low-top.jpg',
-  'pink-lightning-low-top-2.jpg',
-  'pink-lightning-low-top-3.jpg',
-  'travis-scott-jordan-1-canary.jpg',
-  'travis-scott-jordan-1-canary-2.jpg',
-  'travis-scott-jordan-1-canary-3.jpg',
-  'nike-sb-jordan-4-pine-green.jpg',
-  'nike-sb-jordan-4-pine-green-2.jpg',
-  'nike-sb-jordan-4-pine-green-3.jpg',
-  'paint-splatter-low-top.jpg',
-  'paint-splatter-low-top-2.jpg',
-  'paint-splatter-low-top-3.jpg'
+  'vale-forever-skittle-sweats.jpg',
+  'vale-forever-skittle-sweats-2.jpg',
+  'project-gr-layered-sweatpants.jpg',
+  'project-gr-layered-sweatpants-2.jpg',
+  'project-gr-layered-sweatpants-3.jpg',
+  'enfants-riches-deprimes-trashed-hoodie.jpg',
+  'enfants-riches-deprimes-trashed-hoodie-2.jpg',
+  'enfants-riches-deprimes-trashed-hoodie-3.jpg'
 ]);
 
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });

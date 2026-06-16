@@ -2,17 +2,17 @@ const COLLECTIONS = {
   'new-arrivals': {
     title: 'New Arrivals',
     subtitle: 'Fresh styles. Just dropped.',
-    description: 'Discover the latest pieces from Milan Hype. Updated with new drops across men\'s and women\'s collections.'
+    description: 'Discover the latest pieces from Milan Hype. Premium streetwear drops updated weekly.'
   },
   women: {
     title: 'Women',
     subtitle: 'Elevated style. Effortless confidence.',
-    description: 'Shop the full Milan Hype women\'s collection — from everyday essentials to statement pieces designed to move with you.'
+    description: 'Shop Milan Hype women\'s streetwear — premium fits designed to move with you.'
   },
   men: {
     title: 'Men',
     subtitle: 'Clean lines. Modern energy.',
-    description: 'The Milan Hype men\'s collection — contemporary pieces built for style, comfort, and confidence.'
+    description: 'The Milan Hype men\'s collection — contemporary streetwear built for style and confidence.'
   },
   'best-sellers': {
     title: 'Best Sellers',
@@ -28,259 +28,137 @@ const COLLECTIONS = {
 
 const PRODUCTS = [
   {
-    id: 'artisan-tapestry-low-top',
-    title: 'Artisan Tapestry Low-Top — Psychedelic Jacquard',
-    shortDescription: 'Hand-finished low-top with a psychedelic jacquard upper, distressed fringe detailing, and curated enamel pins.',
-    price: 159,
+    id: 'vale-forever-skittle-sweats',
+    title: 'Vale Forever Skittle Sweats',
+    shortDescription: 'Wide-leg acid-wash sweats with the signature Valley script logo and multicolor skittle stud detailing.',
+    price: 100,
     compareAt: null,
-    collections: ['new-arrivals', 'best-sellers'],
+    collections: ['new-arrivals', 'best-sellers', 'men', 'women'],
     gender: 'unisex',
+    type: 'bottoms',
     badge: 'New',
-    fit: 'True to size — half size up for wide feet',
+    fit: 'Relaxed wide-leg fit — true to size',
     images: [
-      'assets/images/products/artisan-tapestry-low-top.jpg',
-      'assets/images/products/artisan-tapestry-low-top.svg'
-    ],
-    benefits: [
-      'Psychedelic jacquard upper with raw fringe edges',
-      'Premium leather toe cap and heel counter',
-      'Chocolate brown eyelet stay with brass-tone hardware',
-      'Hand-placed enamel pin details',
-      'Classic white rubber sole with burgundy lining',
-      'Limited run — no guaranteed restock'
-    ],
-    details: {
-      'Upper': 'Woven jacquard tapestry + leather overlays',
-      'Sole': 'White rubber vulcanized midsole',
-      'Laces': 'Flat tan cotton',
-      'Lining': 'Burgundy textile',
-      'Closure': 'Lace-up',
-      'Edition': 'Limited run'
-    },
-    description: 'The Artisan Tapestry Low-Top is Milan Hype\'s take on elevated streetwear — a classic low-top silhouette rebuilt with a vibrant woven jacquard upper, raw fringe edges, and hand-placed pin details that make every pair feel one-of-one.',
-    styleIt: 'Pair with wide-leg denim and a cropped tee — or let the sneakers carry a minimal all-black fit.',
-    sizes: ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12'],
-    faqs: [
-      { q: 'How does this fit?', a: 'True to size on a standard foot. Size up half a size for wide feet.' },
-      { q: 'Are the pins removable?', a: 'Yes, carefully — we recommend keeping them on for the full designed look.' },
-      { q: 'Is every pair identical?', a: 'Jacquard placement may vary slightly — part of the artisan character.' }
+      'assets/images/products/vale-forever-skittle-sweats.jpg',
+      'assets/images/products/vale-forever-skittle-sweats.svg'
     ],
     imageSlots: [
-      { filename: 'artisan-tapestry-low-top.jpg', label: 'Hero — in-hand side' },
-      { filename: 'artisan-tapestry-low-top-2.jpg', label: 'Pair on floor + box' },
-      { filename: 'artisan-tapestry-low-top-3.jpg', label: 'Front / detail angle' }
+      { filename: 'vale-forever-skittle-sweats.jpg', label: 'Front view' },
+      { filename: 'vale-forever-skittle-sweats-2.jpg', label: 'Back view' }
+    ],
+    benefits: [
+      'Faded charcoal acid-wash finish with vintage character',
+      'Oversized Valley script logo appliqué across upper thigh',
+      'Multicolor skittle studs on logo, side seams, and hems',
+      'Elastic waistband with cream flat drawstring',
+      'Raw frayed seam detail across mid-thigh',
+      'Side-seam pockets · wide-leg silhouette'
+    ],
+    details: {
+      'Style': 'Wide-leg sweatpants',
+      'Fit': 'Relaxed / wide-leg',
+      'Fabric': 'Heavyweight cotton fleece',
+      'Detailing': 'Skittle stud embellishments',
+      'Waist': 'Elastic with drawstring',
+      'Pockets': 'Side-seam'
+    },
+    description: 'Statement sweats that do the talking. The Vale Forever Skittle Sweats combine a washed charcoal base with bold Valley branding and hand-placed skittle studs — built for the fit pic and the everyday.',
+    styleIt: 'Pair with a cropped tee or oversized hoodie. Let the studs catch the light — keep the top minimal.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    faqs: [
+      { q: 'How do these fit?', a: 'Relaxed wide-leg fit, true to size. Size up for an extra oversized look.' },
+      { q: 'Are the studs durable?', a: 'Studs are securely applied. Handle with care when washing — turn inside out, cold wash, hang dry.' },
+      { q: 'How do I care for these?', a: 'Machine wash cold inside out. Do not tumble dry. Do not iron directly on studs.' }
     ]
   },
   {
-    id: 'tie-dye-custom-low-top',
-    title: 'Tie-Dye Custom Low-Top — Watercolor',
-    shortDescription: 'Custom low-top with watercolor tie-dye panels, tweed side stripe, and hand-placed peace pin details.',
-    price: 149,
-    compareAt: null,
-    collections: ['new-arrivals', 'men'],
-    gender: 'unisex',
-    badge: 'New',
-    fit: 'True to size',
-    images: [
-      'assets/images/products/tie-dye-custom-low-top.jpg',
-      'assets/images/products/tie-dye-custom-low-top.svg'
-    ],
-    benefits: [
-      'Watercolor tie-dye upper in orange, yellow, and red tones',
-      'Dark chocolate brown canvas toe and heel',
-      'Frayed multi-color tweed side stripe',
-      'Hand-placed peace and logo pins',
-      'Distressed white midsole with vintage character',
-      'Cream flat laces and colorful printed footbed'
-    ],
-    details: {
-      'Upper': 'Canvas tie-dye + tweed stripe detailing',
-      'Toe / Heel': 'Dark chocolate brown canvas',
-      'Sole': 'White rubber with vintage finish',
-      'Detailing': 'Enamel pins, raw fringe edges',
-      'Edition': 'Limited custom run'
-    },
-    description: 'Bold without trying too hard. The Tie-Dye Custom Low-Top blends watercolor energy with deconstructed details — tweed stripe, raw edges, and curated pins for a piece that feels gallery-made, not mass-produced.',
-    styleIt: 'Works with relaxed denim, cargo pants, or shorts. Let the color do the talking.',
-    sizes: ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12'],
-    faqs: [
-      { q: 'How does this fit?', a: 'Runs true to size on standard feet.' },
-      { q: 'Will the tie-dye pattern match the photos?', a: 'Each pair is unique — pattern placement varies by design.' }
-    ],
-    imageSlots: [
-      { filename: 'tie-dye-custom-low-top.jpg', label: 'Hero — in-hand' },
-      { filename: 'tie-dye-custom-low-top-2.jpg', label: 'Pair on floor' },
-      { filename: 'tie-dye-custom-low-top-3.jpg', label: 'Front / macro' }
-    ]
-  },
-  {
-    id: 'pink-lightning-low-top',
-    title: 'Pink Lightning Low-Top — Pearl Detail',
-    shortDescription: 'Hot pink and black color-block low-top with lightning bolt graphic, pearl and stud embellishments.',
-    price: 169,
-    compareAt: null,
-    collections: ['new-arrivals', 'women'],
-    gender: 'unisex',
-    badge: 'Limited',
-    fit: 'True to size',
-    images: [
-      'assets/images/products/pink-lightning-low-top.jpg',
-      'assets/images/products/pink-lightning-low-top.svg'
-    ],
-    benefits: [
-      'Fuchsia pink canvas with black toe and heel panels',
-      'Black lightning bolt side graphic',
-      'Pearl and silver stud embellishments',
-      'Chunky white flat laces',
-      'Thick white rubber midsole',
-      'Statement piece — finishes any fit instantly'
-    ],
-    details: {
-      'Upper': 'Canvas with leather-look overlays',
-      'Embellishments': 'Faux pearls + metal studs',
-      'Sole': 'White vulcanized rubber',
-      'Laces': 'Wide flat white cotton',
-      'Edition': 'Limited run'
-    },
-    description: 'Electric energy meets premium detailing. The Pink Lightning Low-Top commands attention with its bold color block, hand-placed pearls, and signature bolt graphic — built for nights out and every scroll-stopping moment.',
-    styleIt: 'Pair with black denim, a mini skirt, or monochrome athleisure. Keep accessories minimal — the shoe is the outfit.',
-    sizes: ['6', '6.5', '7', '7.5', '8', '8.5', '9', '9.5', '10'],
-    faqs: [
-      { q: 'Are the pearls durable?', a: 'Hand-applied for the designed look. Handle with care during cleaning.' },
-      { q: 'How does this fit?', a: 'True to size. Size up half for wide feet.' }
-    ],
-    imageSlots: [
-      { filename: 'pink-lightning-low-top.jpg', label: 'Hero — in-hand' },
-      { filename: 'pink-lightning-low-top-2.jpg', label: 'Pair on floor' },
-      { filename: 'pink-lightning-low-top-3.jpg', label: 'Front / detail' }
-    ]
-  },
-  {
-    id: 'travis-scott-jordan-1-canary',
-    title: 'Travis Scott x Air Jordan 1 Low — Canary',
-    shortDescription: 'Canary yellow, white, and royal blue colorway with signature reversed swoosh and gum outsole.',
-    price: 299,
+    id: 'project-gr-layered-sweatpants',
+    title: 'Project G/R 3 Layered Sweatpants',
+    shortDescription: 'Heather grey wide-leg sweatpants with triple-layered waistband, varsity graphics, and deconstructed detailing.',
+    price: 175,
     compareAt: null,
     collections: ['new-arrivals', 'best-sellers', 'men'],
     gender: 'unisex',
-    badge: 'Best Seller',
-    fit: 'True to size — standard Jordan 1 Low fit',
+    type: 'bottoms',
+    badge: 'New',
+    fit: 'Wide-leg relaxed fit — true to size',
     images: [
-      'assets/images/products/travis-scott-jordan-1-canary.jpg',
-      'assets/images/products/travis-scott-jordan-1-canary-2.jpg',
-      'assets/images/products/travis-scott-jordan-1-canary.svg'
-    ],
-    benefits: [
-      'Iconic reversed royal blue swoosh',
-      'Canary yellow leather overlays',
-      'White tumbled leather base',
-      'Gum rubber outsole',
-      'Cactus Jack tongue branding',
-      'Includes extra blue laces'
-    ],
-    details: {
-      'Model': 'Air Jordan 1 Low OG x Travis Scott',
-      'Colorway': 'Canary / White / Racer Blue',
-      'Upper': 'Tumbled leather',
-      'Outsole': 'Gum rubber',
-      'Included': 'Extra laces, original box'
-    },
-    description: 'One of the most sought-after collabs in the game. The Travis Scott x Air Jordan 1 Low in Canary delivers bold color blocking, premium materials, and the reversed swoosh that changed sneaker culture.',
-    styleIt: 'Let these carry a clean fit — neutral tee, wide denim, or tonal yellow accents.',
-    sizes: ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12'],
-    faqs: [
-      { q: 'How does Jordan 1 Low fit?', a: 'Generally true to size. Half size down if you prefer a snug fit.' },
-      { q: 'Are these authentic?', a: 'Every pair is verified and ships in original packaging.' }
+      'assets/images/products/project-gr-layered-sweatpants.jpg',
+      'assets/images/products/project-gr-layered-sweatpants.svg'
     ],
     imageSlots: [
-      { filename: 'travis-scott-jordan-1-canary.jpg', label: 'Hero — shot 1' },
-      { filename: 'travis-scott-jordan-1-canary-2.jpg', label: 'Hero — shot 2' },
-      { filename: 'travis-scott-jordan-1-canary-3.jpg', label: 'Extra angle' }
+      { filename: 'project-gr-layered-sweatpants.jpg', label: 'Front view' },
+      { filename: 'project-gr-layered-sweatpants-2.jpg', label: 'Back view' },
+      { filename: 'project-gr-layered-sweatpants-3.jpg', label: 'Layered waistband detail' }
+    ],
+    benefits: [
+      'Triple-layered waistband — plaid boxer, athletic short, and fleece layers',
+      'Project G/R woven labels on plaid layer',
+      'Varsity "3" and "USA" peace-flag graphics on thighs',
+      'Heather grey heavyweight fleece',
+      'Wide-leg straight fit with open hem',
+      'Rear patch pocket · side pockets'
+    ],
+    details: {
+      'Style': 'Layered wide-leg sweatpants',
+      'Brand': 'Project G/R',
+      'Fabric': 'Heather grey cotton fleece',
+      'Feature': '3-layer deconstructed waistband',
+      'Graphics': 'Varsity appliqué + USA peace flag',
+      'Fit': 'Relaxed wide-leg'
+    },
+    description: 'Deconstruction done right. The Project G/R 3 Layered Sweatpants stack three waistbands into one statement piece — plaid boxer, athletic stripe, and fleece — finished with bold varsity graphics. A Milan Hype essential for serious streetwear collectors.',
+    styleIt: 'Let the pants carry the fit. Simple white tee or cropped hoodie. High-top sneakers.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    faqs: [
+      { q: 'How does the layered waistband fit?', a: 'Sits at natural waist. The layered look is built-in — no need to layer separately.' },
+      { q: 'How do these fit?', a: 'True to size with a wide-leg relaxed silhouette.' },
+      { q: 'How do I wash these?', a: 'Cold wash inside out, gentle cycle. Hang dry to preserve graphics and layers.' }
     ]
   },
   {
-    id: 'nike-sb-jordan-4-pine-green',
-    title: 'Nike SB x Air Jordan 4 — Pine Green',
-    shortDescription: 'White leather and grey suede Jordan 4 with pine green accents and Nike SB heel branding.',
-    price: 279,
+    id: 'enfants-riches-deprimes-trashed-hoodie',
+    title: 'Enfants Riches Déprimés Trashed Hoodie',
+    shortDescription: 'Distressed washed burgundy hoodie with ERD serif logo, raw frayed edges, and oversized drop-shoulder fit.',
+    price: 289,
     compareAt: null,
-    collections: ['best-sellers', 'men'],
+    collections: ['new-arrivals', 'best-sellers', 'men', 'women'],
     gender: 'unisex',
-    badge: 'Best Seller',
-    fit: 'True to size — standard Jordan 4 fit',
+    type: 'tops',
+    badge: 'Limited',
+    fit: 'Oversized boxy fit — size down for regular fit',
     images: [
-      'assets/images/products/nike-sb-jordan-4-pine-green.jpg',
-      'assets/images/products/nike-sb-jordan-4-pine-green-2.jpg',
-      'assets/images/products/nike-sb-jordan-4-pine-green.svg'
-    ],
-    benefits: [
-      'Premium white leather upper',
-      'Light grey suede toe wrap',
-      'Pine green heel tab with Nike SB branding',
-      'Visible Air unit in heel',
-      'Gum rubber outsole sections',
-      'Classic Jordan 4 silhouette — skate-ready collab'
-    ],
-    details: {
-      'Model': 'Nike SB x Air Jordan 4',
-      'Colorway': 'Sail / Pine Green / Neutral Grey',
-      'Upper': 'Leather + suede + mesh',
-      'Outsole': 'White with gum sections',
-      'Included': 'Original box'
-    },
-    description: 'Performance meets heritage. The Nike SB x Air Jordan 4 in Pine Green blends skate durability with iconic Jordan design — clean white leather, pine green hits, and that unmistakable AJ4 shape.',
-    styleIt: 'Pairs with everything from cargos to tailored trousers. A true wardrobe anchor.',
-    sizes: ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12', '13'],
-    faqs: [
-      { q: 'How does Jordan 4 fit?', a: 'True to size for most. Half size up if you have wide feet.' },
-      { q: 'What makes this the SB version?', a: 'Nike SB branding on heel, skate-inspired details, and collab packaging.' }
+      'assets/images/products/enfants-riches-deprimes-trashed-hoodie.jpg',
+      'assets/images/products/enfants-riches-deprimes-trashed-hoodie.svg'
     ],
     imageSlots: [
-      { filename: 'nike-sb-jordan-4-pine-green.jpg', label: 'Hero — shot 1' },
-      { filename: 'nike-sb-jordan-4-pine-green-2.jpg', label: 'Hero — shot 2' },
-      { filename: 'nike-sb-jordan-4-pine-green-3.jpg', label: 'Extra angle' }
-    ]
-  },
-  {
-    id: 'paint-splatter-low-top',
-    title: 'Paint Splatter Low-Top — Artisan Black',
-    shortDescription: 'Smooth black leather low-top with hand-painted multicolor splatter across the toe and forefoot.',
-    price: 189,
-    compareAt: 219,
-    collections: ['new-arrivals', 'sale'],
-    gender: 'unisex',
-    badge: 'Sale',
-    fit: 'True to size',
-    images: [
-      'assets/images/products/paint-splatter-low-top.jpg',
-      'assets/images/products/paint-splatter-low-top.svg'
+      { filename: 'enfants-riches-deprimes-trashed-hoodie.jpg', label: 'Front view' },
+      { filename: 'enfants-riches-deprimes-trashed-hoodie-2.jpg', label: 'Front angle' },
+      { filename: 'enfants-riches-deprimes-trashed-hoodie-3.jpg', label: 'Back view' }
     ],
     benefits: [
-      'Premium black leather base',
-      'Hand-painted multicolor splatter detail',
-      'Cream flat laces',
-      'Gum rubber outsole',
-      'Gallery-inspired aesthetic — each pair unique',
-      'Numbered tongue tag detail'
+      'Vintage-washed burgundy maroon fleece',
+      'Enfants Riches Déprimés serif logo across chest',
+      'Heavy intentional distressing — hood, pocket, hem, and seams',
+      'Oversized drop-shoulder boxy silhouette',
+      'Kangaroo pocket with raw frayed edges',
+      'Ribbed cuffs and hem with destroyed finish'
     ],
     details: {
-      'Upper': 'Black leather with hand-applied paint',
-      'Sole': 'Gum rubber',
-      'Laces': 'Cream flat cotton',
-      'Style': 'Minimal low-top trainer',
-      'Edition': 'Limited artisan run'
+      'Style': 'Distressed pullover hoodie',
+      'Brand': 'Enfants Riches Déprimés',
+      'Fabric': 'Heavyweight washed cotton fleece',
+      'Color': 'Washed burgundy / maroon',
+      'Fit': 'Oversized boxy',
+      'Detailing': 'Trashed raw-edge distressing throughout'
     },
-    description: 'Wearable art. The Paint Splatter Low-Top takes a clean black leather base and breaks it with controlled chaos — red, blue, yellow, and green splatter that makes every pair a one-of-one statement.',
-    styleIt: 'All black everything and let the toe be the accent. Or go full color-block and match one splatter tone.',
-    sizes: ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12'],
+    description: 'Anti-luxury luxury. The Enfants Riches Déprimés Trashed Hoodie delivers that coveted destroyed aesthetic — washed burgundy fleece, raw frayed edges, and the iconic ERD logo. Oversized, intentional, and impossible to ignore.',
+    styleIt: 'Wide-leg sweats or distressed denim. Boots or beat-up sneakers. Less is more.',
+    sizes: ['S', 'M', 'L', 'XL'],
     faqs: [
-      { q: 'Is the splatter identical on every pair?', a: 'No — hand-applied paint means each pair is unique.' },
-      { q: 'How do I care for painted leather?', a: 'Spot clean only. Avoid harsh chemicals on painted areas.' }
-    ],
-    imageSlots: [
-      { filename: 'paint-splatter-low-top.jpg', label: 'Hero — in-hand' },
-      { filename: 'paint-splatter-low-top-2.jpg', label: 'Pair on floor' },
-      { filename: 'paint-splatter-low-top-3.jpg', label: 'Macro splatter' }
+      { q: 'How does this fit?', a: 'Oversized boxy fit with drop shoulders. Size down if you want a standard fit.' },
+      { q: 'Is the distressing intentional?', a: 'Yes — every frayed edge and raw seam is part of the trashed design.' },
+      { q: 'How do I care for this?', a: 'Cold wash inside out, gentle cycle. Hang dry. Do not bleach.' }
     ]
   }
 ];

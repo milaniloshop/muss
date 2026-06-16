@@ -122,7 +122,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem 1rem; } }
 .product-image-wrap {
   position: relative; aspect-ratio: 1;
-  background: linear-gradient(160deg, var(--wood), var(--wood-dark));
+  background: #ffffff;
+  border: 1px solid var(--border);
   overflow: hidden; margin-bottom: 0.85rem;
 }
 .product-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
@@ -204,10 +205,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-page { padding: 2rem 0 4rem; }
 .product-layout { display: grid; gap: 2rem; }
 @media (min-width: 900px) { .product-layout { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } }
-.product-main-image { aspect-ratio: 1; background: linear-gradient(160deg, var(--wood), var(--wood-dark)); overflow: hidden; margin-bottom: 0.75rem; }
+.product-main-image { aspect-ratio: 1; background: #ffffff; border: 1px solid var(--border); overflow: hidden; margin-bottom: 0.75rem; }
 .product-main-image img { width: 100%; height: 100%; object-fit: cover; }
 .product-thumbs { display: flex; gap: 0.5rem; overflow-x: auto; }
-.product-thumb { width: 72px; height: 72px; flex-shrink: 0; border: 2px solid transparent; overflow: hidden; background: var(--bg-soft); }
+.product-thumb { width: 72px; height: 72px; flex-shrink: 0; border: 2px solid transparent; overflow: hidden; background: #ffffff; }
 .product-thumb.active { border-color: var(--black); }
 .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .product-info h1 { font-family: var(--font-heading); font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 500; line-height: 1.25; margin-bottom: 0.75rem; }
