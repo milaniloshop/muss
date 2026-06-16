@@ -209,8 +209,10 @@ function initProductPage() {
 
   document.title = `${product.title} | Milan Hype`;
 
-  const images = product.images.filter((s) => !s.endsWith('.svg'));
-  const fallback = product.images[product.images.length - 1];
+  let images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
+  if (!images.length) images = product.images.filter((s) => !s.endsWith('.svg'));
+  const baseSlug = product.id;
+  const fallback = `assets/images/products/${baseSlug}.svg`;
   const displayImages = images.length ? images : [fallback];
 
   let selectedSize = product.sizes[Math.floor(product.sizes.length / 2)];
@@ -281,13 +283,7 @@ function initProductPage() {
     </div>`).join('');
   initFAQ();
 
-  if (product.missingPhotos?.length) {
-    document.getElementById('missing-photos').innerHTML = `
-      <strong>Photos to add:</strong> Drop your JPG into <code>website/assets/images/products/</code> using the filenames in products.js, then refresh.
-      <ul>${product.missingPhotos.map((p) => `<li>${p}</li>`).join('')}</ul>`;
-  } else {
-    document.getElementById('missing-photos')?.remove();
-  }
+  if (typeof initProductShare === 'function') initProductShare(product);
 
   const related = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
   renderProductGrid(document.getElementById('related-grid'), related);
@@ -312,4 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.body.dataset.page === 'home') initHomepage();
   if (document.body.dataset.page === 'collection') initCollectionPage();
   if (document.body.dataset.page === 'product') initProductPage();
+  renderSocialBar(document.getElementById('footer-social'));
+  if (document.body.dataset.page === 'home') {
+    updatePageMeta({
+      title: 'Milan Hype | Premium Contemporary Fashion — Dress the Moment',
+      description: 'Shop premium fashion at Milan Hype. Free shipping over $75. Follow @Milanhype_',
+      image: 'assets/images/hero-bg.svg'
+    });
+  }
 });

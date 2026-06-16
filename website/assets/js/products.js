@@ -65,7 +65,11 @@ const PRODUCTS = [
       { q: 'Are the pins removable?', a: 'Yes, carefully — we recommend keeping them on for the full designed look.' },
       { q: 'Is every pair identical?', a: 'Jacquard placement may vary slightly — part of the artisan character.' }
     ],
-    missingPhotos: ['Pair on floor + box', 'Front toe-on', 'Macro jacquard', 'Macro pins', 'Back heel', 'Top-down flat lay']
+    imageSlots: [
+      { filename: 'artisan-tapestry-low-top.jpg', label: 'Hero — in-hand side' },
+      { filename: 'artisan-tapestry-low-top-2.jpg', label: 'Pair on floor + box' },
+      { filename: 'artisan-tapestry-low-top-3.jpg', label: 'Front / detail angle' }
+    ]
   },
   {
     id: 'tie-dye-custom-low-top',
@@ -103,7 +107,11 @@ const PRODUCTS = [
       { q: 'How does this fit?', a: 'Runs true to size on standard feet.' },
       { q: 'Will the tie-dye pattern match the photos?', a: 'Each pair is unique — pattern placement varies by design.' }
     ],
-    missingPhotos: ['Hero in-hand (add your photo as .jpg)', 'Pair on floor + box', 'Front view', 'Macro tie-dye detail', 'Back heel', 'Top-down']
+    imageSlots: [
+      { filename: 'tie-dye-custom-low-top.jpg', label: 'Hero — in-hand' },
+      { filename: 'tie-dye-custom-low-top-2.jpg', label: 'Pair on floor' },
+      { filename: 'tie-dye-custom-low-top-3.jpg', label: 'Front / macro' }
+    ]
   },
   {
     id: 'pink-lightning-low-top',
@@ -141,7 +149,11 @@ const PRODUCTS = [
       { q: 'Are the pearls durable?', a: 'Hand-applied for the designed look. Handle with care during cleaning.' },
       { q: 'How does this fit?', a: 'True to size. Size up half for wide feet.' }
     ],
-    missingPhotos: ['Hero in-hand (add your photo as .jpg)', 'Pair on floor', 'Front view', 'Macro pearl detail', 'Back heel', 'On-foot lifestyle']
+    imageSlots: [
+      { filename: 'pink-lightning-low-top.jpg', label: 'Hero — in-hand' },
+      { filename: 'pink-lightning-low-top-2.jpg', label: 'Pair on floor' },
+      { filename: 'pink-lightning-low-top-3.jpg', label: 'Front / detail' }
+    ]
   },
   {
     id: 'travis-scott-jordan-1-canary',
@@ -180,7 +192,11 @@ const PRODUCTS = [
       { q: 'How does Jordan 1 Low fit?', a: 'Generally true to size. Half size down if you prefer a snug fit.' },
       { q: 'Are these authentic?', a: 'Every pair is verified and ships in original packaging.' }
     ],
-    missingPhotos: ['Flat lay top-down (add as .jpg)', 'Medial side view', 'Heel branding close-up', 'Sole tread', 'On-foot lifestyle']
+    imageSlots: [
+      { filename: 'travis-scott-jordan-1-canary.jpg', label: 'Hero — shot 1' },
+      { filename: 'travis-scott-jordan-1-canary-2.jpg', label: 'Hero — shot 2' },
+      { filename: 'travis-scott-jordan-1-canary-3.jpg', label: 'Extra angle' }
+    ]
   },
   {
     id: 'nike-sb-jordan-4-pine-green',
@@ -219,7 +235,11 @@ const PRODUCTS = [
       { q: 'How does Jordan 4 fit?', a: 'True to size for most. Half size up if you have wide feet.' },
       { q: 'What makes this the SB version?', a: 'Nike SB branding on heel, skate-inspired details, and collab packaging.' }
     ],
-    missingPhotos: ['Heel tab close-up (add as .jpg)', 'Medial side', 'Top-down', 'Sole tread', 'On-foot lifestyle']
+    imageSlots: [
+      { filename: 'nike-sb-jordan-4-pine-green.jpg', label: 'Hero — shot 1' },
+      { filename: 'nike-sb-jordan-4-pine-green-2.jpg', label: 'Hero — shot 2' },
+      { filename: 'nike-sb-jordan-4-pine-green-3.jpg', label: 'Extra angle' }
+    ]
   },
   {
     id: 'paint-splatter-low-top',
@@ -257,7 +277,11 @@ const PRODUCTS = [
       { q: 'Is the splatter identical on every pair?', a: 'No — hand-applied paint means each pair is unique.' },
       { q: 'How do I care for painted leather?', a: 'Spot clean only. Avoid harsh chemicals on painted areas.' }
     ],
-    missingPhotos: ['Hero in-hand (add your photo as .jpg)', 'Pair on floor', 'Macro splatter detail', 'Top-down', 'Back heel', 'On-foot lifestyle']
+    imageSlots: [
+      { filename: 'paint-splatter-low-top.jpg', label: 'Hero — in-hand' },
+      { filename: 'paint-splatter-low-top-2.jpg', label: 'Pair on floor' },
+      { filename: 'paint-splatter-low-top-3.jpg', label: 'Macro splatter' }
+    ]
   }
 ];
 

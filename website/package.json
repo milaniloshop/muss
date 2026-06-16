@@ -1,9 +1,13 @@
 {
   "name": "milan-hype-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "start": "npx --yes serve . -l 3000",
-    "preview": "npx --yes serve . -l 3000"
+    "start": "node server.js",
+    "preview": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
   }
 }
