@@ -47,6 +47,8 @@ function resolveImage(sources, product) {
     const name = src.split('/').pop();
     if (uploadedImages.get(name)) return src;
   }
+  const raster = sources.find((s) => /\.(jpe?g|png|webp)$/i.test(s));
+  if (raster) return raster;
   return sources.find((s) => s.endsWith('.svg')) || sources[sources.length - 1];
 }
 
@@ -333,9 +335,11 @@ function initProductPage() {
 
   document.title = `${product.title} | Milan Hype CoreFit`;
 
-  let images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
-  images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
-  if (!images.length) images = product.images.filter((s) => s.endsWith('.svg'));
+  let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s));
+  if (!images.length) {
+    images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
+    images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
+  }
   const fallback = product.images.find((s) => s.endsWith('.svg'));
   const displayImages = images.length ? images : [fallback];
 
