@@ -1,0 +1,11 @@
+# DNS fix for milanhype.com — Namecheap Advanced DNS
+# Delete ALL old records first, then add ONLY these:
+
+A     @      185.199.108.153
+A     @      185.199.109.153
+A     @      185.199.110.153
+A     @      185.199.111.153
+CNAME www    milaniloshop.github.io.
+
+# Current wrong IP (parking): 162.255.119.213 — remove this
+# After save: wait 15-60 min, GitHub Pages → Check again

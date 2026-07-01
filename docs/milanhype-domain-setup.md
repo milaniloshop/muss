@@ -1,43 +1,51 @@
-# milanhype.com — Connect Domain
+# milanhype.com — Connect Domain (GitHub Pages)
 
-## 1. Deploy site (Render — free)
+The site deploys automatically from `main` via GitHub Actions.
 
-1. Go to [render.com](https://render.com) → Sign up with GitHub
-2. **New +** → **Blueprint** → connect repo `milaniloshop/muss`
-3. Branch: `cursor/serve-milan-hype-a3d6`
-4. Add env var: `STRIPE_SECRET_KEY` = your `sk_test_...` key
-5. Deploy → wait until **Live**
+## 1. GitHub Pages (already set up)
 
-## 2. Add custom domain on Render
+- Workflow: `.github/workflows/deploy-pages.yml`
+- Source folder: `website/`
+- Custom domain in repo: **Settings → Pages → Custom domain** = `milanhype.com`
+- `website/CNAME` contains `milanhype.com`
 
-1. Render dashboard → your service → **Settings** → **Custom Domains**
-2. Add: `milanhype.com`
-3. Add: `www.milanhype.com`
-4. Render shows DNS records — copy them
-
-## 3. Namecheap DNS
+## 2. Namecheap DNS (you do this)
 
 1. [namecheap.com](https://www.namecheap.com) → **Domain List** → **milanhype.com** → **Manage**
-2. **Advanced DNS** tab
-3. Delete parking records if any
-4. Add what Render tells you (usually):
+2. **Advanced DNS** → delete parking / old records
+3. Add:
 
-| Type | Host | Value |
-|------|------|-------|
-| CNAME | `www` | `your-app.onrender.com` |
-| ALIAS or A | `@` | Render IP or ALIAS target |
-
-5. Save → wait 15–60 min
-
-## 4. Update Stripe
-
-In `website/.env` on Render, set:
 ```
-BASE_URL=https://milanhype.com
+A     @      185.199.108.153
+A     @      185.199.109.153
+A     @      185.199.110.153
+A     @      185.199.111.153
+CNAME www    milaniloshop.github.io.
 ```
 
-In Stripe Dashboard → Settings → Checkout → add `milanhype.com` to allowed domains if asked.
+4. Save → wait 15–60 min → GitHub Pages → **Check again**
 
-## 5. Test
+## 3. Verify
 
-Open **https://milanhype.com** → Buy Now → test card `4242 4242 4242 4242`
+```bash
+dig +short milanhype.com A
+# Should show the four 185.199.x.x IPs — NOT 162.255.119.213
+```
+
+Open **https://milanhype.com** → product page → **Buy Now** → test card `4242 4242 4242 4242`
+
+## 4. Stripe (when going live)
+
+Set `BASE_URL=https://milanhype.com` and re-run:
+
+```bash
+cd website
+STRIPE_SECRET_KEY=sk_live_... npm run stripe:setup
+BASE_URL=https://milanhype.com node scripts/setup-payment-links.js
+```
+
+In Stripe Dashboard → Settings → Checkout → add `milanhype.com` to allowed domains if prompted.
+
+## Alternative: Render (optional)
+
+If you want server-side cart checkout instead of Payment Links, use `render.yaml` blueprint. For static + Payment Links, GitHub Pages is enough and free.

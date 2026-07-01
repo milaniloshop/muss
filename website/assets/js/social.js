@@ -8,7 +8,7 @@ const SOCIAL_LINKS = {
   siteUrl: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
 };
 
-const SHARE_HASHTAGS = '#MilanHype #DressTheMoment #Streetwear #NewDrop';
+const SHARE_HASHTAGS = '#MilanHype #CoreFit #MensCompression #ConfidenceUnderEveryShirt';
 
 function getShareUrl(path) {
   const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
@@ -16,7 +16,7 @@ function getShareUrl(path) {
 }
 
 function getProductShareCaption(product) {
-  return `One pair. Zero apologies. ✦\n\n${product.title} — ${formatPrice(product.price)}\n\n${product.shortDescription}\n\nShop now 👇\n${getShareUrl('product.html?id=' + product.id)}\n\n${SHARE_HASHTAGS}`;
+  return `Flatter chest. Tighter core. Invisible. ✦\n\n${product.title} — ${formatPrice(product.price)}\n\n${product.shortDescription}\n\nShop now 👇\n${getShareUrl('product.html?id=' + product.id)}\n\n${SHARE_HASHTAGS}`;
 }
 
 function shareToFacebook(url, quote) {

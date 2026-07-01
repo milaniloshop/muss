@@ -1,10 +1,20 @@
 const uploadedImages = new Map();
 let paymentLinks = {};
 
+function getSiteBase() {
+  const parts = window.location.pathname.split('/').filter(Boolean);
+  if (parts.length && !parts[0].includes('.')) return '/' + parts[0];
+  return '';
+}
+
 async function loadPaymentLinks() {
+  if (typeof PAYMENT_LINKS !== 'undefined') {
+    paymentLinks = { ...PAYMENT_LINKS };
+  }
   try {
-    const res = await fetch('/stripe-payment-links.json');
-    if (res.ok) paymentLinks = await res.json();
+    const base = getSiteBase();
+    const res = await fetch(`${base}/stripe-payment-links.json`);
+    if (res.ok) paymentLinks = { ...paymentLinks, ...(await res.json()) };
   } catch (_) {}
 }
 

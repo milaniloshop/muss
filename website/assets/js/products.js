@@ -213,3 +213,11 @@ function formatPrice(amount) {
 function getTierProducts() {
   return [...PRODUCTS].sort((a, b) => a.tierRank - b.tierRank);
 }
+
+// Stripe Payment Links (test mode) — used on static GitHub Pages checkout
+const PAYMENT_LINKS = {
+  'corefit-essential': 'https://buy.stripe.com/test_8x214f40o9yq9dw9MP3AY00',
+  'corefit-pro': 'https://buy.stripe.com/test_00w00b7cAcKCcpIf793AY01',
+  'corefit-elite': 'https://buy.stripe.com/test_cNieV57cA5ia9dwbUX3AY02',
+  'corefit-signature': 'https://buy.stripe.com/test_bJe00baoMh0SgFYe353AY03'
+};
