@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 let stripe = null;
-if (process.env.STRIPE_SECRET_KEY) {
+if (process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.includes('your_key_here')) {
   stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 }
 
@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
 const UPLOAD_DIR = path.join(ROOT, 'assets/images/products');
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const STRIPE_PRODUCTS_PATH = path.join(ROOT, 'stripe-products.json');
 
 const CATALOG = {
   'corefit-essential': { title: 'CoreFit Essential — Chest + Core Compression Tank', price: 49 },
@@ -21,6 +22,15 @@ const CATALOG = {
   'corefit-elite': { title: 'CoreFit Elite — Chest + Core Compression Tank', price: 149 },
   'corefit-signature': { title: 'CoreFit Signature — Chest + Core Compression Tank', price: 229 }
 };
+
+function loadStripePriceIds() {
+  try {
+    if (fs.existsSync(STRIPE_PRODUCTS_PATH)) {
+      return JSON.parse(fs.readFileSync(STRIPE_PRODUCTS_PATH, 'utf8'));
+    }
+  } catch (_) {}
+  return null;
+}
 
 const ALLOWED_FILES = new Set([
   'corefit-essential.jpg',
@@ -39,9 +49,7 @@ const storage = multer.diskStorage({
   destination: UPLOAD_DIR,
   filename: (req, file, cb) => {
     const name = req.params.filename;
-    if (!ALLOWED_FILES.has(name)) {
-      return cb(new Error('Filename not allowed'));
-    }
+    if (!ALLOWED_FILES.has(name)) return cb(new Error('Filename not allowed'));
     const ext = path.extname(file.originalname).toLowerCase();
     if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) {
       return cb(new Error('Only JPG, PNG, WebP allowed'));
@@ -50,30 +58,60 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({
-  storage,
-  limits: { fileSize: 10 * 1024 * 1024 }
+const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
+
+app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  if (!stripe || !process.env.STRIPE_WEBHOOK_SECRET) {
+    return res.status(503).send('Webhooks not configured');
+  }
+  const sig = req.headers['stripe-signature'];
+  try {
+    const event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object;
+      console.log('Order paid:', session.id, session.customer_details?.email);
+    }
+    res.json({ received: true });
+  } catch (err) {
+    res.status(400).send(`Webhook Error: ${err.message}`);
+  }
 });
 
 app.use(express.json());
 app.use(express.static(ROOT));
 
 app.get('/api/config', (req, res) => {
+  const priceIds = loadStripePriceIds();
   res.json({
     stripeEnabled: Boolean(stripe),
+    stripeProductsReady: Boolean(priceIds),
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY || null,
     brand: 'Milan Hype CoreFit',
     shippingFreeOver: 75
   });
 });
 
+app.get('/api/order/:sessionId', async (req, res) => {
+  if (!stripe) return res.status(503).json({ error: 'Stripe not configured' });
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
+    if (session.payment_status !== 'paid') {
+      return res.status(400).json({ error: 'Payment not completed' });
+    }
+    res.json({
+      email: session.customer_details?.email,
+      amount: (session.amount_total || 0) / 100,
+      status: session.payment_status
+    });
+  } catch (_) {
+    res.status(404).json({ error: 'Order not found' });
+  }
+});
+
 app.get('/api/images', (req, res) => {
   const files = [...ALLOWED_FILES].map((filename) => {
     const full = path.join(UPLOAD_DIR, filename);
-    return {
-      filename,
-      exists: fs.existsSync(full),
-      url: `assets/images/products/${filename}`
-    };
+    return { filename, exists: fs.existsSync(full), url: `assets/images/products/${filename}` };
   });
   res.json(files);
 });
@@ -81,7 +119,7 @@ app.get('/api/images', (req, res) => {
 app.post('/api/checkout', async (req, res) => {
   if (!stripe) {
     return res.status(503).json({
-      error: 'Stripe not configured. Add STRIPE_SECRET_KEY to website/.env — see .env.example'
+      error: 'Stripe not configured. Add STRIPE_SECRET_KEY to website/.env then run: node scripts/setup-stripe.js'
     });
   }
 
@@ -90,23 +128,54 @@ app.post('/api/checkout', async (req, res) => {
     return res.status(400).json({ error: 'Cart is empty' });
   }
 
+  const stripePrices = loadStripePriceIds();
   const lineItems = [];
+  let subtotalCents = 0;
+
   for (const item of items) {
     const catalog = CATALOG[item.id];
     if (!catalog) return res.status(400).json({ error: `Unknown product: ${item.id}` });
     const qty = Math.min(Math.max(parseInt(item.qty, 10) || 1, 1), 10);
     const size = String(item.size || 'M').slice(0, 10);
-    lineItems.push({
-      price_data: {
-        currency: 'usd',
-        unit_amount: Math.round(catalog.price * 100),
-        product_data: {
-          name: `${catalog.title} — Size ${size}`,
-          description: "Men's chest + core compression tank — Milan Hype CoreFit. Not padded. Not fake muscle.",
-          images: [`${BASE_URL}/assets/images/products/${item.id}.svg`]
-        }
-      },
-      quantity: qty
+    subtotalCents += catalog.price * 100 * qty;
+
+    if (stripePrices?.[item.id]?.priceId) {
+      lineItems.push({
+        price: stripePrices[item.id].priceId,
+        quantity: qty
+      });
+    } else {
+      lineItems.push({
+        price_data: {
+          currency: 'usd',
+          unit_amount: Math.round(catalog.price * 100),
+          product_data: {
+            name: `${catalog.title} — Size ${size}`,
+            description: "Men's chest + core compression tank — Milan Hype CoreFit.",
+            images: [`${BASE_URL}/assets/images/products/${item.id}.svg`]
+          }
+        },
+        quantity: qty
+      });
+    }
+  }
+
+  const shippingOptions = [];
+  if (subtotalCents >= 7500) {
+    shippingOptions.push({
+      shipping_rate_data: {
+        type: 'fixed_amount',
+        fixed_amount: { amount: 0, currency: 'usd' },
+        display_name: 'Complimentary US shipping (orders $75+)'
+      }
+    });
+  } else {
+    shippingOptions.push({
+      shipping_rate_data: {
+        type: 'fixed_amount',
+        fixed_amount: { amount: 695, currency: 'usd' },
+        display_name: 'US Standard Shipping (5–7 business days)'
+      }
     });
   }
 
@@ -114,17 +183,22 @@ app.post('/api/checkout', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: lineItems,
+      shipping_options: shippingOptions,
       success_url: `${BASE_URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${BASE_URL}/cancel.html`,
       shipping_address_collection: { allowed_countries: ['US'] },
       phone_number_collection: { enabled: true },
       billing_address_collection: 'required',
-      metadata: { brand: 'milan-hype-corefit' }
+      allow_promotion_codes: true,
+      metadata: {
+        brand: 'milan-hype-corefit',
+        sizes: items.map((i) => `${i.id}:${i.size}`).join(',')
+      }
     });
     res.json({ url: session.url });
   } catch (err) {
     console.error('Stripe error:', err.message);
-    res.status(500).json({ error: 'Checkout failed. Check Stripe keys and try again.' });
+    res.status(500).json({ error: err.message || 'Checkout failed' });
   }
 });
 
@@ -150,7 +224,9 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n  Milan Hype CoreFit — http://localhost:${PORT}`);
+  const prices = loadStripePriceIds();
+  console.log(`\n  Milan Hype CoreFit — ${BASE_URL}`);
   console.log(`  Stripe: ${stripe ? 'enabled' : 'DISABLED — add STRIPE_SECRET_KEY to .env'}`);
-  console.log(`  Photos: http://localhost:${PORT}/admin.html\n`);
+  console.log(`  Products: ${prices ? 'synced to Stripe' : 'run node scripts/setup-stripe.js'}`);
+  console.log(`  Photos: ${BASE_URL}/admin.html\n`);
 });

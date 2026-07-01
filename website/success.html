@@ -18,11 +18,27 @@
     <p class="eyebrow">Order Confirmed</p>
     <h1>Welcome to CoreFit.</h1>
     <p>Your order is confirmed. You'll receive a shipping confirmation within 24 hours. Plain, discreet packaging — always.</p>
+    <p id="order-detail" style="font-size:0.9rem;color:var(--gold);margin:1rem 0;"></p>
     <p style="font-size:0.85rem;color:var(--gray);">Questions? <a href="contact.html">Contact us</a> — we respond within 24 hours.</p>
     <a href="index.html" class="btn btn-gold">Back to Home</a>
   </main>
   <footer class="site-footer site-footer--lux">
     <div class="container footer-bottom">© 2026 Milan Hype · CoreFit Collection</div>
   </footer>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const sessionId = params.get('session_id');
+    if (sessionId) {
+      fetch('/api/order/' + sessionId)
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.email) {
+            document.getElementById('order-detail').textContent =
+              'Confirmation sent to ' + data.email + ' · Total $' + data.amount.toFixed(2);
+          }
+        })
+        .catch(() => {});
+    }
+  </script>
 </body>
 </html>
