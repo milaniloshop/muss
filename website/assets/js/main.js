@@ -58,7 +58,7 @@ function tierCardHTML(product) {
                onerror="this.onerror=null;this.src='${product.images.find((s) => s.endsWith('.svg'))}'">
         </div>
         <div class="tier-card-body">
-          <p class="tier-card-tier">${product.tier}</p>
+          <p class="tier-card-tier">${product.tier} · Chest + Core Tank</p>
           <h3>${product.title.replace('CoreFit ', 'CoreFit ')}</h3>
           <p class="tier-card-fabric">${product.fabric}</p>
           <p class="tier-card-desc">${product.shortDescription}</p>

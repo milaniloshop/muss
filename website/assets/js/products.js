@@ -1,15 +1,16 @@
 const BRAND = {
   name: 'Milan Hype',
   productLine: 'CoreFit',
-  tagline: 'The Art of Invisible Confidence',
+  productType: "Men's Chest + Core Compression Tank",
+  tagline: 'Flatter chest. Tighter core. Invisible under every shirt.',
   shippingFreeOver: 75
 };
 
 const COLLECTIONS = {
   corefit: {
-    title: 'The CoreFit Collection',
-    subtitle: 'Four tiers. One standard of excellence.',
-    description: 'Engineered compression undershirts for men who demand a sharper silhouette — from everyday essentials to our limited Signature edition.'
+    title: "Men's Chest + Core Compression Tanks",
+    subtitle: 'Four tiers · one purpose · confidence under every shirt',
+    description: 'Engineered men\'s compression tanks with targeted chest and core zones — flatter silhouette, zero bulk, invisible under tees and dress shirts. Not padded. Not fake muscle. Real compression.'
   }
 };
 
@@ -17,8 +18,8 @@ const PRODUCTS = [
   {
     id: 'corefit-essential',
     tier: 'Essential',
-    title: 'CoreFit Essential',
-    shortDescription: 'Daily chest and core compression. Clean lines, invisible under every shirt.',
+    title: 'CoreFit Essential — Chest + Core Compression Tank',
+    shortDescription: "Men's compression tank — targeted chest flattening and core support. Wear daily under any shirt.",
     price: 49,
     compareAt: 68,
     collections: ['corefit'],
@@ -42,25 +43,28 @@ const PRODUCTS = [
       'Discreet matte black packaging'
     ],
     details: {
+      'Product': "Men's chest + core compression tank",
       'Collection': 'CoreFit Essential',
       'Fabric': '82% Nylon / 18% Spandex',
       'Compression': 'Moderate — daily wear',
       'Colors': 'Black · White',
       'Care': 'Machine wash cold · hang dry'
     },
-    description: 'The entry to Milan Hype CoreFit. Engineered for men who want a sharper look under everyday shirts — office, errands, nights out. No gimmicks. Just clean, confident compression.',
+    description: "The entry to Milan Hype CoreFit. A men's chest + core compression tank built for daily wear — flattens chest contour, smooths the midsection, stays invisible under polos, tees, and dress shirts. No fake muscle pads. No gimmicks. Real compression you put on every morning.",
     styleIt: 'Your daily foundation layer. Black under dark shirts. White under light fabrics.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     faqs: [
-      { q: 'Who is Essential for?', a: 'Men who want reliable daily compression at an accessible price point — first-time buyers and everyday wear.' },
-      { q: 'How does it compare to Pro?', a: 'Essential uses our standard nylon-spandex blend. Pro upgrades to Italian microfiber with silver-ion odor control and reinforced chest mapping.' }
+      { q: 'Is this a padded fake-muscle shirt?', a: 'No. CoreFit is a compression tank — it flattens and smooths your natural silhouette. No foam pads, no fake abs, no gimmicks.' },
+      { q: 'Who is Essential for?', a: 'Men who want reliable daily chest + core compression — first-time buyers, everyday office wear, and anyone who hates how they look in a fitted tee.' },
+      { q: 'Does it help with chest insecurity?', a: 'Yes — that is exactly what it is built for. The chest zone compresses for a flatter look under shirts. The core zone streamlines your midsection. Most men wear it because they need to, not because they want a fashion item.' },
+      { q: 'How does it compare to Pro?', a: 'Essential uses our standard nylon-spandex blend. Pro upgrades to Italian microfiber with silver-ion odor control and a reinforced dual-layer chest compression panel.' }
     ]
   },
   {
     id: 'corefit-pro',
     tier: 'Pro',
-    title: 'CoreFit Pro',
-    shortDescription: 'Italian microfiber with silver-ion technology. Reinforced chest panel. Our best-selling tier.',
+    title: 'CoreFit Pro — Chest + Core Compression Tank',
+    shortDescription: "Men's best-selling compression tank. Reinforced chest panel + core zone. Italian microfiber, silver-ion odor control.",
     price: 89,
     compareAt: 118,
     collections: ['corefit'],
@@ -85,25 +89,27 @@ const PRODUCTS = [
       'Signature Milan Hype woven label'
     ],
     details: {
+      'Product': "Men's chest + core compression tank",
       'Collection': 'CoreFit Pro',
       'Fabric': 'Italian Microfiber / Silver-Ion',
       'Compression': 'Firm — professional & events',
       'Colors': 'Black · Charcoal',
       'Care': 'Machine wash cold · lay flat to dry'
     },
-    description: 'Where most men stop browsing. CoreFit Pro is our most-requested tier — Italian microfiber, reinforced chest compression, and silver-ion odor control for men who wear it from boardroom to dinner.',
+    description: "Our #1 men's chest + core compression tank. CoreFit Pro combines a reinforced dual-layer chest panel with a firm core compression zone — built for men who wear a dress shirt five days a week and refuse to look soft in a tee. Italian microfiber. Silver-ion odor control. Not padded. Not viral gimmickwear. Real daily compression.",
     styleIt: 'The executive uniform underneath. Pair with tailored shirts and premium knits.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     faqs: [
-      { q: 'Why is Pro our best seller?', a: 'The balance of premium materials and everyday durability. Firm compression without sacrificing comfort.' },
+      { q: 'Why is Pro the best seller?', a: 'It is the sweet spot — firm chest + core compression, premium Italian microfiber, and all-day comfort. Most men buy this tier first.' },
+      { q: 'Will it flatten my chest under a t-shirt?', a: 'Yes. The reinforced chest panel is specifically engineered to reduce visible chest contour under fitted shirts.' },
       { q: 'Is the silver-ion treatment permanent?', a: 'Yes — woven into the fiber, not a surface coating. Effective for the life of the garment.' }
     ]
   },
   {
     id: 'corefit-elite',
     tier: 'Elite',
-    title: 'CoreFit Elite',
-    shortDescription: 'Japanese cooling yarn. 360° muscle-mapping compression. Hand-finished seams.',
+    title: 'CoreFit Elite — Chest + Core Compression Tank',
+    shortDescription: "Premium men's compression tank. Japanese cooling yarn. Precision chest + core mapping. Hand-finished seams.",
     price: 149,
     compareAt: 198,
     collections: ['corefit'],
@@ -121,13 +127,14 @@ const PRODUCTS = [
     ],
     benefits: [
       'Japanese cooling yarn — thermoregulating for warm climates',
-      '360° muscle-mapping compression zones',
+      '360° chest + core compression mapping — precision zones, not padding',
       'Hand-finished flatlock seams — zero visible lines',
       'Extended length stays tucked all day',
       'Anti-pill, anti-fade premium construction',
       'Delivered in embossed Milan Hype gift sleeve'
     ],
     details: {
+      'Product': "Men's chest + core compression tank",
       'Collection': 'CoreFit Elite',
       'Fabric': 'Japanese Cooling Yarn / Elastane',
       'Compression': 'Precision — events & travel',
@@ -145,8 +152,8 @@ const PRODUCTS = [
   {
     id: 'corefit-signature',
     tier: 'Signature',
-    title: 'CoreFit Signature',
-    shortDescription: 'Swiss compression weave. 24K gold-thread accent. Limited production runs. The pinnacle.',
+    title: 'CoreFit Signature — Chest + Core Compression Tank',
+    shortDescription: "Limited men's compression tank. Swiss weave. Maximum chest + core hold. Luxury presentation.",
     price: 229,
     compareAt: 295,
     collections: ['corefit'],
@@ -172,6 +179,7 @@ const PRODUCTS = [
       'Lifetime seam repair guarantee'
     ],
     details: {
+      'Product': "Men's chest + core compression tank",
       'Collection': 'CoreFit Signature',
       'Fabric': 'Swiss Compression Weave / Gold Thread',
       'Compression': 'Maximum — black-tie & milestone events',

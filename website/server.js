@@ -16,10 +16,10 @@ const UPLOAD_DIR = path.join(ROOT, 'assets/images/products');
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 const CATALOG = {
-  'corefit-essential': { title: 'CoreFit Essential', price: 49 },
-  'corefit-pro': { title: 'CoreFit Pro', price: 89 },
-  'corefit-elite': { title: 'CoreFit Elite', price: 149 },
-  'corefit-signature': { title: 'CoreFit Signature', price: 229 }
+  'corefit-essential': { title: 'CoreFit Essential — Chest + Core Compression Tank', price: 49 },
+  'corefit-pro': { title: 'CoreFit Pro — Chest + Core Compression Tank', price: 89 },
+  'corefit-elite': { title: 'CoreFit Elite — Chest + Core Compression Tank', price: 149 },
+  'corefit-signature': { title: 'CoreFit Signature — Chest + Core Compression Tank', price: 229 }
 };
 
 const ALLOWED_FILES = new Set([
@@ -102,7 +102,7 @@ app.post('/api/checkout', async (req, res) => {
         unit_amount: Math.round(catalog.price * 100),
         product_data: {
           name: `${catalog.title} — Size ${size}`,
-          description: 'Milan Hype CoreFit compression undershirt',
+          description: "Men's chest + core compression tank — Milan Hype CoreFit. Not padded. Not fake muscle.",
           images: [`${BASE_URL}/assets/images/products/${item.id}.svg`]
         }
       },
