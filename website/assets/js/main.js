@@ -35,7 +35,7 @@ function productCardHTML(product) {
         <div class="product-image-wrap">
           ${product.badge ? `<span class="product-badge ${badgeClass}">${product.badge}</span>` : ''}
           <img src="${img}" alt="${product.title}" loading="lazy"
-               onerror="this.onerror=null;this.src='${product.images[product.images.length - 1]}'">
+               onerror="this.onerror=null;this.src='${product.images.find((s) => s.endsWith('.svg'))}'">
         </div>
         <h3 class="product-title">${product.title}</h3>
         <p class="product-price">${formatPrice(product.price)}${compareHTML}</p>
@@ -43,9 +43,41 @@ function productCardHTML(product) {
     </article>`;
 }
 
+function tierCardHTML(product) {
+  const img = resolveImage(product.images, product);
+  const featured = product.badge === 'Best Seller' ? ' tier-card--featured' : '';
+  const compareHTML = product.compareAt
+    ? `<span class="compare">${formatPrice(product.compareAt)}</span>`
+    : '';
+  return `
+    <article class="tier-card${featured}">
+      <a href="product.html?id=${product.id}" class="tier-card-link">
+        <div class="tier-card-image">
+          ${product.badge ? `<span class="tier-card-badge">${product.badge}</span>` : ''}
+          <img src="${img}" alt="${product.title}" loading="lazy"
+               onerror="this.onerror=null;this.src='${product.images.find((s) => s.endsWith('.svg'))}'">
+        </div>
+        <div class="tier-card-body">
+          <p class="tier-card-tier">${product.tier}</p>
+          <h3>${product.title.replace('CoreFit ', 'CoreFit ')}</h3>
+          <p class="tier-card-fabric">${product.fabric}</p>
+          <p class="tier-card-desc">${product.shortDescription}</p>
+          <p class="tier-card-price">${formatPrice(product.price)}${compareHTML}</p>
+          <span class="btn btn-primary btn-block">View Details</span>
+        </div>
+      </a>
+    </article>`;
+}
+
 function renderProductGrid(container, products) {
   if (!container) return;
   container.innerHTML = products.map(productCardHTML).join('');
+}
+
+function renderTierGrid(container, products) {
+  if (!container) return;
+  const list = products || getTierProducts();
+  container.innerHTML = list.map(tierCardHTML).join('');
 }
 
 function initMobileNav() {
@@ -73,7 +105,7 @@ function initNewsletter() {
   document.querySelectorAll('.newsletter-form').forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Welcome to Milan Hype — check your inbox soon.');
+      showToast('Welcome to Milan Hype CoreFit.');
       form.reset();
     });
   });
@@ -102,14 +134,22 @@ function updateCartCount() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
   document.querySelectorAll('.cart-count').forEach((el) => {
     el.textContent = count;
-    el.style.display = count ? 'inline' : 'none';
   });
 }
 
 function addToCart(product, size) {
   const existing = cart.find((i) => i.id === product.id && i.size === size);
   if (existing) existing.qty++;
-  else cart.push({ id: product.id, title: product.title, price: product.price, size, qty: 1, image: resolveImage(product.images, product) });
+  else {
+    cart.push({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      size,
+      qty: 1,
+      image: resolveImage(product.images, product)
+    });
+  }
   saveCart();
   openCart();
   showToast('Added to bag');
@@ -156,8 +196,11 @@ function renderCart() {
 
   const shippingNote = document.querySelector('.cart-shipping-note');
   if (shippingNote) {
-    if (total >= 75) shippingNote.textContent = 'You qualify for free shipping!';
-    else shippingNote.textContent = `Add ${formatPrice(75 - total)} more for free shipping`;
+    if (total >= BRAND.shippingFreeOver) {
+      shippingNote.textContent = 'Complimentary shipping applied.';
+    } else {
+      shippingNote.textContent = `Add ${formatPrice(BRAND.shippingFreeOver - total)} for complimentary shipping`;
+    }
   }
 
   container.querySelectorAll('[data-remove]').forEach((btn) => {
@@ -168,10 +211,49 @@ function renderCart() {
   });
 }
 
+async function startCheckout(items) {
+  const checkoutItems = items || cart;
+  if (!checkoutItems.length) {
+    showToast('Your bag is empty');
+    return;
+  }
+
+  const btn = document.getElementById('checkout-btn');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Processing…';
+  }
+
+  try {
+    const res = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: checkoutItems })
+    });
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+      return;
+    }
+    showToast(data.error || 'Checkout unavailable. Add Stripe keys to .env');
+  } catch (_) {
+    showToast('Checkout failed. Please try again.');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Secure Checkout';
+    }
+  }
+}
+
 function initCart() {
-  document.querySelector('.cart-open')?.addEventListener('click', openCart);
+  document.querySelectorAll('.cart-open').forEach((el) => el.addEventListener('click', openCart));
   document.querySelector('.cart-close')?.addEventListener('click', closeCart);
   document.querySelector('.cart-overlay')?.addEventListener('click', closeCart);
+  document.getElementById('checkout-btn')?.addEventListener('click', () => startCheckout());
+  document.querySelectorAll('.cart-checkout-btn').forEach((btn) => {
+    btn.addEventListener('click', () => startCheckout());
+  });
   updateCartCount();
   renderCart();
 }
@@ -185,62 +267,43 @@ function showToast(msg) {
   }
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2800);
+  setTimeout(() => toast.classList.remove('show'), 3200);
 }
 
-/* Homepage */
 function initHomepage() {
-  const best = document.getElementById('best-sellers-grid');
-  if (best) {
-    const products = PRODUCTS.filter((p) => p.collections.includes('best-sellers')).slice(0, 4);
-    renderProductGrid(best, products.length ? products : PRODUCTS.slice(0, 4));
-  }
-
-  const newArr = document.getElementById('new-arrivals-grid');
-  if (newArr) {
-    renderProductGrid(newArr, getCollectionProducts('new-arrivals').slice(0, 4));
-  }
-
-  const banner = document.getElementById('photo-upload-banner');
-  if (banner) {
-    const anyUploaded = [...uploadedImages.values()].some(Boolean);
-    banner.hidden = anyUploaded;
-  }
+  renderTierGrid(document.getElementById('tier-grid'));
 }
 
-/* Collection page */
 function initCollectionPage() {
   const params = new URLSearchParams(location.search);
-  const slug = params.get('c') || 'new-arrivals';
-  const meta = COLLECTIONS[slug];
-  if (!meta) {
-    document.getElementById('collection-title').textContent = 'Collection Not Found';
-    return;
-  }
-  document.title = `${meta.title} | Milan Hype`;
-  document.getElementById('collection-title').textContent = meta.title;
-  document.getElementById('collection-subtitle').textContent = meta.subtitle;
-  document.getElementById('collection-desc').textContent = meta.description;
-  renderProductGrid(document.getElementById('collection-grid'), getCollectionProducts(slug));
+  const slug = params.get('c') || 'corefit';
+  const meta = COLLECTIONS.corefit;
+  document.title = `${meta.title} | Milan Hype CoreFit`;
+  const titleEl = document.getElementById('collection-title');
+  const subEl = document.getElementById('collection-subtitle');
+  const descEl = document.getElementById('collection-desc');
+  if (titleEl) titleEl.textContent = meta.title;
+  if (subEl) subEl.textContent = meta.subtitle;
+  if (descEl) descEl.textContent = meta.description;
+  renderTierGrid(document.getElementById('collection-grid'));
 }
 
-/* Product page */
 function initProductPage() {
   const params = new URLSearchParams(location.search);
-  const id = params.get('id');
+  const id = params.get('id') || 'corefit-pro';
   const product = getProduct(id);
   if (!product) {
-    document.getElementById('product-root').innerHTML = '<p style="padding:4rem;text-align:center;">Product not found. <a href="index.html">Back to shop</a></p>';
+    document.getElementById('product-root').innerHTML =
+      '<p style="padding:4rem;text-align:center;">Product not found. <a href="collection.html">View collection</a></p>';
     return;
   }
 
-  document.title = `${product.title} | Milan Hype`;
+  document.title = `${product.title} | Milan Hype CoreFit`;
 
   let images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
   images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
   if (!images.length) images = product.images.filter((s) => s.endsWith('.svg'));
-  const baseSlug = product.id;
-  const fallback = `assets/images/products/${baseSlug}.svg`;
+  const fallback = product.images.find((s) => s.endsWith('.svg'));
   const displayImages = images.length ? images : [fallback];
 
   let selectedSize = product.sizes[Math.floor(product.sizes.length / 2)];
@@ -268,6 +331,9 @@ function initProductPage() {
     });
   });
 
+  const tierLabel = document.getElementById('product-tier-label');
+  if (tierLabel) tierLabel.textContent = `${product.tier} Collection`;
+
   document.getElementById('product-title').textContent = product.title;
   document.getElementById('product-short').textContent = product.shortDescription;
 
@@ -276,6 +342,17 @@ function initProductPage() {
   document.getElementById('product-price').innerHTML = `${formatPrice(product.price)}${compareHTML}`;
 
   document.getElementById('fit-note').textContent = `Fit: ${product.fit}`;
+
+  const tierSwitcher = document.getElementById('tier-switcher');
+  if (tierSwitcher) {
+    tierSwitcher.innerHTML = getTierProducts().map((p) => {
+      const active = p.id === product.id;
+      const cls = active
+        ? `tier-switch-btn active${p.badge === 'Best Seller' ? ' active--gold' : ''}`
+        : 'tier-switch-btn';
+      return `<a href="product.html?id=${p.id}" class="${cls}">${p.tier} · ${formatPrice(p.price)}</a>`;
+    }).join('');
+  }
 
   const sizeGrid = document.getElementById('size-grid');
   sizeGrid.innerHTML = product.sizes.map((s) =>
@@ -291,6 +368,17 @@ function initProductPage() {
   });
 
   document.getElementById('add-to-cart').addEventListener('click', () => addToCart(product, selectedSize));
+  document.getElementById('buy-now')?.addEventListener('click', () => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      size: selectedSize,
+      qty: 1,
+      image: resolveImage(product.images, product)
+    };
+    startCheckout([item]);
+  });
   document.getElementById('sticky-add')?.addEventListener('click', () => addToCart(product, selectedSize));
 
   document.getElementById('product-description').textContent = product.description;
@@ -313,8 +401,9 @@ function initProductPage() {
 
   if (typeof initProductShare === 'function') initProductShare(product);
 
-  const related = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
-  renderProductGrid(document.getElementById('related-grid'), related);
+  const related = PRODUCTS.filter((p) => p.id !== product.id);
+  const relatedGrid = document.getElementById('related-grid');
+  if (relatedGrid) renderTierGrid(relatedGrid, related);
 
   const sticky = document.getElementById('sticky-atc');
   if (sticky) {
@@ -338,12 +427,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (document.body.dataset.page === 'home') initHomepage();
   if (document.body.dataset.page === 'collection') initCollectionPage();
   if (document.body.dataset.page === 'product') initProductPage();
-  renderSocialBar(document.getElementById('footer-social'));
-  if (document.body.dataset.page === 'home') {
-    updatePageMeta({
-      title: 'Milan Hype | Premium Contemporary Fashion — Dress the Moment',
-      description: 'Shop premium fashion at Milan Hype. Free shipping over $75. Follow @Milanhype_',
-      image: 'assets/images/hero-bg.svg'
-    });
+  if (typeof renderSocialBar === 'function') {
+    renderSocialBar(document.getElementById('footer-social'));
   }
 });

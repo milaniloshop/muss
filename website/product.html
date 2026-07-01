@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product | Milan Hype</title>
+  <title>CoreFit | Milan Hype</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="product">
 
-  <div class="announcement">Free shipping on orders over $75 · Easy 30-day returns</div>
+  <div class="announcement">Complimentary US shipping on orders $75+ · White-glove 30-day returns</div>
 
-  <header class="site-header">
+  <header class="site-header site-header--lux">
     <div class="container header-inner">
       <button class="menu-toggle" aria-label="Menu">☰</button>
       <a href="index.html" class="logo">Milan Hype</a>
       <nav class="nav-desktop">
-        <a href="collection.html?c=new-arrivals">New Arrivals</a>
-        <a href="collection.html?c=women">Women</a>
-        <a href="collection.html?c=men">Men</a>
-        <a href="collection.html?c=best-sellers">Best Sellers</a>
-        <a href="collection.html?c=sale">Sale</a>
+        <a href="collection.html">CoreFit Collection</a>
+        <a href="index.html#science">The Science</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="header-actions">
         <button type="button" class="icon-btn cart-open">Bag (<span class="cart-count">0</span>)</button>
       </div>
     </div>
     <nav class="nav-mobile">
-      <a href="index.html">Home</a>
-      <a href="collection.html?c=new-arrivals">Shop</a>
+      <a href="collection.html">CoreFit Collection</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -44,17 +44,21 @@
           <div class="product-thumbs" id="product-thumbs"></div>
         </div>
         <div class="product-info">
+          <p class="product-tier-label" id="product-tier-label"></p>
           <h1 id="product-title"></h1>
           <p class="short-desc" id="product-short"></p>
           <p class="price-row" id="product-price"></p>
-          <p class="product-rating"><span>★★★★★</span> 4.8 · Verified reviews</p>
+          <p class="product-rating"><span>★★★★★</span> 4.9 · Verified reviews</p>
+          <div class="tier-switcher" id="tier-switcher"></div>
           <div class="fit-note" id="fit-note"></div>
           <label class="size-label">Select Size</label>
           <div class="size-grid" id="size-grid"></div>
-          <button type="button" class="btn btn-primary btn-block" id="add-to-cart">Add to Bag</button>
-          <p class="trust-micro">Free shipping $75+ · Easy 30-day returns · Ships in 1–2 days</p>
+          <div class="product-actions">
+            <button type="button" class="btn btn-gold btn-block" id="buy-now">Buy Now — Secure Checkout</button>
+            <button type="button" class="btn btn-outline btn-block" id="add-to-cart">Add to Bag</button>
+          </div>
+          <p class="trust-micro">Ships in 24h · Discreet packaging · 30-day returns</p>
           <div id="product-share-bar" class="product-share-section"></div>
-          <p class="admin-link"><a href="admin.html">📷 Upload product photos</a></p>
         </div>
       </div>
 
@@ -63,9 +67,9 @@
         <p id="product-description" style="color:var(--gray);font-size:0.95rem;"></p>
         <h3>Why You'll Love It</h3>
         <ul id="product-benefits"></ul>
-        <h3>Details</h3>
+        <h3>Specifications</h3>
         <table class="spec-table" id="product-specs"></table>
-        <h3>Style It</h3>
+        <h3>How to Wear</h3>
         <p id="product-style" style="color:var(--gray);font-size:0.95rem;"></p>
         <h3>Product FAQ</h3>
         <div class="faq-list" id="product-faqs"></div>
@@ -75,8 +79,11 @@
 
   <section class="related-section">
     <div class="container">
-      <div class="section-header"><h2>You May Also Like</h2></div>
-      <div class="product-grid" id="related-grid"></div>
+      <div class="section-header section-header--lux">
+        <p class="eyebrow">The Collection</p>
+        <h2>Explore Other Tiers</h2>
+      </div>
+      <div class="tier-grid" id="related-grid"></div>
     </div>
   </section>
 
@@ -85,11 +92,11 @@
       <h4 id="sticky-title"></h4>
       <p id="sticky-price"></p>
     </div>
-    <button type="button" class="btn btn-primary" id="sticky-add">Add to Bag</button>
+    <button type="button" class="btn btn-gold" id="sticky-add">Add to Bag</button>
   </div>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">© 2026 Milan Hype</div>
+  <footer class="site-footer site-footer--lux">
+    <div class="container footer-bottom">© 2026 Milan Hype · CoreFit Collection</div>
   </footer>
 
   <div class="cart-overlay"></div>
@@ -98,8 +105,8 @@
     <div class="cart-items"></div>
     <div class="cart-footer">
       <div class="cart-total"><span>Subtotal</span><span class="cart-total-amount">$0.00</span></div>
-      <button type="button" class="btn btn-primary btn-block">Checkout</button>
-      <p class="shipping-note cart-shipping-note">Free shipping on orders over $75</p>
+      <button type="button" class="btn btn-gold btn-block cart-checkout-btn" id="checkout-btn">Secure Checkout</button>
+      <p class="shipping-note cart-shipping-note">Complimentary shipping on orders over $75</p>
     </div>
   </aside>
 
