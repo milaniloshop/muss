@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: milan-hype-corefit
+    runtime: node
+    rootDir: website
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: BASE_URL
+        value: https://milanhype.com
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
