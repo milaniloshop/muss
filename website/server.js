@@ -9,6 +9,8 @@ const ROOT = __dirname;
 const UPLOAD_DIR = path.join(ROOT, 'assets/images/products');
 
 const ALLOWED_FILES = new Set([
+  'milan-hype-corefit-tank.jpg',
+  'milan-hype-corefit-tank-2.jpg',
   'vale-forever-skittle-sweats.jpg',
   'vale-forever-skittle-sweats-2.jpg',
   'project-gr-layered-sweatpants.jpg',

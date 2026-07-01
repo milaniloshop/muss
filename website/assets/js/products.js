@@ -28,6 +28,52 @@ const COLLECTIONS = {
 
 const PRODUCTS = [
   {
+    id: 'milan-hype-corefit-tank',
+    title: 'Milan Hype CoreFit Compression Tank',
+    shortDescription: 'Invisible chest and core compression undershirt. Flatter, firmer silhouette under every tee, shirt, and hoodie.',
+    price: 44.99,
+    compareAt: 59.99,
+    collections: ['new-arrivals', 'best-sellers', 'men'],
+    gender: 'men',
+    type: 'undershirts',
+    badge: 'Best Seller',
+    fit: 'Compression fit — size up if between sizes',
+    images: [
+      'assets/images/products/milan-hype-corefit-tank.jpg',
+      'assets/images/products/milan-hype-corefit-tank.svg'
+    ],
+    imageSlots: [
+      { filename: 'milan-hype-corefit-tank.jpg', label: 'Front flat lay' },
+      { filename: 'milan-hype-corefit-tank-2.jpg', label: 'Under t-shirt (before/after)' }
+    ],
+    benefits: [
+      'Targeted chest compression for a flatter, smoother look under shirts',
+      'Core support helps streamline the midsection without bulk',
+      'Invisible under tees, polos, button-downs, and hoodies',
+      'Breathable nylon-spandex blend for all-day wear',
+      'Moisture-wicking — stays comfortable at work, dates, and events',
+      'Discreet packaging — plain shipper, no embarrassing labels'
+    ],
+    details: {
+      'Style': 'Sleeveless compression tank',
+      'Fabric': '82% Nylon / 18% Spandex',
+      'Use': 'Daily undershirt · work · events · gym-to-street',
+      'Colors': 'Black · White',
+      'Care': 'Machine wash cold · hang dry',
+      'Shipping': 'Plain discreet packaging'
+    },
+    description: 'The CoreFit Compression Tank is built for guys who want to feel confident in a t-shirt — no gimmicks, no fake muscles. Firm compression across the chest and core smooths your silhouette under anything you wear. Put it on in the morning. Forget about it. Look sharper all day.',
+    styleIt: 'Wear under any fitted tee, polo, or dress shirt. Black for daily wear. White for light-colored tops.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    faqs: [
+      { q: 'Who is this for?', a: 'Men who want a flatter chest and smoother core under everyday shirts — work, dates, events, or anytime you want more confidence in a tee.' },
+      { q: 'Will people know I\'m wearing it?', a: 'No. It\'s designed as an invisible undershirt with a low neckline that stays hidden under normal shirts.' },
+      { q: 'How tight should it feel?', a: 'Snug and supportive, not painful. If between sizes, size up for comfort or down for maximum compression.' },
+      { q: 'Can I wear it all day?', a: 'Yes. Breathable fabric is made for daily wear — office, errands, nights out.' },
+      { q: 'Is shipping discreet?', a: 'Yes. Plain packaging with no product branding on the outside of the box.' }
+    ]
+  },
+  {
     id: 'vale-forever-skittle-sweats',
     title: 'Vale Forever Skittle Sweats',
     shortDescription: 'Wide-leg acid-wash sweats with the signature Valley script logo and multicolor skittle stud detailing.',
