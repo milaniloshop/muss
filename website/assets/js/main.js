@@ -7,6 +7,12 @@ function getSiteBase() {
   return '';
 }
 
+function assetUrl(path) {
+  const clean = path.replace(/^\//, '');
+  const base = getSiteBase();
+  return base ? `${base}/${clean}` : `/${clean}`;
+}
+
 async function loadPaymentLinks() {
   if (typeof PAYMENT_LINKS !== 'undefined') {
     paymentLinks = { ...PAYMENT_LINKS };
@@ -40,16 +46,17 @@ function resolveImage(sources, product) {
   const slots = product?.imageSlots || [];
   for (const slot of slots) {
     if (uploadedImages.get(slot.filename)) {
-      return `assets/images/products/${slot.filename}`;
+      return assetUrl(`assets/images/products/${slot.filename}`);
     }
   }
   for (const src of sources) {
     const name = src.split('/').pop();
-    if (uploadedImages.get(name)) return src;
+    if (uploadedImages.get(name)) return assetUrl(src);
   }
   const raster = sources.find((s) => /\.(jpe?g|png|webp)$/i.test(s));
-  if (raster) return raster;
-  return sources.find((s) => s.endsWith('.svg')) || sources[sources.length - 1];
+  if (raster) return assetUrl(raster);
+  const svg = sources.find((s) => s.endsWith('.svg')) || sources[sources.length - 1];
+  return assetUrl(svg);
 }
 
 function productCardHTML(product) {
@@ -64,7 +71,7 @@ function productCardHTML(product) {
         <div class="product-image-wrap">
           ${product.badge ? `<span class="product-badge ${badgeClass}">${product.badge}</span>` : ''}
           <img src="${img}" alt="${product.title}" loading="lazy"
-               onerror="this.onerror=null;this.src='${product.images.find((s) => s.endsWith('.svg'))}'">
+               onerror="this.onerror=null;this.src='${assetUrl(product.images.find((s) => s.endsWith('.svg')))}'">
         </div>
         <h3 class="product-title">${product.title}</h3>
         <p class="product-price">${formatPrice(product.price)}${compareHTML}</p>
@@ -84,7 +91,7 @@ function tierCardHTML(product) {
         <div class="tier-card-image">
           ${product.badge ? `<span class="tier-card-badge">${product.badge}</span>` : ''}
           <img src="${img}" alt="${product.title}" loading="lazy"
-               onerror="this.onerror=null;this.src='${product.images.find((s) => s.endsWith('.svg'))}'">
+               onerror="this.onerror=null;this.src='${assetUrl(product.images.find((s) => s.endsWith('.svg')))}'">
         </div>
         <div class="tier-card-body">
           <p class="tier-card-tier">${product.tier} · Chest + Core Tank</p>
@@ -335,12 +342,12 @@ function initProductPage() {
 
   document.title = `${product.title} | Milan Hype CoreFit`;
 
-  let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s));
+  let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).map(assetUrl);
   if (!images.length) {
-    images = (product.imageSlots || []).map((s) => `assets/images/products/${s.filename}`);
+    images = (product.imageSlots || []).map((s) => assetUrl(`assets/images/products/${s.filename}`));
     images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
   }
-  const fallback = product.images.find((s) => s.endsWith('.svg'));
+  const fallback = assetUrl(product.images.find((s) => s.endsWith('.svg')));
   const displayImages = images.length ? images : [fallback];
 
   let selectedSize = product.sizes[Math.floor(product.sizes.length / 2)];
