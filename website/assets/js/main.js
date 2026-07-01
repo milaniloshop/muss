@@ -1,4 +1,21 @@
 const uploadedImages = new Map();
+let paymentLinks = {};
+
+async function loadPaymentLinks() {
+  try {
+    const res = await fetch('/stripe-payment-links.json');
+    if (res.ok) paymentLinks = await res.json();
+  } catch (_) {}
+}
+
+function checkoutWithPaymentLink(productId) {
+  const url = paymentLinks[productId];
+  if (url) {
+    window.location.href = url;
+    return true;
+  }
+  return false;
+}
 
 async function loadUploadedImages() {
   try {
@@ -218,6 +235,10 @@ async function startCheckout(items) {
     return;
   }
 
+  if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) {
+    return;
+  }
+
   const btn = document.getElementById('checkout-btn');
   if (btn) {
     btn.disabled = true;
@@ -235,9 +256,11 @@ async function startCheckout(items) {
       window.location.href = data.url;
       return;
     }
-    showToast(data.error || 'Checkout unavailable. Add Stripe keys to .env');
+    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) return;
+    showToast(data.error || 'Checkout one item at a time via Buy Now');
   } catch (_) {
-    showToast('Checkout failed. Please try again.');
+    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) return;
+    showToast('Checkout failed. Use Buy Now on product page.');
   } finally {
     if (btn) {
       btn.disabled = false;
@@ -369,6 +392,7 @@ function initProductPage() {
 
   document.getElementById('add-to-cart').addEventListener('click', () => addToCart(product, selectedSize));
   document.getElementById('buy-now')?.addEventListener('click', () => {
+    if (checkoutWithPaymentLink(product.id)) return;
     const item = {
       id: product.id,
       title: product.title,
@@ -423,6 +447,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFAQ();
 
   await loadUploadedImages();
+  await loadPaymentLinks();
 
   if (document.body.dataset.page === 'home') initHomepage();
   if (document.body.dataset.page === 'collection') initCollectionPage();
