@@ -1,7 +1,11 @@
 /**
  * Milan Hype — ad pixel IDs (USA)
- * Paste your IDs from Meta Events Manager + Google Ads + TikTok Ads.
- * Leave empty until ready — site works without them.
+ * PASTE YOUR IDs HERE before running ads — see docs/PIXEL-PASTE-NOW.md
+ *
+ * Meta:     Events Manager → Pixel ID (numbers only)
+ * GA4:      G-XXXXXXXXXX
+ * Google:   AW-XXXXXXXXX  +  conversion label
+ * TikTok:   optional — add when scaling past Google Search
  */
 window.MH_TRACKING = {
   // Meta (Facebook / Instagram) — Events Manager → Data Sources → Pixel ID

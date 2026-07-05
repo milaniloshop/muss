@@ -405,9 +405,9 @@ body { font-family: 'Inter', var(--font-body); }
 
 .hero--lux { min-height: 88vh; background: var(--charcoal); }
 .hero-bg--lux {
-  background: linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(20,20,20,0.85) 50%, rgba(45,36,24,0.75) 100%),
-    radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.15), transparent 55%),
-    url('../images/hero-bg.svg') center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.88) 45%, rgba(45,36,24,0.8) 100%),
+    radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.12), transparent 55%),
+    url('../images/products/corefit-pro.jpg') center 20%/cover no-repeat;
 }
 .hero-content--lux { max-width: 680px; padding: 5rem 0; }
 .hero-content--lux h1 {
@@ -541,4 +541,35 @@ body { font-family: 'Inter', var(--font-body); }
 }
 .checkout-status h1 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; }
 .checkout-status p { color: var(--gray); margin-bottom: 2rem; }
+
+.diff-grid { display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { .diff-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+.diff-card { padding: 1.75rem; border: 1px solid var(--border); background: var(--white); height: 100%; }
+.diff-card--win { border-color: var(--champagne); box-shadow: 0 0 0 1px var(--champagne); background: linear-gradient(180deg, rgba(201,169,110,0.06), var(--white)); }
+.diff-card h3 { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.75rem; }
+.diff-card ul { list-style: none; font-size: 0.85rem; color: var(--gray); line-height: 1.65; }
+.diff-card li { padding: 0.25rem 0 0.25rem 1.1rem; position: relative; }
+.diff-card li::before { content: '·'; position: absolute; left: 0; color: var(--champagne); font-weight: 700; }
+.diff-card--lose li::before { content: '✕'; color: #b44; font-size: 0.75rem; top: 0.35rem; }
+.diff-badge {
+  display: inline-block; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.3rem 0.6rem; margin-bottom: 0.75rem; background: var(--champagne); color: var(--ink); font-weight: 600;
+}
+.tank-showcase { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 900px) { .tank-showcase { grid-template-columns: 1.1fr 1fr; gap: 3rem; } }
+.tank-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.tank-gallery img { width: 100%; aspect-ratio: 4/5; object-fit: cover; background: var(--bg-soft); }
+.tank-gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 16/10; }
+.tank-callouts { list-style: none; margin: 1.25rem 0 0; }
+.tank-callouts li {
+  padding: 0.65rem 0; border-bottom: 1px solid var(--border);
+  font-size: 0.9rem; display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.tank-callouts strong { min-width: 5.5rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); }
+.sample-note {
+  margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(201,169,110,0.1);
+  border-left: 3px solid var(--champagne); font-size: 0.85rem; color: var(--gray);
+}
+.product-diff { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.product-diff h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; }
 
