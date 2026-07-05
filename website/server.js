@@ -3,6 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 let stripe = null;
 if (process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.includes('your_key_here')) {
@@ -60,6 +61,40 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
 
+function sha256(value) {
+  return crypto.createHash('sha256').update(String(value).trim().toLowerCase()).digest('hex');
+}
+
+async function sendMetaPurchaseEvent(session) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const token = process.env.META_CAPI_ACCESS_TOKEN;
+  if (!pixelId || !token) return;
+
+  const email = session.customer_details?.email;
+  const value = (session.amount_total || 0) / 100;
+  const eventId = session.metadata?.mh_event_id || session.id;
+
+  try {
+    await fetch(`https://graph.facebook.com/v19.0/${pixelId}/events`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        data: [{
+          event_name: 'Purchase',
+          event_time: Math.floor(Date.now() / 1000),
+          event_id: eventId,
+          action_source: 'website',
+          user_data: email ? { em: [sha256(email)] } : {},
+          custom_data: { currency: 'usd', value }
+        }],
+        access_token: token
+      })
+    });
+  } catch (err) {
+    console.warn('Meta CAPI error:', err.message);
+  }
+}
+
 app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   if (!stripe || !process.env.STRIPE_WEBHOOK_SECRET) {
     return res.status(503).send('Webhooks not configured');
@@ -70,6 +105,7 @@ app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), async
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object;
       console.log('Order paid:', session.id, session.customer_details?.email);
+      await sendMetaPurchaseEvent(session);
     }
     res.json({ received: true });
   } catch (err) {

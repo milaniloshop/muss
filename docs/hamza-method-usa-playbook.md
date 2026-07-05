@@ -16,7 +16,7 @@ Ignore his Saudi demo (COD, Arabic, biotin niche). Copy his **system**.
 | 4 | **Branded store**, not generic dropship look | ✅ Done — 4 tiers, luxury site |
 | 5 | **Product pages that convert**, not only landing page | ✅ product.html — keep improving |
 | 6 | **Stripe / payments** | ✅ Payment Links (test) → live keys when ready |
-| 7 | **Tracking pixels** (Meta, TikTok + **server-side CAPI**) | ❌ **You need this before ads** |
+| 7 | **Tracking pixels** (Meta, TikTok + **server-side CAPI**) | ✅ **Done** — see `docs/TRACKING-SETUP-USA.md` |
 | 8 | **AI product photos** | ⏳ Samples ordered — replace mockups |
 | 9 | **UGC video ads** (Sora / AI tools) | After Google proves sales |
 | 10 | **Launch ads → read data → ask AI to fix conversion** | Your scaling loop |
@@ -64,10 +64,7 @@ Fix: [your problem — e.g. "product page doesn't feel premium enough" or "need 
 ### 1. Tracking before ads (critical)
 Hamza installs **Meta Pixel + TikTok Pixel + server-side CAPI** so ads optimize.
 
-**Your move:**
-- Meta Events Manager → create pixel → add to `index.html` + `product.html`
-- Google Ads → conversion tag on **success.html** (after Stripe checkout)
-- Skip Snap unless you run Snap ads later
+**Your move:** ✅ Already wired — paste IDs in `website/assets/js/tracking-config.js` → follow **`docs/TRACKING-SETUP-USA.md`**
 
 ### 2. Orders in one place
 Hamza sends orders to **Google Sheet** via webhook.

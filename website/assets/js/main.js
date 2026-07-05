@@ -24,13 +24,42 @@ async function loadPaymentLinks() {
   } catch (_) {}
 }
 
-function checkoutWithPaymentLink(productId) {
+function trackBeforePaymentRedirect(items) {
+  if (!window.MH || !items?.length) return;
+  window.MH.beginCheckout(items);
+  const value = items.reduce((s, i) => s + i.price * (i.qty || 1), 0);
+  window.MH.savePendingPurchase({
+    value,
+    content_ids: items.map((i) => i.id),
+    items: items.map((i) => ({
+      item_id: i.id,
+      item_name: i.title,
+      price: i.price,
+      quantity: i.qty || 1
+    })),
+    transaction_id: window.MH.eventId()
+  });
+}
+
+function checkoutWithPaymentLink(productId, items) {
   const url = paymentLinks[productId];
-  if (url) {
-    window.location.href = url;
-    return true;
+  if (!url) return false;
+
+  let checkoutItems = items;
+  if (!checkoutItems?.length) {
+    const fromCart = cart.filter((i) => i.id === productId);
+    if (fromCart.length) checkoutItems = fromCart;
+    else {
+      const p = typeof getProduct === 'function' ? getProduct(productId) : null;
+      checkoutItems = p
+        ? [{ id: p.id, title: p.title, price: p.price, qty: 1 }]
+        : [{ id: productId, title: productId, price: 89, qty: 1 }];
+    }
   }
-  return false;
+
+  trackBeforePaymentRedirect(checkoutItems);
+  window.location.href = url;
+  return true;
 }
 
 async function loadUploadedImages() {
@@ -187,6 +216,7 @@ function addToCart(product, size) {
     });
   }
   saveCart();
+  if (window.MH) window.MH.addToCart(product, 1);
   openCart();
   showToast('Added to bag');
 }
@@ -254,9 +284,11 @@ async function startCheckout(items) {
     return;
   }
 
-  if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) {
+  if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id, checkoutItems)) {
     return;
   }
+
+  if (window.MH) window.MH.beginCheckout(checkoutItems);
 
   const btn = document.getElementById('checkout-btn');
   if (btn) {
@@ -275,10 +307,10 @@ async function startCheckout(items) {
       window.location.href = data.url;
       return;
     }
-    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) return;
+    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id, checkoutItems)) return;
     showToast(data.error || 'Checkout one item at a time via Buy Now');
   } catch (_) {
-    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id)) return;
+    if (checkoutItems.length === 1 && checkoutWithPaymentLink(checkoutItems[0].id, checkoutItems)) return;
     showToast('Checkout failed. Use Buy Now on product page.');
   } finally {
     if (btn) {
@@ -413,7 +445,6 @@ function initProductPage() {
 
   document.getElementById('add-to-cart').addEventListener('click', () => addToCart(product, selectedSize));
   document.getElementById('buy-now')?.addEventListener('click', () => {
-    if (checkoutWithPaymentLink(product.id)) return;
     const item = {
       id: product.id,
       title: product.title,
@@ -422,6 +453,7 @@ function initProductPage() {
       qty: 1,
       image: resolveImage(product.images, product)
     };
+    if (checkoutWithPaymentLink(product.id, [item])) return;
     startCheckout([item]);
   });
   document.getElementById('sticky-add')?.addEventListener('click', () => addToCart(product, selectedSize));
@@ -458,6 +490,8 @@ function initProductPage() {
       sticky.classList.toggle('visible', window.scrollY > 400);
     });
   }
+
+  if (window.MH) window.MH.viewProduct(product);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

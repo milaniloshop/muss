@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="success">
   <div class="announcement">Complimentary US shipping on orders $75+</div>
   <header class="site-header site-header--lux">
     <div class="container header-inner">
@@ -25,20 +25,31 @@
   <footer class="site-footer site-footer--lux">
     <div class="container footer-bottom">© 2026 Milan Hype · CoreFit Collection</div>
   </footer>
+  <script src="assets/js/tracking-config.js"></script>
+  <script src="assets/js/tracking.js"></script>
   <script>
-    const params = new URLSearchParams(location.search);
-    const sessionId = params.get('session_id');
-    if (sessionId) {
-      fetch('/api/order/' + sessionId)
-        .then((r) => r.json())
-        .then((data) => {
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(location.search);
+      const sessionId = params.get('session_id');
+      const purchaseExtra = {};
+
+      if (sessionId) {
+        try {
+          const res = await fetch('/api/order/' + sessionId);
+          const data = await res.json();
           if (data.email) {
             document.getElementById('order-detail').textContent =
               'Confirmation sent to ' + data.email + ' · Total $' + data.amount.toFixed(2);
+            purchaseExtra.value = data.amount;
+            purchaseExtra.transaction_id = sessionId;
           }
-        })
-        .catch(() => {});
-    }
+        } catch (_) {}
+      }
+
+      if (window.MH) {
+        window.MH.firePurchaseFromSession(purchaseExtra);
+      }
+    });
   </script>
 </body>
 </html>
