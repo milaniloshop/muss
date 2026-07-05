@@ -101,7 +101,7 @@ Custom site = faster, you control layout, better conversion than generic Shopify
 | COD trust badges | Stripe + discreet shipping + returns copy |
 | Arabic emotional copy | English: embarrassment → confidence, not gym bro |
 | $30 micro-test Gulf | **$100–200 / 5 days** US Search minimum |
-| AdSkull + Sora UGC | Phase 2 after Search works |
+| AdSkull + Sora UGC | **Phase 2** — see `docs/ADSKULL-SETUP-USA.md` |
 
 **Hamza's scaling rule:** Don't scale until **cost per purchase** makes sense.  
 **Your math:** Product $49–89, target **ad cost under $25–30 per sale** to profit.
@@ -142,7 +142,7 @@ His store had these conversion pieces — mirror on yours:
 | Problem → emotion → solution copy | ✅ | ✅ science section — strengthen |
 | Trust: shipping, returns, discreet box | ✅ | ✅ announcement bar + FAQ |
 | Sticky buy button mobile | ✅ | ✅ sticky ATC on product page |
-| Premium brand, not AliExpress look | ✅ | ✅ — real photos = final step |
+| Premium brand, not AliExpress look | ✅ | ✅ — colors + lifestyle shots; real samples upgrade later |
 
 ---
 
@@ -156,9 +156,10 @@ His store had these conversion pieces — mirror on yours:
 - [ ] Stripe **live** keys + rotate test key
 
 ### Phase 2 — Before spending $1 on ads
-- [ ] Meta Pixel + Google conversion tag on site
-- [ ] Google Merchant Center (if running Shopping)
-- [ ] 3–5 **real** photos (under shirt, flat lay)
+- [x] Meta Pixel + Google conversion tag on site (`tracking-config.js`)
+- [ ] Paste your pixel IDs — `docs/PIXEL-PASTE-NOW.md`
+- [ ] Sign up **AdSkull** (free) — `docs/ADSKULL-SETUP-USA.md`
+- [ ] 3–5 product shots on site (black + white + lifestyle — done)
 
 ### Phase 3 — Test ($100–200)
 - [ ] Google Search campaign, keywords above
@@ -167,7 +168,7 @@ His store had these conversion pieces — mirror on yours:
 
 ### Phase 4 — AI iterate (Hamza loop)
 - [ ] CPA too high? → paste analytics to AI → fix headline, price anchor, hero
-- [ ] Winner ad angle? → make 3 UGC-style videos (phone or AI)
+- [ ] Winner Search angle? → **AdSkull**: paste milanhype.com → generate 15 UGC AI videos → bulk Meta
 
 ### Phase 5 — Scale
 - [ ] CPA under $30 → raise budget 20% every 3 days
@@ -185,7 +186,7 @@ His store had these conversion pieces — mirror on yours:
 | His product (biotin, collagen) | You have CoreFit |
 | TikTok first | Search intent wins for this product |
 | $30 Gulf test as "validation" | US needs ~$100+ for real data |
-| AdSkull required day 1 | Optional later for UGC volume |
+| AdSkull required day 1 | **After Google Search** — for AI UGC volume, not day 1 |
 
 ---
 

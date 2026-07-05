@@ -74,11 +74,16 @@ Static GitHub Pages alone cannot run CAPI — browser pixel on `success.html` is
 
 ---
 
-## 5. TikTok (after Google proves sales)
+## 5. TikTok + Meta UGC (AdSkull — Hamza's tool)
 
-1. TikTok Ads Manager → Events → Web Events → Create pixel
-2. Paste ID in `tracking-config.js`
-3. Run Spark/UGC creative after you have winning Google angles
+After Google Search proves your angle:
+
+1. Sign up at **[adskull.io](https://adskull.io/en)** (Hamza's AI media buyer)
+2. Paste `https://milanhype.com/product.html?id=corefit-pro`
+3. Generate UGC videos (Sora / Veo / Kling) — **not** the same as website photos
+4. Bulk launch Meta + TikTok when CPA &lt; $30
+
+Full guide: **`docs/ADSKULL-SETUP-USA.md`**
 
 ---
 

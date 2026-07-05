@@ -111,11 +111,15 @@ function productCardHTML(product) {
 function tierCardHTML(product) {
   const img = resolveImage(product.images, product);
   const featured = product.badge === 'Best Seller' ? ' tier-card--featured' : '';
+  const tierSkin = ` tier-card--${product.id.replace('corefit-', '')}`;
   const compareHTML = product.compareAt
     ? `<span class="compare">${formatPrice(product.compareAt)}</span>`
     : '';
+  const colorDots = (product.colorOptions || []).map((c) =>
+    `<span class="color-dot" style="background:${c.hex}" title="${c.name}"></span>`
+  ).join('');
   return `
-    <article class="tier-card${featured}">
+    <article class="tier-card${featured}${tierSkin}">
       <a href="product.html?id=${product.id}" class="tier-card-link">
         <div class="tier-card-image">
           ${product.badge ? `<span class="tier-card-badge">${product.badge}</span>` : ''}
@@ -127,6 +131,7 @@ function tierCardHTML(product) {
           <h3>${product.title.replace('CoreFit ', 'CoreFit ')}</h3>
           <p class="tier-card-fabric">${product.fabric}</p>
           <p class="tier-card-desc">${product.shortDescription}</p>
+          ${colorDots ? `<div class="tier-card-colors">${colorDots}</div>` : ''}
           <p class="tier-card-price">${formatPrice(product.price)}${compareHTML}</p>
           <span class="btn btn-primary btn-block">View Details</span>
         </div>
@@ -202,17 +207,21 @@ function updateCartCount() {
   });
 }
 
-function addToCart(product, size) {
-  const existing = cart.find((i) => i.id === product.id && i.size === size);
+function addToCart(product, size, color) {
+  const colorName = color?.name || color || 'Black';
+  const existing = cart.find((i) => i.id === product.id && i.size === size && i.color === colorName);
   if (existing) existing.qty++;
   else {
+    const colorOpt = product.colorOptions?.find((c) => c.name === colorName || c.id === color?.id);
+    const imgSrc = colorOpt?.image ? assetUrl(colorOpt.image) : resolveImage(product.images, product);
     cart.push({
       id: product.id,
       title: product.title,
       price: product.price,
       size,
+      color: colorName,
       qty: 1,
-      image: resolveImage(product.images, product)
+      image: imgSrc
     });
   }
   saveCart();
@@ -252,7 +261,7 @@ function renderCart() {
         <div class="cart-item-img"><img src="${item.image}" alt="" onerror="this.style.display='none'"></div>
         <div class="cart-item-info">
           <h4>${item.title}</h4>
-          <p>Size ${item.size} · Qty ${item.qty} · ${formatPrice(item.price)}</p>
+          <p>Size ${item.size}${item.color ? ` · ${item.color}` : ''} · Qty ${item.qty} · ${formatPrice(item.price)}</p>
           <button type="button" data-remove="${idx}" style="font-size:0.75rem;margin-top:0.25rem;text-decoration:underline;">Remove</button>
         </div>
       </div>`;
@@ -375,6 +384,17 @@ function initProductPage() {
   document.title = `${product.title} | Milan Hype CoreFit`;
 
   let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).map(assetUrl);
+  if (product.lifestyleImage) {
+    images.push(assetUrl(product.lifestyleImage));
+  }
+  if (product.colorOptions?.length) {
+    product.colorOptions.forEach((c) => {
+      if (c.image) {
+        const src = assetUrl(c.image);
+        if (!images.includes(src)) images.unshift(src);
+      }
+    });
+  }
   if (!images.length) {
     images = (product.imageSlots || []).map((s) => assetUrl(`assets/images/products/${s.filename}`));
     images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
@@ -383,6 +403,7 @@ function initProductPage() {
   const displayImages = images.length ? images : [fallback];
 
   let selectedSize = product.sizes[Math.floor(product.sizes.length / 2)];
+  let selectedColor = product.colorOptions?.[0] || { id: 'black', name: 'Black' };
 
   const mainImg = document.getElementById('product-main-img');
   const thumbs = document.getElementById('product-thumbs');
@@ -392,7 +413,19 @@ function initProductPage() {
     mainImg.onerror = () => { mainImg.src = fallback; };
   }
 
-  setMain(displayImages[0]);
+  function applyColor(color) {
+    selectedColor = color;
+    if (color.image) setMain(assetUrl(color.image));
+    document.querySelectorAll('.color-btn').forEach((btn) => {
+      btn.classList.toggle('selected', btn.dataset.colorId === color.id);
+    });
+  }
+
+  if (product.colorOptions?.length) {
+    applyColor(product.colorOptions[0]);
+  } else {
+    setMain(displayImages[0]);
+  }
 
   thumbs.innerHTML = displayImages.map((src, i) => `
     <button type="button" class="product-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
@@ -435,6 +468,24 @@ function initProductPage() {
     `<button type="button" class="size-btn ${s === selectedSize ? 'selected' : ''}" data-size="${s}">${s}</button>`
   ).join('');
 
+  const colorGrid = document.getElementById('color-grid');
+  if (colorGrid && product.colorOptions?.length) {
+    colorGrid.innerHTML = product.colorOptions.map((c) =>
+      `<button type="button" class="color-btn ${c.id === selectedColor.id ? 'selected' : ''}" data-color-id="${c.id}" title="${c.name}">
+        <span class="color-btn-swatch" style="background:${c.hex}"></span>
+        <span class="color-btn-label">${c.name}</span>
+      </button>`
+    ).join('');
+    colorGrid.querySelectorAll('.color-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const color = product.colorOptions.find((c) => c.id === btn.dataset.colorId);
+        if (color) applyColor(color);
+      });
+    });
+  } else if (colorGrid) {
+    colorGrid.closest('.color-picker')?.remove();
+  }
+
   sizeGrid.querySelectorAll('.size-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       selectedSize = btn.dataset.size;
@@ -443,20 +494,21 @@ function initProductPage() {
     });
   });
 
-  document.getElementById('add-to-cart').addEventListener('click', () => addToCart(product, selectedSize));
+  document.getElementById('add-to-cart').addEventListener('click', () => addToCart(product, selectedSize, selectedColor));
   document.getElementById('buy-now')?.addEventListener('click', () => {
     const item = {
       id: product.id,
       title: product.title,
       price: product.price,
       size: selectedSize,
+      color: selectedColor.name,
       qty: 1,
-      image: resolveImage(product.images, product)
+      image: selectedColor.image ? assetUrl(selectedColor.image) : resolveImage(product.images, product)
     };
     if (checkoutWithPaymentLink(product.id, [item])) return;
     startCheckout([item]);
   });
-  document.getElementById('sticky-add')?.addEventListener('click', () => addToCart(product, selectedSize));
+  document.getElementById('sticky-add')?.addEventListener('click', () => addToCart(product, selectedSize, selectedColor));
 
   document.getElementById('product-description').textContent = product.description;
   document.getElementById('product-style').textContent = product.styleIt;

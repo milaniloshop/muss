@@ -54,6 +54,14 @@ Full guide: **`docs/TRACKING-SETUP-USA.md`**
 
 ---
 
+## AdSkull for ad videos (Hamza — separate from pixels)
+
+Pixels track sales. **AdSkull** makes AI UGC video ads — paste `milanhype.com` and generate Sora/Veo creatives. Not for website photos.
+
+→ **`docs/ADSKULL-SETUP-USA.md`**
+
+---
+
 ## Google Search first (USA)
 
 Keywords to start (from playbook):
