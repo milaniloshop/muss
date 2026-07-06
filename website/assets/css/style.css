@@ -205,8 +205,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-page { padding: 2rem 0 4rem; }
 .product-layout { display: grid; gap: 2rem; }
 @media (min-width: 900px) { .product-layout { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } }
-.product-main-image { aspect-ratio: 1; background: #ffffff; border: 1px solid var(--border); overflow: hidden; margin-bottom: 0.75rem; }
-.product-main-image img { width: 100%; height: 100%; object-fit: cover; }
+.product-main-image {
+  aspect-ratio: 1;
+  background: linear-gradient(160deg, #f8f7f5 0%, #eceae6 100%);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+.product-main-image img { width: 100%; height: 100%; object-fit: contain; max-height: 100%; }
 .product-thumbs { display: flex; gap: 0.5rem; overflow-x: auto; }
 .product-thumb { width: 72px; height: 72px; flex-shrink: 0; border: 2px solid transparent; overflow: hidden; background: #ffffff; }
 .product-thumb.active { border-color: var(--black); }
@@ -407,7 +417,7 @@ body { font-family: 'Inter', var(--font-body); }
 .hero-bg--lux {
   background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.88) 45%, rgba(45,36,24,0.8) 100%),
     radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.12), transparent 55%),
-    url('../images/products/corefit-pro.jpg') center 20%/cover no-repeat;
+    url('../images/products/corefit-hero-duo.jpg') center 30%/cover no-repeat;
 }
 .hero-content--lux { max-width: 680px; padding: 5rem 0; }
 .hero-content--lux h1 {
@@ -462,7 +472,7 @@ body { font-family: 'Inter', var(--font-body); }
 .tier-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
 .tier-card--featured { border-color: var(--champagne); box-shadow: 0 0 0 1px var(--champagne); }
 .tier-card-image { aspect-ratio: 4/5; background: #f8f7f5; overflow: hidden; position: relative; }
-.tier-card-image img { width: 100%; height: 100%; object-fit: cover; }
+.tier-card-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .tier-card-badge {
   position: absolute; top: 1rem; left: 1rem;
   background: var(--champagne); color: var(--ink);

@@ -23,8 +23,20 @@ Hamza doesn't film 50 videos himself. He pastes the product URL into AdSkull →
 ## Step 1 — Sign up
 
 1. Go to **[adskull.io](https://adskull.io/en)**
-2. Free plan: 1 ad account, 25 launches/month, 50 AI credits — enough to test
-3. Connect **Meta** (Instagram @Milanhype_) when ready for Phase 2
+2. **Free plan:** 1 ad account · **25 ad launches/month** · **50 AI credits/month**
+3. **Reality check:** 50 credits = only a few AI videos per month — **not unlimited free videos**
+4. Connect **Meta** when ready for Phase 2
+
+### Can't get free AdSkull videos? Use this instead (free)
+
+| Method | Cost | Best for |
+|--------|------|----------|
+| **Google Search ads** | Pay per click | **Start here** — no video needed |
+| **Phone UGC** | $0 | Film yourself when sample arrives — 15 sec mirror clip |
+| **CapCut** | $0 | Templates + text hooks |
+| **Meta static image ads** | $0 creative | Use `corefit-hero-duo.jpg` from your site |
+
+**You do NOT need AdSkull to run your first ads.** Google Search + clean product photos on milanhype.com is enough to test.
 
 ---
 

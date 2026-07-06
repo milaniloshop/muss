@@ -28,11 +28,13 @@ const PRODUCTS = [
     fit: 'Compression fit — size up if between sizes',
     fabric: '82% Nylon · 18% Spandex',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential.jpg' },
-      { id: 'white', name: 'White', hex: '#f4f4f0', image: 'assets/images/products/corefit-essential-white.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-hero-duo.jpg' },
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: 'assets/images/products/corefit-essential-white-clean.jpg', imageAlt: 'assets/images/products/corefit-essential-black-clean.jpg' }
     ],
+    heroImage: 'assets/images/products/corefit-essential-white-clean.jpg',
     images: [
-      'assets/images/products/corefit-essential.jpg',
+      'assets/images/products/corefit-essential-black-clean.jpg',
+      'assets/images/products/corefit-essential-white-clean.jpg',
       'assets/images/products/corefit-essential.svg'
     ],
     imageSlots: [
@@ -77,11 +79,13 @@ const PRODUCTS = [
     fit: 'Athletic compression — true to size for firm hold',
     fabric: 'Italian Microfiber · Silver-Ion Blend',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-pro.jpg' },
-      { id: 'charcoal', name: 'Charcoal', hex: '#3d3d3d', image: 'assets/images/products/corefit-pro-charcoal.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-hero-duo.jpg' },
+      { id: 'charcoal', name: 'Charcoal', hex: '#3d3d3d', image: 'assets/images/products/corefit-pro-charcoal-clean.jpg', imageAlt: 'assets/images/products/corefit-essential-black-clean.jpg' }
     ],
+    heroImage: 'assets/images/products/corefit-pro-charcoal-clean.jpg',
     images: [
-      'assets/images/products/corefit-pro.jpg',
+      'assets/images/products/corefit-essential-black-clean.jpg',
+      'assets/images/products/corefit-pro-charcoal-clean.jpg',
       'assets/images/products/corefit-pro.svg'
     ],
     imageSlots: [
@@ -126,9 +130,10 @@ const PRODUCTS = [
     fit: 'Precision compression — consult size guide',
     fabric: 'Japanese Cooling Yarn · 4-Way Stretch',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-elite.jpg' },
-      { id: 'navy', name: 'Midnight Navy', hex: '#1a2744', image: 'assets/images/products/corefit-elite-2.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-elite.jpg' },
+      { id: 'navy', name: 'Midnight Navy', hex: '#1a2744', image: 'assets/images/products/corefit-elite.jpg', imageAlt: 'assets/images/products/corefit-elite-2.jpg' }
     ],
+    heroImage: 'assets/images/products/corefit-elite.jpg',
     images: [
       'assets/images/products/corefit-elite.jpg',
       'assets/images/products/corefit-elite.svg'
@@ -174,8 +179,9 @@ const PRODUCTS = [
     fit: 'Bespoke-grade compression — white-glove sizing support',
     fabric: 'Swiss Compression Weave · 24K Gold Thread',
     colorOptions: [
-      { id: 'onyx', name: 'Onyx Black', hex: '#0a0a0a', image: 'assets/images/products/corefit-signature.jpg' }
+      { id: 'onyx', name: 'Onyx Black', hex: '#0a0a0a', image: 'assets/images/products/corefit-signature.jpg', imageAlt: 'assets/images/products/corefit-signature-2.jpg' }
     ],
+    heroImage: 'assets/images/products/corefit-signature.jpg',
     images: [
       'assets/images/products/corefit-signature.jpg',
       'assets/images/products/corefit-signature.svg'

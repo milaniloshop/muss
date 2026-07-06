@@ -109,7 +109,8 @@ function productCardHTML(product) {
 }
 
 function tierCardHTML(product) {
-  const img = resolveImage(product.images, product);
+  const sources = product.heroImage ? [product.heroImage, ...product.images] : product.images;
+  const img = resolveImage(sources, product);
   const featured = product.badge === 'Best Seller' ? ' tier-card--featured' : '';
   const tierSkin = ` tier-card--${product.id.replace('corefit-', '')}`;
   const compareHTML = product.compareAt
@@ -383,24 +384,27 @@ function initProductPage() {
 
   document.title = `${product.title} | Milan Hype CoreFit`;
 
-  let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).map(assetUrl);
-  if (product.colorOptions?.length) {
-    product.colorOptions.forEach((c) => {
-      if (c.image) {
-        const src = assetUrl(c.image);
-        if (!images.includes(src)) images.unshift(src);
-      }
-    });
-  }
-  if (!images.length) {
-    images = (product.imageSlots || []).map((s) => assetUrl(`assets/images/products/${s.filename}`));
-    images = images.filter((src) => uploadedImages.get(src.split('/').pop()));
-  }
   const fallback = assetUrl(product.images.find((s) => s.endsWith('.svg')));
-  const displayImages = images.length ? images : [fallback];
+
+  function imagesForColor(color) {
+    const list = [];
+    if (color?.image) list.push(assetUrl(color.image));
+    if (color?.imageAlt) {
+      const alt = assetUrl(color.imageAlt);
+      if (!list.includes(alt)) list.push(alt);
+    }
+    if (!list.length) {
+      product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).forEach((s) => {
+        const src = assetUrl(s);
+        if (!list.includes(src)) list.push(src);
+      });
+    }
+    return list.length ? list : [fallback];
+  }
 
   let selectedSize = product.sizes[Math.floor(product.sizes.length / 2)];
   let selectedColor = product.colorOptions?.[0] || { id: 'black', name: 'Black' };
+  let displayImages = imagesForColor(selectedColor);
 
   const mainImg = document.getElementById('product-main-img');
   const thumbs = document.getElementById('product-thumbs');
@@ -410,32 +414,31 @@ function initProductPage() {
     mainImg.onerror = () => { mainImg.src = fallback; };
   }
 
+  function renderThumbs(imgs) {
+    thumbs.innerHTML = imgs.map((src, i) => `
+      <button type="button" class="product-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
+        <img src="${src}" alt="" onerror="this.src='${fallback}'">
+      </button>`).join('');
+    thumbs.querySelectorAll('.product-thumb').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        thumbs.querySelectorAll('.product-thumb').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        setMain(btn.dataset.src);
+      });
+    });
+  }
+
   function applyColor(color) {
     selectedColor = color;
-    if (color.image) setMain(assetUrl(color.image));
+    displayImages = imagesForColor(color);
+    setMain(displayImages[0]);
+    renderThumbs(displayImages);
     document.querySelectorAll('.color-btn').forEach((btn) => {
       btn.classList.toggle('selected', btn.dataset.colorId === color.id);
     });
   }
 
-  if (product.colorOptions?.length) {
-    applyColor(product.colorOptions[0]);
-  } else {
-    setMain(displayImages[0]);
-  }
-
-  thumbs.innerHTML = displayImages.map((src, i) => `
-    <button type="button" class="product-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
-      <img src="${src}" alt="" onerror="this.src='${fallback}'">
-    </button>`).join('');
-
-  thumbs.querySelectorAll('.product-thumb').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      thumbs.querySelectorAll('.product-thumb').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      setMain(btn.dataset.src);
-    });
-  });
+  applyColor(selectedColor);
 
   const tierLabel = document.getElementById('product-tier-label');
   if (tierLabel) tierLabel.textContent = `${product.tier} Collection`;
