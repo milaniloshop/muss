@@ -384,9 +384,6 @@ function initProductPage() {
   document.title = `${product.title} | Milan Hype CoreFit`;
 
   let images = product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).map(assetUrl);
-  if (product.lifestyleImage) {
-    images.push(assetUrl(product.lifestyleImage));
-  }
   if (product.colorOptions?.length) {
     product.colorOptions.forEach((c) => {
       if (c.image) {

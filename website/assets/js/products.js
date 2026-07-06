@@ -80,7 +80,6 @@ const PRODUCTS = [
       { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-pro.jpg' },
       { id: 'charcoal', name: 'Charcoal', hex: '#3d3d3d', image: 'assets/images/products/corefit-pro-charcoal.jpg' }
     ],
-    lifestyleImage: 'assets/images/products/corefit-pro-lifestyle.jpg',
     images: [
       'assets/images/products/corefit-pro.jpg',
       'assets/images/products/corefit-pro.svg'

@@ -33,10 +33,10 @@ Hamza doesn't film 50 videos himself. He pastes the product URL into AdSkull →
 1. In AdSkull → **Generate creatives**
 2. Paste: `https://milanhype.com/product.html?id=corefit-pro`
 3. Pick AI model: **Sora 2**, **Veo 3.1**, or **Kling 3.0** (Hamza uses these in course)
-4. Prompt angle examples for CoreFit:
+4. Prompt angle examples for CoreFit (**always include "no fake muscle, no padded abs, real compression tank"**):
 
 ```
-POV: guy putting on compression tank before work, looks in mirror, confidence under dress shirt. Discreet. Not gym bro. Premium USA brand.
+POV: average guy puts on black compression tank before work, checks mirror in t-shirt — flatter chest, not fake abs. Discreet premium USA brand. No gym bro.
 ```
 
 ```
@@ -81,14 +81,16 @@ Week 4:  Bulk Meta campaign + scale winners
 
 ---
 
-## Website photos vs ad videos — clear split
+## Website photos vs AdSkull ads vs samples — read this
 
-| | Website | AdSkull ads |
-|---|---------|-------------|
-| **Purpose** | Trust + conversion | Clicks + emotion |
-| **Style** | Clean product, lifestyle, color options | UGC, POV, hook in 3 seconds |
-| **Real sample photos** | Yes — swap when Superbuy arrives | Optional — AI works without samples |
-| **All black boring grid** | ❌ Fixed — Black/White/Charcoal now | ❌ Use dynamic AI scenes |
+| | Website photos | AdSkull ad videos | Superbuy samples |
+|---|----------------|-------------------|------------------|
+| **When** | Now (clean product shots) | After Google Search test | When they arrive |
+| **Style** | Flat lay, colors, styled shirt+tank | UGC POV, emotion, hooks | **Real factory photos — final upgrade** |
+| **Fake abs / padded?** | **Never** — CoreFit is anti-gimmick | AdSkull prompts must say "no fake muscle" | Real product truth |
+| **Wait for samples?** | Use clean shots now; swap when samples land | Can test ads while waiting | Worth waiting for **site** trust |
+
+**Do NOT** put fake muscle / abs on the website — that kills your brand. Samples fix the site. AdSkull handles video ads separately.
 
 ---
 
