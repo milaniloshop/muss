@@ -1,11 +1,9 @@
-// Milan Hype — Social accounts (update with your real profile URLs)
+// Milan Hype — Social (loads handles from social-config.js)
 const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/Milanhype_',
-  facebook: 'https://www.facebook.com/sharer/sharer.php', // Page URL set below
-  facebookPage: 'https://facebook.com/MilanHype',
-  tiktok: 'https://www.tiktok.com/@milanhype_',
-  snapchat: 'https://www.snapchat.com/add/milanhype',
-  siteUrl: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
+  instagram: (window.MH_SOCIAL_URLS && window.MH_SOCIAL_URLS.instagram) || 'https://instagram.com/milanhype.corefit',
+  facebookPage: (window.MH_SOCIAL_URLS && window.MH_SOCIAL_URLS.facebook) || 'https://www.facebook.com/milanhypecorefit',
+  tiktok: (window.MH_SOCIAL_URLS && window.MH_SOCIAL_URLS.tiktok) || 'https://www.tiktok.com/@milanhype.corefit',
+  siteUrl: (window.MH_SOCIAL && window.MH_SOCIAL.siteUrl) || (typeof window !== 'undefined' ? window.location.origin : 'https://milanhype.com')
 };
 
 const SHARE_HASHTAGS = '#MilanHype #CoreFit #MensCompression #ConfidenceUnderEveryShirt';
@@ -74,8 +72,7 @@ function shareToTikTok(caption, url) {
 
 function shareToSnapchat(url) {
   copyToClipboard(url);
-  showToast('Link copied — open Snapchat and paste in Add Link');
-  setTimeout(() => window.open(SOCIAL_LINKS.snapchat, '_blank'), 800);
+  showToast('Link copied');
 }
 
 function updatePageMeta({ title, description, image, url }) {
@@ -118,7 +115,6 @@ function renderSocialBar(container) {
       <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener" class="social-icon" title="Instagram">IG</a>
       <a href="${SOCIAL_LINKS.facebookPage}" target="_blank" rel="noopener" class="social-icon" title="Facebook">FB</a>
       <a href="${SOCIAL_LINKS.tiktok}" target="_blank" rel="noopener" class="social-icon" title="TikTok">TT</a>
-      <a href="${SOCIAL_LINKS.snapchat}" target="_blank" rel="noopener" class="social-icon" title="Snapchat">SC</a>
       <a href="share.html" class="social-icon social-icon-share" title="Share a Drop">Share</a>
     </div>`;
 }
