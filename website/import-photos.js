@@ -21,7 +21,10 @@ const REVIEW_SLOTS = [
   { out: 'review-before-after-side.jpg', social: true, tierBlack: 'tier-signature-black-model.jpg' }
 ];
 
-const TIER_WHITE_SLOTS = [
+const TIER_ESSENTIAL_GALLERY_SLOTS = [
+  { out: 'tier-essential-back-model.jpg' },
+  { out: 'tier-essential-shirt-layer-model.jpg' }
+];
   { out: 'tier-essential-white-model.jpg' },
   { out: 'tier-pro-white-model.jpg' },
   { out: 'tier-elite-white-model.jpg' },

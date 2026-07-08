@@ -35,13 +35,14 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-essential-black-model.jpg`,
     lifestyleImages: [
-      'assets/images/social/review-before-after-side.jpg',
-      'assets/images/social/review-mirror-front.jpg',
-      'assets/images/social/review-mirror-side.jpg'
+      `${TIER_IMG}tier-essential-back-model.jpg`,
+      `${TIER_IMG}tier-essential-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-essential-black-model.jpg`,
       `${TIER_IMG}tier-essential-white-model.jpg`,
+      `${TIER_IMG}tier-essential-back-model.jpg`,
+      `${TIER_IMG}tier-essential-shirt-layer-model.jpg`,
       'assets/images/products/corefit-essential.svg'
     ],
     imageSlots: [
