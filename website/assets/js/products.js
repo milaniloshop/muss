@@ -272,11 +272,13 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-signature-black-model.jpg`,
     lifestyleImages: [
+      `${TIER_IMG}tier-signature-back-model.jpg`,
       `${TIER_IMG}tier-signature-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-signature-black-model.jpg`,
       `${TIER_IMG}tier-signature-white-model.jpg`,
+      `${TIER_IMG}tier-signature-back-model.jpg`,
       `${TIER_IMG}tier-signature-shirt-layer-model.jpg`,
       `${TIER_IMG}tier-signature-green-model.jpg`,
       `${TIER_IMG}tier-signature-blue-model.jpg`,

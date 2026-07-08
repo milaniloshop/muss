@@ -31,6 +31,7 @@ const TIER_SHIRT_LAYER_SLOTS = [
   { out: 'tier-pro-shirt-layer-model.jpg' },
   { out: 'tier-elite-back-model.jpg' },
   { out: 'tier-elite-shirt-layer-model.jpg' },
+  { out: 'tier-signature-back-model.jpg' },
   { out: 'tier-signature-shirt-layer-model.jpg' }
 ];
   { out: 'tier-essential-white-model.jpg' },
