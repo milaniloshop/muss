@@ -83,7 +83,7 @@ const PRODUCTS = [
     collections: ['corefit'],
     badge: 'Best Seller',
     tierRank: 2,
-    fit: 'Athletic compression — true to size for firm hold',
+    fit: 'Firm compression — true to size for maximum hold',
     fabric: 'Italian Microfiber · Silver-Ion Blend',
     colorOptions: [
       { id: 'black', name: 'Black', hex: '#1a1a1a', image: `${TIER_IMG}tier-pro-black-model.jpg`, imageAlt: `${TIER_IMG}tier-pro-white-model.jpg` },

@@ -12,6 +12,21 @@ const path = require('path');
 
 const INCOMING = path.join(__dirname, 'photos-to-import');
 const DEST = path.join(__dirname, 'assets/images/products');
+const SOCIAL_DEST = path.join(__dirname, 'assets/images/social');
+const TIER_DEST = path.join(__dirname, 'assets/images/products/tiers');
+
+const REVIEW_SLOTS = [
+  { out: 'review-mirror-front.jpg', social: true, tierBlack: 'tier-essential-black-model.jpg' },
+  { out: 'review-mirror-side.jpg', social: true, tierBlack: 'tier-pro-black-model.jpg' },
+  { out: 'review-before-after-side.jpg', social: true, tierBlack: 'tier-signature-black-model.jpg' }
+];
+
+const TIER_WHITE_SLOTS = [
+  { out: 'tier-essential-white-model.jpg' },
+  { out: 'tier-pro-white-model.jpg' },
+  { out: 'tier-elite-white-model.jpg' },
+  { out: 'tier-signature-white-model.jpg' }
+];
 
 const SLOTS = [
   { out: 'corefit-essential.jpg', product: 'essential', view: 'front' },
@@ -35,10 +50,33 @@ function listImages(dir) {
     .map((f) => path.join(dir, f));
 }
 
-function copyAsJpg(src, destName) {
-  const dest = path.join(DEST, destName);
+function copyToDir(src, destDir, destName) {
+  if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+  const dest = path.join(destDir, destName);
   fs.copyFileSync(src, dest);
   console.log('✓', destName, '←', path.basename(src));
+}
+
+function copyAsJpg(src, destName) {
+  copyToDir(src, DEST, destName);
+}
+
+function importReviewPhotos(sourceDir) {
+  let copied = 0;
+  for (const slot of REVIEW_SLOTS) {
+    const exact = path.join(sourceDir, slot.out);
+    if (!fs.existsSync(exact)) continue;
+    copyToDir(exact, SOCIAL_DEST, slot.out);
+    if (slot.tierBlack) copyToDir(exact, TIER_DEST, slot.tierBlack);
+    copied++;
+  }
+  for (const slot of TIER_WHITE_SLOTS) {
+    const exact = path.join(sourceDir, slot.out);
+    if (!fs.existsSync(exact)) continue;
+    copyToDir(exact, TIER_DEST, slot.out);
+    copied++;
+  }
+  return copied;
 }
 
 function scoreFile(filePath, slot) {
@@ -120,16 +158,20 @@ if (!fs.existsSync(INCOMING)) fs.mkdirSync(INCOMING, { recursive: true });
 console.log('\nMilan Hype CoreFit — import product photos');
 console.log('Source:', sourceDir, '\n');
 
+const reviewCopied = importReviewPhotos(sourceDir);
 const copied = importFromDir(sourceDir);
 
-if (!copied) {
+if (!copied && !reviewCopied) {
   console.log('No photos found.\n');
   console.log('Put your images in:');
   console.log('  ', INCOMING, '\n');
   console.log('Filenames (optional — script auto-matches too):');
   SLOTS.forEach((s) => console.log('  ', s.out));
+  console.log('\nReview / testimonial photos (your real mirror selfies):');
+  REVIEW_SLOTS.forEach((s) => console.log('  ', s.out));
   console.log('\nThen run:  node import-photos.js\n');
 } else {
-  console.log(`\nDone — ${copied} photo(s) added.`);
+  const total = copied + reviewCopied;
+  console.log(`\nDone — ${total} photo(s) added (${reviewCopied} review, ${copied} product).`);
   console.log('Commit and push to update milanhype.com\n');
 }
