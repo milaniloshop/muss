@@ -82,12 +82,14 @@ const PRODUCTS = [
       { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-hero-duo.jpg' },
       { id: 'charcoal', name: 'Charcoal', hex: '#3d3d3d', image: 'assets/images/products/corefit-pro-charcoal-clean.jpg', imageAlt: 'assets/images/products/corefit-essential-black-clean.jpg' }
     ],
-    heroImage: 'assets/images/products/corefit-pro-charcoal-clean.jpg',
-    images: [
-      'assets/images/products/corefit-essential-black-clean.jpg',
-      'assets/images/products/corefit-pro-charcoal-clean.jpg',
-      'assets/images/products/corefit-pro.svg'
+    heroImage: 'assets/images/social/before-after-chest-core.jpg',
+    lifestyleImages: [
+      'assets/images/social/before-after-chest-core.jpg',
+      'assets/images/social/in-action-putting-on.jpg',
+      'assets/images/social/in-action-dress-shirt.jpg',
+      'assets/images/social/social-colors-on-body.jpg'
     ],
+    images: [
     imageSlots: [
       { filename: 'corefit-pro.jpg', label: 'Front flat lay' },
       { filename: 'corefit-pro-2.jpg', label: 'Detail — chest panel' }

@@ -393,6 +393,10 @@ function initProductPage() {
       const alt = assetUrl(color.imageAlt);
       if (!list.includes(alt)) list.push(alt);
     }
+    (product.lifestyleImages || []).forEach((s) => {
+      const src = assetUrl(s);
+      if (!list.includes(src)) list.push(src);
+    });
     if (!list.length) {
       product.images.filter((s) => /\.(jpe?g|png|webp)$/i.test(s)).forEach((s) => {
         const src = assetUrl(s);
