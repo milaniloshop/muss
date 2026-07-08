@@ -111,11 +111,13 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-pro-black-model.jpg`,
     lifestyleImages: [
+      `${TIER_IMG}tier-pro-back-model.jpg`,
       `${TIER_IMG}tier-pro-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-pro-black-model.jpg`,
       `${TIER_IMG}tier-pro-white-model.jpg`,
+      `${TIER_IMG}tier-pro-back-model.jpg`,
       `${TIER_IMG}tier-pro-shirt-layer-model.jpg`,
       'assets/images/products/corefit-pro.svg'
     ],
