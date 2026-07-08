@@ -71,7 +71,26 @@ const PRODUCTS = [
       { q: 'Who is Essential for?', a: 'Men who want reliable daily chest + core compression — first-time buyers, everyday office wear, and anyone who hates how they look in a fitted tee.' },
       { q: 'Does it help with chest insecurity?', a: 'Yes — that is exactly what it is built for. The chest zone compresses for a flatter look under shirts. The core zone streamlines your midsection.' },
       { q: 'How does it compare to Pro?', a: 'Essential uses our standard nylon-spandex blend. Pro upgrades to Italian microfiber with silver-ion odor control and a reinforced dual-layer chest compression panel.' }
-    ]
+    ],
+    highlights: [
+      { icon: '◆', title: 'Daily Wear', desc: 'Moderate compression for all-day comfort' },
+      { icon: '◆', title: 'Dual Zones', desc: 'Separate chest + core panels' },
+      { icon: '◆', title: 'Two Colors', desc: 'Black under dark · white under light' },
+      { icon: '◆', title: '30-Day Trial', desc: 'Try at home risk-free' }
+    ],
+    pros: [
+      'Best entry price at $49 — lowest risk to try compression',
+      'Reliable nylon-spandex holds shape through daily wear',
+      'Invisible tank cut under polos, tees, and dress shirts',
+      'Discreet matte-black packaging — no embarrassing labels'
+    ],
+    cons: [
+      'Moderate hold — men wanting maximum compression should choose Pro or above',
+      'No odor-control treatment (upgrade to Pro for silver-ion)',
+      'Standard fabric vs premium microfiber on higher tiers'
+    ],
+    expertVerdict: 'Essential is the smart first purchase for men who have never worn compression. It proves the concept without overspending — and most men who love it upgrade to Pro within 60 days.',
+    expertBy: 'Milan Hype Product Team · Last reviewed July 2026'
   },
   {
     id: 'corefit-pro',
@@ -127,7 +146,27 @@ const PRODUCTS = [
       { q: 'Why is Pro the best seller?', a: 'It is the sweet spot — firm chest + core compression, premium Italian microfiber, and all-day comfort. Most men buy this tier first.' },
       { q: 'Will it flatten my chest under a t-shirt?', a: 'Yes. The reinforced chest panel is specifically engineered to reduce visible chest contour under fitted shirts.' },
       { q: 'Is the silver-ion treatment permanent?', a: 'Yes — woven into the fiber, not a surface coating. Effective for the life of the garment.' }
-    ]
+    ],
+    highlights: [
+      { icon: '◆', title: 'Best Seller', desc: 'Most-chosen tier nationwide' },
+      { icon: '◆', title: 'Italian Fabric', desc: 'Microfiber with silver-ion odor control' },
+      { icon: '◆', title: 'Firm Hold', desc: 'Reinforced dual-layer chest panel' },
+      { icon: '◆', title: '12+ Hours', desc: 'Moisture-wicking for long workdays' }
+    ],
+    pros: [
+      'Sweet spot of compression, comfort, and price at $89',
+      'Reinforced chest panel visibly flattens contour under fitted shirts',
+      'Italian microfiber feels premium — not like cheap Amazon tubes',
+      'Silver-ion odor control for long wear days and travel',
+      'Seamless sides — no visible lines under dress shirts'
+    ],
+    cons: [
+      'Firm compression — size up if you prefer a lighter hold',
+      'Not the cooling yarn of Elite or maximum hold of Signature',
+      'Higher price than Essential (worth it for daily wearers)'
+    ],
+    expertVerdict: 'If you only buy one CoreFit tank, make it Pro. It is the tier we recommend to 80% of first-time buyers — firm enough to matter, comfortable enough to wear every morning.',
+    expertBy: 'Milan Hype Product Team · Last reviewed July 2026'
   },
   {
     id: 'corefit-elite',
@@ -181,7 +220,27 @@ const PRODUCTS = [
     faqs: [
       { q: 'What makes Elite worth $149?', a: 'Japanese cooling yarn, hand-finished seams, and precision compression mapping — materials and construction you can feel immediately.' },
       { q: 'Is Elite suitable for hot weather?', a: 'Yes. The cooling yarn is specifically engineered for thermoregulation — popular with clients in Florida, Texas, and California.' }
-    ]
+    ],
+    highlights: [
+      { icon: '◆', title: 'Cooling Yarn', desc: 'Japanese thermoregulating fiber' },
+      { icon: '◆', title: 'Precision Map', desc: '360° chest + core zones' },
+      { icon: '◆', title: 'Flatlock Seams', desc: 'Hand-finished, zero lines' },
+      { icon: '◆', title: 'Gift Sleeve', desc: 'Embossed presentation packaging' }
+    ],
+    pros: [
+      'Japanese cooling yarn — ideal for warm climates and travel',
+      'Precision-mapped compression zones vs one-size-fits-all squeeze',
+      'Hand-finished flatlock seams invisible under the thinnest dress shirts',
+      'Extended length stays tucked through full workdays',
+      'Premium gift sleeve packaging — event-ready presentation'
+    ],
+    cons: [
+      'Premium price at $149 — overkill for casual-only wearers',
+      'Hand-wash or delicate cycle recommended',
+      'Precision fit — consult size guide carefully'
+    ],
+    expertVerdict: 'Elite is for men who notice fabric quality immediately — weddings, client dinners, and 90° summers. The cooling yarn alone justifies the upgrade if you live in the South or Southwest.',
+    expertBy: 'Milan Hype Product Team · Last reviewed July 2026'
   },
   {
     id: 'corefit-signature',
@@ -237,7 +296,27 @@ const PRODUCTS = [
       { q: 'How limited is Signature?', a: 'Each production run is capped. Once a size sells out, restock takes 6–8 weeks.' },
       { q: 'What is the lifetime seam guarantee?', a: 'If flatlock seams fail under normal wear, we repair or replace at no charge for the life of the garment.' },
       { q: 'Is the gold thread visible?', a: 'No — it runs along the interior seam as a signature detail. Invisible when worn.' }
-    ]
+    ],
+    highlights: [
+      { icon: '◆', title: 'Swiss Weave', desc: 'Maximum hold, zero restriction' },
+      { icon: '◆', title: 'Limited Run', desc: 'Numbered authenticity card' },
+      { icon: '◆', title: 'Luxury Box', desc: 'Magnetic-close presentation' },
+      { icon: '◆', title: 'Lifetime Seams', desc: 'Repair guarantee included' }
+    ],
+    pros: [
+      'Maximum compression hold for milestone events and black-tie',
+      'Swiss-engineered weave — the firmest hold in the CoreFit line',
+      'Luxury magnetic-close box with numbered authenticity card',
+      'Lifetime seam repair guarantee — buy once, wear for years',
+      'White-glove sizing consultation via email included'
+    ],
+    cons: [
+      'Highest price at $229 — investment-tier purchase',
+      'Limited production — sizes can sell out between runs',
+      'Maximum compression may feel too firm for first-time compression wearers'
+    ],
+    expertVerdict: 'Signature is not for everyone — and that is the point. For black-tie, your wedding, or any moment when the fit must be flawless, this is the tank you reach for once and keep forever.',
+    expertBy: 'Milan Hype Product Team · Last reviewed July 2026'
   }
 ];
 

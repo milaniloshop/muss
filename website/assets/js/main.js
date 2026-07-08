@@ -532,6 +532,42 @@ function initProductPage() {
     </div>`).join('');
   initFAQ();
 
+  const richEl = document.getElementById('product-rich-content');
+  if (richEl && (product.highlights || product.pros)) {
+    const highlightsHTML = (product.highlights || []).map((h) => `
+      <div class="feature-highlight">
+        <div class="feature-highlight-icon">${h.icon}</div>
+        <strong>${h.title}</strong>
+        <span>${h.desc}</span>
+      </div>`).join('');
+    const prosHTML = (product.pros || []).map((p) => `<li>${p}</li>`).join('');
+    const consHTML = (product.cons || []).map((c) => `<li>${c}</li>`).join('');
+    richEl.innerHTML = `
+      <div class="section-header section-header--lux">
+        <p class="eyebrow">Expert Review</p>
+        <h2>${product.tier} Tier — Full Breakdown</h2>
+        <p>Research-backed analysis of fit, materials, and who this tier is built for.</p>
+      </div>
+      ${highlightsHTML ? `<div class="feature-highlights">${highlightsHTML}</div>` : ''}
+      <div class="pros-cons-grid">
+        <div class="pros-card">
+          <h4>Pros</h4>
+          <ul class="pros-cons-list">${prosHTML}</ul>
+        </div>
+        <div class="cons-card">
+          <h4>Considerations</h4>
+          <ul class="pros-cons-list">${consHTML}</ul>
+        </div>
+      </div>
+      ${product.expertVerdict ? `
+        <blockquote class="expert-verdict">
+          <p class="expert-verdict-label">Expert Verdict</p>
+          <p>${product.expertVerdict}</p>
+          ${product.expertBy ? `<cite>${product.expertBy}</cite>` : ''}
+        </blockquote>` : ''}
+      <p class="meta-updated">Methodology: Each tier is evaluated on compression hold, fabric quality, daily wearability, and value. Updated quarterly.</p>`;
+  }
+
   if (typeof initProductShare === 'function') initProductShare(product);
 
   const related = PRODUCTS.filter((p) => p.id !== product.id);
@@ -565,5 +601,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (document.body.dataset.page === 'product') initProductPage();
   if (typeof renderSocialBar === 'function') {
     renderSocialBar(document.getElementById('footer-social'));
+  }
+
+  if (typeof window.initReveal === 'undefined' && document.querySelectorAll('.reveal').length) {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
   }
 });

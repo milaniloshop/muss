@@ -3,34 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Milan Hype</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Contact Us | Milan Hype CoreFit</title>
+  <meta name="description" content="Contact Milan Hype CoreFit support. Sizing help, orders, returns — we respond within 24 hours.">
+  <link rel="canonical" href="https://milanhype.com/contact.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/premium.css">
 </head>
-<body>
-  <header class="site-header"><div class="container header-inner"><a href="index.html" class="logo">Milan Hype</a></div></header>
-  <div class="page-hero">
+<body data-page="contact">
+
+  <div class="announcement">30-Day Guarantee · Discreet US Shipping</div>
+
+  <header class="site-header site-header--lux">
+    <div class="container header-inner">
+      <button class="menu-toggle" aria-label="Open menu">☰</button>
+      <a href="index.html" class="logo">Milan Hype</a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a href="collection.html">CoreFit Collection</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button type="button" class="icon-btn cart-open">Bag (<span class="cart-count">0</span>)</button>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile">
+      <a href="collection.html">Collection</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page-hero reveal">
     <div class="container">
+      <p class="eyebrow">Support</p>
       <h1>Contact Us</h1>
-      <p>We respond within 24 hours (Monday–Friday).</p>
+      <p>Real humans. 24-hour response Monday–Friday.</p>
     </div>
   </div>
+
   <div class="content-page">
-    <div class="container content-prose" style="text-align:center;">
-      <p><strong>Email:</strong> <a href="mailto:support@milanhype.com">support@milanhype.com</a></p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/milanhype.corefit" target="_blank" rel="noopener">@milanhype.corefit</a></p>
-      <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@milanhype.corefit" target="_blank" rel="noopener">@milanhype.corefit</a></p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61591393637430" target="_blank" rel="noopener">Milan Hype CoreFit</a></p>
-      <p style="color:var(--gray);">For order tracking, returns, sizing, or collaborations — we're here to help.</p>
+    <div class="container content-prose reveal">
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Email</h3>
+          <p><a href="mailto:support@milanhype.com">support@milanhype.com</a></p>
+        </div>
+        <div class="value-card">
+          <h3>Instagram</h3>
+          <p><a href="https://instagram.com/milanhype.corefit" target="_blank" rel="noopener">@milanhype.corefit</a></p>
+        </div>
+      </div>
+      <p>For order tracking, returns, sizing, or collaborations — we're here to help.</p>
     </div>
-    <form class="contact-form" id="contact-form">
+    <form class="contact-form reveal" id="contact-form" style="max-width:520px;margin:0 auto 4rem;padding:0 1.25rem;">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required autocomplete="name">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required autocomplete="email">
       </div>
       <div class="form-group">
         <label for="order">Order Number (optional)</label>
@@ -48,16 +80,34 @@
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" required rows="5"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+      <button type="submit" class="btn btn-gold btn-block">Send Message</button>
     </form>
   </div>
-  <footer class="site-footer"><div class="container footer-bottom">© 2026 Milan Hype</div></footer>
+
+  <footer class="site-footer site-footer--lux">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><span class="logo">Milan Hype</span><p>CoreFit compression tanks — USA.</p></div>
+        <div class="footer-col"><h4>Shop</h4><ul><li><a href="collection.html">Collection</a></li><li><a href="product.html?id=corefit-pro">Pro — $89</a></li></ul></div>
+        <div class="footer-col"><h4>Support</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="shipping.html">Shipping</a></li><li><a href="returns.html">Returns</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><div id="footer-social"></div></div>
+      </div>
+      <div class="footer-bottom">© 2026 Milan Hype</div>
+    </div>
+  </footer>
+
+  <div class="cart-overlay"></div>
+  <aside class="cart-drawer"><div class="cart-header"><h3>Your Bag</h3><button type="button" class="cart-close">✕</button></div><div class="cart-items"></div><div class="cart-footer"><div class="cart-total"><span>Subtotal</span><span class="cart-total-amount">$0.00</span></div><button type="button" class="btn btn-gold btn-block cart-checkout-btn">Checkout</button></div></aside>
+
   <script src="assets/js/tracking-config.js"></script>
   <script src="assets/js/tracking.js"></script>
   <script src="assets/js/social-config.js"></script>
   <script src="assets/js/products.js"></script>
+  <script src="assets/js/social.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/ui.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
