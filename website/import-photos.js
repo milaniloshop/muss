@@ -87,6 +87,12 @@ function importReviewPhotos(sourceDir) {
     }
     copied++;
   }
+  for (const slot of TIER_ESSENTIAL_GALLERY_SLOTS) {
+    const exact = path.join(sourceDir, slot.out);
+    if (!fs.existsSync(exact)) continue;
+    copyToDir(exact, TIER_DEST, slot.out);
+    copied++;
+  }
   for (const slot of TIER_WHITE_SLOTS) {
     const exact = path.join(sourceDir, slot.out);
     if (!fs.existsSync(exact)) continue;
