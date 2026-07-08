@@ -40,8 +40,12 @@ const ALLOWED_FILES = new Set([
   'corefit-pro-2.jpg',
   'corefit-elite.jpg',
   'corefit-elite-2.jpg',
+  'corefit-elite-green.jpg',
+  'corefit-elite-blue.jpg',
   'corefit-signature.jpg',
-  'corefit-signature-2.jpg'
+  'corefit-signature-2.jpg',
+  'corefit-signature-green.jpg',
+  'corefit-signature-blue.jpg'
 ]);
 
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
