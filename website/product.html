@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/premium.css">
 </head>
 <body data-page="product">
 
@@ -72,7 +73,7 @@
         </div>
       </div>
 
-      <section class="product-in-action">
+      <section class="product-in-action reveal">
         <div class="section-header section-header--lux">
           <p class="eyebrow">In Action</p>
           <h2>See CoreFit On Real Bodies</h2>
@@ -80,21 +81,23 @@
         </div>
         <div class="action-grid action-grid--product">
           <figure>
-            <img src="assets/images/social/review-before-after-side.jpg" alt="Before and after CoreFit side profile">
+            <img src="assets/images/social/review-before-after-side.jpg" alt="Before and after CoreFit side profile" loading="lazy" width="600" height="750">
             <figcaption>Before · After — same shirt, flatter core</figcaption>
           </figure>
           <figure>
-            <img src="assets/images/social/review-mirror-front.jpg" alt="Mirror selfie in CoreFit">
+            <img src="assets/images/social/review-mirror-front.jpg" alt="Mirror selfie in CoreFit" loading="lazy" width="600" height="750">
             <figcaption>Real bodies. Real compression.</figcaption>
           </figure>
           <figure>
-            <img src="assets/images/social/review-mirror-side.jpg" alt="Side profile CoreFit tank">
+            <img src="assets/images/social/review-mirror-side.jpg" alt="Side profile CoreFit tank" loading="lazy" width="600" height="750">
             <figcaption>Black or white — every tier, your fit</figcaption>
           </figure>
         </div>
       </section>
 
-      <div class="product-tabs">
+      <section class="product-rich-content reveal" id="product-rich-content" aria-label="Expert review and comparison"></section>
+
+      <div class="product-tabs reveal">
         <h3>Description</h3>
         <p id="product-description" style="color:var(--gray);font-size:0.95rem;"></p>
         <h3>Why You'll Love It</h3>
@@ -160,7 +163,37 @@
   </div>
 
   <footer class="site-footer site-footer--lux">
-    <div class="container footer-bottom">© 2026 Milan Hype · CoreFit Collection</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Milan Hype</span>
+          <p>CoreFit — men's chest + core compression tanks. Engineered in the USA. Discreet shipping nationwide.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="product.html?id=corefit-essential">Essential — $49</a></li>
+            <li><a href="product.html?id=corefit-pro">Pro — $89</a></li>
+            <li><a href="product.html?id=corefit-elite">Elite — $149</a></li>
+            <li><a href="product.html?id=corefit-signature">Signature — $229</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shipping.html">Shipping</a></li>
+            <li><a href="returns.html">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div id="footer-social"></div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Milan Hype · CoreFit Collection · All rights reserved</div>
+    </div>
   </footer>
 
   <div class="cart-overlay"></div>
@@ -179,6 +212,8 @@
   <script src="assets/js/social-config.js"></script>
   <script src="assets/js/products.js"></script>
   <script src="assets/js/social.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/ui.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
