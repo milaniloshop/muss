@@ -182,7 +182,9 @@ const PRODUCTS = [
     fabric: 'Japanese Cooling Yarn · 4-Way Stretch',
     colorOptions: [
       { id: 'black', name: 'Black', hex: '#1a1a1a', image: `${TIER_IMG}tier-elite-black-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-white-model.jpg` },
-      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-elite-white-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-black-model.jpg` }
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-elite-white-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-black-model.jpg` },
+      { id: 'green', name: 'Green', hex: '#2d5a3d', image: `${TIER_IMG}tier-elite-green-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-black-model.jpg` },
+      { id: 'blue', name: 'Blue', hex: '#1e3a5f', image: `${TIER_IMG}tier-elite-blue-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-white-model.jpg` }
     ],
     heroImage: `${TIER_IMG}tier-elite-black-model.jpg`,
     lifestyleImages: [
@@ -192,11 +194,15 @@ const PRODUCTS = [
     images: [
       `${TIER_IMG}tier-elite-black-model.jpg`,
       `${TIER_IMG}tier-elite-white-model.jpg`,
+      `${TIER_IMG}tier-elite-green-model.jpg`,
+      `${TIER_IMG}tier-elite-blue-model.jpg`,
       'assets/images/products/corefit-elite.svg'
     ],
     imageSlots: [
       { filename: 'corefit-elite.jpg', label: 'On body — black' },
-      { filename: 'corefit-elite-2.jpg', label: 'On body — white' }
+      { filename: 'corefit-elite-2.jpg', label: 'On body — white' },
+      { filename: 'corefit-elite-green.jpg', label: 'On body — green' },
+      { filename: 'corefit-elite-blue.jpg', label: 'On body — blue' }
     ],
     benefits: [
       'Japanese cooling yarn — thermoregulating for warm climates',
@@ -211,7 +217,7 @@ const PRODUCTS = [
       'Collection': 'CoreFit Elite',
       'Fabric': 'Japanese Cooling Yarn / Elastane',
       'Compression': 'Precision — events & travel',
-      'Colors': 'Black · White',
+      'Colors': 'Black · White · Green · Blue',
       'Care': 'Hand wash or delicate cycle · hang dry'
     },
     description: 'For men who notice the difference. CoreFit Elite uses Japanese cooling yarn and hand-finished construction — the tier chosen by clients who refuse to compromise on how they look in a fitted shirt.',
@@ -225,7 +231,7 @@ const PRODUCTS = [
       { icon: '◆', title: 'Cooling Yarn', desc: 'Japanese thermoregulating fiber' },
       { icon: '◆', title: 'Precision Map', desc: '360° chest + core zones' },
       { icon: '◆', title: 'Flatlock Seams', desc: 'Hand-finished, zero lines' },
-      { icon: '◆', title: 'Gift Sleeve', desc: 'Embossed presentation packaging' }
+      { icon: '◆', title: 'Four Colors', desc: 'Black · white · green · blue' }
     ],
     pros: [
       'Japanese cooling yarn — ideal for warm climates and travel',
@@ -256,7 +262,9 @@ const PRODUCTS = [
     fabric: 'Swiss Compression Weave · 24K Gold Thread',
     colorOptions: [
       { id: 'black', name: 'Black', hex: '#0a0a0a', image: `${TIER_IMG}tier-signature-black-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-white-model.jpg` },
-      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-signature-white-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-black-model.jpg` }
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-signature-white-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-black-model.jpg` },
+      { id: 'green', name: 'Green', hex: '#1f4d3a', image: `${TIER_IMG}tier-signature-green-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-black-model.jpg` },
+      { id: 'blue', name: 'Blue', hex: '#1a3d6e', image: `${TIER_IMG}tier-signature-blue-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-white-model.jpg` }
     ],
     heroImage: `${TIER_IMG}tier-signature-black-model.jpg`,
     lifestyleImages: [
@@ -266,11 +274,15 @@ const PRODUCTS = [
     images: [
       `${TIER_IMG}tier-signature-black-model.jpg`,
       `${TIER_IMG}tier-signature-white-model.jpg`,
+      `${TIER_IMG}tier-signature-green-model.jpg`,
+      `${TIER_IMG}tier-signature-blue-model.jpg`,
       'assets/images/products/corefit-signature.svg'
     ],
     imageSlots: [
       { filename: 'corefit-signature.jpg', label: 'On body — black' },
-      { filename: 'corefit-signature-2.jpg', label: 'On body — white' }
+      { filename: 'corefit-signature-2.jpg', label: 'On body — white' },
+      { filename: 'corefit-signature-green.jpg', label: 'On body — green' },
+      { filename: 'corefit-signature-blue.jpg', label: 'On body — blue' }
     ],
     benefits: [
       'Swiss-engineered compression weave — maximum hold, zero restriction',
@@ -286,7 +298,7 @@ const PRODUCTS = [
       'Collection': 'CoreFit Signature',
       'Fabric': 'Swiss Compression Weave / Gold Thread',
       'Compression': 'Maximum — black-tie & milestone events',
-      'Colors': 'Black · White',
+      'Colors': 'Black · White · Green · Blue',
       'Care': 'Dry clean recommended · hand wash alternative'
     },
     description: 'The pinnacle of Milan Hype. CoreFit Signature is produced in limited runs with Swiss compression weave and 24K gold-thread detailing. For men who treat confidence as non-negotiable.',

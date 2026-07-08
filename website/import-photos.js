@@ -28,6 +28,13 @@ const TIER_WHITE_SLOTS = [
   { out: 'tier-signature-white-model.jpg' }
 ];
 
+const TIER_PREMIUM_COLOR_SLOTS = [
+  { out: 'tier-elite-green-model.jpg' },
+  { out: 'tier-elite-blue-model.jpg' },
+  { out: 'tier-signature-green-model.jpg' },
+  { out: 'tier-signature-blue-model.jpg' }
+];
+
 const SLOTS = [
   { out: 'corefit-essential.jpg', product: 'essential', view: 'front' },
   { out: 'corefit-essential-2.jpg', product: 'essential', view: 'lifestyle' },
@@ -35,8 +42,12 @@ const SLOTS = [
   { out: 'corefit-pro-2.jpg', product: 'pro', view: 'lifestyle' },
   { out: 'corefit-elite.jpg', product: 'elite', view: 'front' },
   { out: 'corefit-elite-2.jpg', product: 'elite', view: 'lifestyle' },
+  { out: 'corefit-elite-green.jpg', product: 'elite', view: 'green' },
+  { out: 'corefit-elite-blue.jpg', product: 'elite', view: 'blue' },
   { out: 'corefit-signature.jpg', product: 'signature', view: 'front' },
-  { out: 'corefit-signature-2.jpg', product: 'signature', view: 'lifestyle' }
+  { out: 'corefit-signature-2.jpg', product: 'signature', view: 'lifestyle' },
+  { out: 'corefit-signature-green.jpg', product: 'signature', view: 'green' },
+  { out: 'corefit-signature-blue.jpg', product: 'signature', view: 'blue' }
 ];
 
 const IMAGE_EXT = /\.(jpe?g|png|webp)$/i;
@@ -79,6 +90,12 @@ function importReviewPhotos(sourceDir) {
     copyToDir(exact, TIER_DEST, slot.out);
     copied++;
   }
+  for (const slot of TIER_PREMIUM_COLOR_SLOTS) {
+    const exact = path.join(sourceDir, slot.out);
+    if (!fs.existsSync(exact)) continue;
+    copyToDir(exact, TIER_DEST, slot.out);
+    copied++;
+  }
   return copied;
 }
 
@@ -93,6 +110,8 @@ function scoreFile(filePath, slot) {
 
   if (slot.view === 'front' && /front|flat|lay|main|^1[^0-9]|[-_]1\.|[-_]1$/.test(f)) score += 10;
   if (slot.view === 'lifestyle' && /lifestyle|wear|shirt|model|under|angle|^2[^0-9]|[-_]2\.|[-_]2$/.test(f)) score += 10;
+  if (slot.view === 'green' && /green/.test(f)) score += 15;
+  if (slot.view === 'blue' && /blue|navy/.test(f)) score += 15;
 
   if (slot.view === 'front' && /lifestyle|wear|model|[-_]2/.test(f)) score -= 8;
   if (slot.view === 'lifestyle' && /front|flat|lay|[-_]1\.|main/.test(f)) score -= 5;
