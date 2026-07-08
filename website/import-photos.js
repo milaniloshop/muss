@@ -25,6 +25,12 @@ const TIER_ESSENTIAL_GALLERY_SLOTS = [
   { out: 'tier-essential-back-model.jpg' },
   { out: 'tier-essential-shirt-layer-model.jpg' }
 ];
+
+const TIER_SHIRT_LAYER_SLOTS = [
+  { out: 'tier-pro-shirt-layer-model.jpg' },
+  { out: 'tier-elite-shirt-layer-model.jpg' },
+  { out: 'tier-signature-shirt-layer-model.jpg' }
+];
   { out: 'tier-essential-white-model.jpg' },
   { out: 'tier-pro-white-model.jpg' },
   { out: 'tier-elite-white-model.jpg' },
@@ -88,6 +94,12 @@ function importReviewPhotos(sourceDir) {
     copied++;
   }
   for (const slot of TIER_ESSENTIAL_GALLERY_SLOTS) {
+    const exact = path.join(sourceDir, slot.out);
+    if (!fs.existsSync(exact)) continue;
+    copyToDir(exact, TIER_DEST, slot.out);
+    copied++;
+  }
+  for (const slot of TIER_SHIRT_LAYER_SLOTS) {
     const exact = path.join(sourceDir, slot.out);
     if (!fs.existsSync(exact)) continue;
     copyToDir(exact, TIER_DEST, slot.out);

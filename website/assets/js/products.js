@@ -111,13 +111,12 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-pro-black-model.jpg`,
     lifestyleImages: [
-      'assets/images/social/review-before-after-side.jpg',
-      'assets/images/social/review-mirror-front.jpg',
-      'assets/images/social/review-mirror-side.jpg'
+      `${TIER_IMG}tier-pro-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-pro-black-model.jpg`,
       `${TIER_IMG}tier-pro-white-model.jpg`,
+      `${TIER_IMG}tier-pro-shirt-layer-model.jpg`,
       'assets/images/products/corefit-pro.svg'
     ],
     imageSlots: [
@@ -189,12 +188,12 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-elite-black-model.jpg`,
     lifestyleImages: [
-      'assets/images/social/review-before-after-side.jpg',
-      'assets/images/social/review-mirror-side.jpg'
+      `${TIER_IMG}tier-elite-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-elite-black-model.jpg`,
       `${TIER_IMG}tier-elite-white-model.jpg`,
+      `${TIER_IMG}tier-elite-shirt-layer-model.jpg`,
       `${TIER_IMG}tier-elite-green-model.jpg`,
       `${TIER_IMG}tier-elite-blue-model.jpg`,
       'assets/images/products/corefit-elite.svg'
@@ -269,12 +268,12 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-signature-black-model.jpg`,
     lifestyleImages: [
-      'assets/images/social/review-mirror-front.jpg',
-      'assets/images/social/review-mirror-side.jpg'
+      `${TIER_IMG}tier-signature-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-signature-black-model.jpg`,
       `${TIER_IMG}tier-signature-white-model.jpg`,
+      `${TIER_IMG}tier-signature-shirt-layer-model.jpg`,
       `${TIER_IMG}tier-signature-green-model.jpg`,
       `${TIER_IMG}tier-signature-blue-model.jpg`,
       'assets/images/products/corefit-signature.svg'
