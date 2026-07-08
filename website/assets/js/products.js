@@ -190,11 +190,13 @@ const PRODUCTS = [
     ],
     heroImage: `${TIER_IMG}tier-elite-black-model.jpg`,
     lifestyleImages: [
+      `${TIER_IMG}tier-elite-back-model.jpg`,
       `${TIER_IMG}tier-elite-shirt-layer-model.jpg`
     ],
     images: [
       `${TIER_IMG}tier-elite-black-model.jpg`,
       `${TIER_IMG}tier-elite-white-model.jpg`,
+      `${TIER_IMG}tier-elite-back-model.jpg`,
       `${TIER_IMG}tier-elite-shirt-layer-model.jpg`,
       `${TIER_IMG}tier-elite-green-model.jpg`,
       `${TIER_IMG}tier-elite-blue-model.jpg`,
