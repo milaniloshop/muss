@@ -14,6 +14,8 @@ const COLLECTIONS = {
   }
 };
 
+const TIER_IMG = 'assets/images/products/tiers/';
+
 const PRODUCTS = [
   {
     id: 'corefit-essential',
@@ -28,18 +30,23 @@ const PRODUCTS = [
     fit: 'Compression fit — size up if between sizes',
     fabric: '82% Nylon · 18% Spandex',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-hero-duo.jpg' },
-      { id: 'white', name: 'White', hex: '#f4f4f0', image: 'assets/images/products/corefit-essential-white-clean.jpg', imageAlt: 'assets/images/products/corefit-essential-black-clean.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: `${TIER_IMG}tier-essential-black-model.jpg`, imageAlt: `${TIER_IMG}tier-essential-white-model.jpg` },
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-essential-white-model.jpg`, imageAlt: `${TIER_IMG}tier-essential-black-model.jpg` }
     ],
-    heroImage: 'assets/images/products/corefit-essential-white-clean.jpg',
+    heroImage: `${TIER_IMG}tier-essential-black-model.jpg`,
+    lifestyleImages: [
+      'assets/images/social/review-before-after-side.jpg',
+      'assets/images/social/review-mirror-front.jpg',
+      'assets/images/social/review-mirror-side.jpg'
+    ],
     images: [
-      'assets/images/products/corefit-essential-black-clean.jpg',
-      'assets/images/products/corefit-essential-white-clean.jpg',
+      `${TIER_IMG}tier-essential-black-model.jpg`,
+      `${TIER_IMG}tier-essential-white-model.jpg`,
       'assets/images/products/corefit-essential.svg'
     ],
     imageSlots: [
-      { filename: 'corefit-essential.jpg', label: 'Front flat lay' },
-      { filename: 'corefit-essential-2.jpg', label: 'Under dress shirt' }
+      { filename: 'corefit-essential.jpg', label: 'On body — black' },
+      { filename: 'corefit-essential-2.jpg', label: 'On body — white' }
     ],
     benefits: [
       'Targeted chest compression for a flatter silhouette',
@@ -62,7 +69,7 @@ const PRODUCTS = [
     faqs: [
       { q: 'Is this a padded fake-muscle shirt?', a: 'No. CoreFit is a compression tank — it flattens and smooths your natural silhouette. No foam pads, no fake abs, no gimmicks.' },
       { q: 'Who is Essential for?', a: 'Men who want reliable daily chest + core compression — first-time buyers, everyday office wear, and anyone who hates how they look in a fitted tee.' },
-      { q: 'Does it help with chest insecurity?', a: 'Yes — that is exactly what it is built for. The chest zone compresses for a flatter look under shirts. The core zone streamlines your midsection. Most men wear it because they need to, not because they want a fashion item.' },
+      { q: 'Does it help with chest insecurity?', a: 'Yes — that is exactly what it is built for. The chest zone compresses for a flatter look under shirts. The core zone streamlines your midsection.' },
       { q: 'How does it compare to Pro?', a: 'Essential uses our standard nylon-spandex blend. Pro upgrades to Italian microfiber with silver-ion odor control and a reinforced dual-layer chest compression panel.' }
     ]
   },
@@ -79,20 +86,23 @@ const PRODUCTS = [
     fit: 'Athletic compression — true to size for firm hold',
     fabric: 'Italian Microfiber · Silver-Ion Blend',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-hero-duo.jpg' },
-      { id: 'charcoal', name: 'Charcoal', hex: '#3d3d3d', image: 'assets/images/products/corefit-pro-charcoal-clean.jpg', imageAlt: 'assets/images/products/corefit-essential-black-clean.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: `${TIER_IMG}tier-pro-black-model.jpg`, imageAlt: `${TIER_IMG}tier-pro-white-model.jpg` },
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-pro-white-model.jpg`, imageAlt: `${TIER_IMG}tier-pro-black-model.jpg` }
     ],
-    heroImage: 'assets/images/social/before-after-chest-core.jpg',
+    heroImage: `${TIER_IMG}tier-pro-black-model.jpg`,
     lifestyleImages: [
-      'assets/images/social/before-after-chest-core.jpg',
-      'assets/images/social/in-action-putting-on.jpg',
-      'assets/images/social/in-action-dress-shirt.jpg',
-      'assets/images/social/social-colors-on-body.jpg'
+      'assets/images/social/review-before-after-side.jpg',
+      'assets/images/social/review-mirror-front.jpg',
+      'assets/images/social/review-mirror-side.jpg'
     ],
     images: [
+      `${TIER_IMG}tier-pro-black-model.jpg`,
+      `${TIER_IMG}tier-pro-white-model.jpg`,
+      'assets/images/products/corefit-pro.svg'
+    ],
     imageSlots: [
-      { filename: 'corefit-pro.jpg', label: 'Front flat lay' },
-      { filename: 'corefit-pro-2.jpg', label: 'Detail — chest panel' }
+      { filename: 'corefit-pro.jpg', label: 'On body — black' },
+      { filename: 'corefit-pro-2.jpg', label: 'On body — white' }
     ],
     benefits: [
       'Italian microfiber — softer hand-feel, superior stretch recovery',
@@ -107,10 +117,10 @@ const PRODUCTS = [
       'Collection': 'CoreFit Pro',
       'Fabric': 'Italian Microfiber / Silver-Ion',
       'Compression': 'Firm — professional & events',
-      'Colors': 'Black · Charcoal',
+      'Colors': 'Black · White',
       'Care': 'Machine wash cold · lay flat to dry'
     },
-    description: "Our #1 men's chest + core compression tank. CoreFit Pro combines a reinforced dual-layer chest panel with a firm core compression zone — built for men who wear a dress shirt five days a week and refuse to look soft in a tee. Italian microfiber. Silver-ion odor control. Not padded. Not viral gimmickwear. Real daily compression.",
+    description: "Our #1 men's chest + core compression tank. CoreFit Pro combines a reinforced dual-layer chest panel with a firm core compression zone — built for men who wear a dress shirt five days a week and refuse to look soft in a tee.",
     styleIt: 'The executive uniform underneath. Pair with tailored shirts and premium knits.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     faqs: [
@@ -132,17 +142,22 @@ const PRODUCTS = [
     fit: 'Precision compression — consult size guide',
     fabric: 'Japanese Cooling Yarn · 4-Way Stretch',
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#1a1a1a', image: 'assets/images/products/corefit-essential-black-clean.jpg', imageAlt: 'assets/images/products/corefit-elite.jpg' },
-      { id: 'navy', name: 'Midnight Navy', hex: '#1a2744', image: 'assets/images/products/corefit-elite.jpg', imageAlt: 'assets/images/products/corefit-elite-2.jpg' }
+      { id: 'black', name: 'Black', hex: '#1a1a1a', image: `${TIER_IMG}tier-elite-black-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-white-model.jpg` },
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-elite-white-model.jpg`, imageAlt: `${TIER_IMG}tier-elite-black-model.jpg` }
     ],
-    heroImage: 'assets/images/products/corefit-elite.jpg',
+    heroImage: `${TIER_IMG}tier-elite-black-model.jpg`,
+    lifestyleImages: [
+      'assets/images/social/review-before-after-side.jpg',
+      'assets/images/social/review-mirror-side.jpg'
+    ],
     images: [
-      'assets/images/products/corefit-elite.jpg',
+      `${TIER_IMG}tier-elite-black-model.jpg`,
+      `${TIER_IMG}tier-elite-white-model.jpg`,
       'assets/images/products/corefit-elite.svg'
     ],
     imageSlots: [
-      { filename: 'corefit-elite.jpg', label: 'Front flat lay' },
-      { filename: 'corefit-elite-2.jpg', label: 'Hand-finished seam detail' }
+      { filename: 'corefit-elite.jpg', label: 'On body — black' },
+      { filename: 'corefit-elite-2.jpg', label: 'On body — white' }
     ],
     benefits: [
       'Japanese cooling yarn — thermoregulating for warm climates',
@@ -157,7 +172,7 @@ const PRODUCTS = [
       'Collection': 'CoreFit Elite',
       'Fabric': 'Japanese Cooling Yarn / Elastane',
       'Compression': 'Precision — events & travel',
-      'Colors': 'Black · Midnight Navy',
+      'Colors': 'Black · White',
       'Care': 'Hand wash or delicate cycle · hang dry'
     },
     description: 'For men who notice the difference. CoreFit Elite uses Japanese cooling yarn and hand-finished construction — the tier chosen by clients who refuse to compromise on how they look in a fitted shirt.',
@@ -181,16 +196,22 @@ const PRODUCTS = [
     fit: 'Bespoke-grade compression — white-glove sizing support',
     fabric: 'Swiss Compression Weave · 24K Gold Thread',
     colorOptions: [
-      { id: 'onyx', name: 'Onyx Black', hex: '#0a0a0a', image: 'assets/images/products/corefit-signature.jpg', imageAlt: 'assets/images/products/corefit-signature-2.jpg' }
+      { id: 'black', name: 'Black', hex: '#0a0a0a', image: `${TIER_IMG}tier-signature-black-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-white-model.jpg` },
+      { id: 'white', name: 'White', hex: '#f4f4f0', image: `${TIER_IMG}tier-signature-white-model.jpg`, imageAlt: `${TIER_IMG}tier-signature-black-model.jpg` }
     ],
-    heroImage: 'assets/images/products/corefit-signature.jpg',
+    heroImage: `${TIER_IMG}tier-signature-black-model.jpg`,
+    lifestyleImages: [
+      'assets/images/social/review-mirror-front.jpg',
+      'assets/images/social/review-mirror-side.jpg'
+    ],
     images: [
-      'assets/images/products/corefit-signature.jpg',
+      `${TIER_IMG}tier-signature-black-model.jpg`,
+      `${TIER_IMG}tier-signature-white-model.jpg`,
       'assets/images/products/corefit-signature.svg'
     ],
     imageSlots: [
-      { filename: 'corefit-signature.jpg', label: 'Front flat lay' },
-      { filename: 'corefit-signature-2.jpg', label: 'Gold-thread accent detail' }
+      { filename: 'corefit-signature.jpg', label: 'On body — black' },
+      { filename: 'corefit-signature-2.jpg', label: 'On body — white' }
     ],
     benefits: [
       'Swiss-engineered compression weave — maximum hold, zero restriction',
@@ -206,10 +227,10 @@ const PRODUCTS = [
       'Collection': 'CoreFit Signature',
       'Fabric': 'Swiss Compression Weave / Gold Thread',
       'Compression': 'Maximum — black-tie & milestone events',
-      'Colors': 'Onyx Black (limited)',
+      'Colors': 'Black · White',
       'Care': 'Dry clean recommended · hand wash alternative'
     },
-    description: 'The pinnacle of Milan Hype. CoreFit Signature is produced in limited runs with Swiss compression weave and 24K gold-thread detailing. For men who treat confidence as non-negotiable — and expect their wardrobe to reflect it.',
+    description: 'The pinnacle of Milan Hype. CoreFit Signature is produced in limited runs with Swiss compression weave and 24K gold-thread detailing. For men who treat confidence as non-negotiable.',
     styleIt: 'Black-tie. Milestone events. The shirt underneath when everything must be perfect.',
     sizes: ['S', 'M', 'L', 'XL'],
     faqs: [
@@ -237,7 +258,6 @@ function getTierProducts() {
   return [...PRODUCTS].sort((a, b) => a.tierRank - b.tierRank);
 }
 
-// Stripe Payment Links (test mode) — used on static GitHub Pages checkout
 const PAYMENT_LINKS = {
   'corefit-essential': 'https://buy.stripe.com/test_8x214f40o9yq9dw9MP3AY00',
   'corefit-pro': 'https://buy.stripe.com/test_00w00b7cAcKCcpIf793AY01',
