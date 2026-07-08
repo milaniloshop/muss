@@ -16,7 +16,7 @@ const SOCIAL_DEST = path.join(__dirname, 'assets/images/social');
 const TIER_DEST = path.join(__dirname, 'assets/images/products/tiers');
 
 const REVIEW_SLOTS = [
-  { out: 'review-mirror-front.jpg', social: true, tierBlack: 'tier-essential-black-model.jpg' },
+  { out: 'review-mirror-front.jpg', social: true, tierBlack: ['tier-essential-black-model.jpg', 'tier-elite-black-model.jpg'] },
   { out: 'review-mirror-side.jpg', social: true, tierBlack: 'tier-pro-black-model.jpg' },
   { out: 'review-before-after-side.jpg', social: true, tierBlack: 'tier-signature-black-model.jpg' }
 ];
@@ -67,7 +67,10 @@ function importReviewPhotos(sourceDir) {
     const exact = path.join(sourceDir, slot.out);
     if (!fs.existsSync(exact)) continue;
     copyToDir(exact, SOCIAL_DEST, slot.out);
-    if (slot.tierBlack) copyToDir(exact, TIER_DEST, slot.tierBlack);
+    if (slot.tierBlack) {
+      const targets = Array.isArray(slot.tierBlack) ? slot.tierBlack : [slot.tierBlack];
+      targets.forEach((name) => copyToDir(exact, TIER_DEST, name));
+    }
     copied++;
   }
   for (const slot of TIER_WHITE_SLOTS) {
