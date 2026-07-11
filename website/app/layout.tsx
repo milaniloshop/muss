@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from 'next';
-import { Outfit, Syne } from 'next/font/google';
+import { Barlow, Barlow_Condensed } from 'next/font/google';
 import { Providers } from '@/components/layout/Providers';
 import { BRAND } from '@/lib/products';
 import './globals.css';
 
-const outfit = Outfit({
-  variable: '--font-outfit',
+const barlow = Barlow({
+  variable: '--font-barlow',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
 });
 
-const syne = Syne({
-  variable: '--font-syne',
+const barlowCondensed = Barlow_Condensed({
+  variable: '--font-barlow-condensed',
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['500', '600', '700'],
   display: 'swap',
 });
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${BRAND.name}`,
   },
   description:
-    "Men's chest + core compression tanks by Milan Hype CoreFit. Flatter silhouette. Invisible under every shirt. Essential $49 to Signature $229.",
+    "Men's chest + core compression tanks by Milan Hype CoreFit. Four distinct tiers. Flatter silhouette. Invisible under every shirt.",
   keywords: [
     'men compression tank',
     'chest compression shirt men',
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#050505',
+  themeColor: '#080808',
   colorScheme: 'dark',
   width: 'device-width',
   initialScale: 1,
@@ -65,11 +66,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${syne.variable}`}>
+    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
       <body className="min-h-screen antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-black"
         >
           Skip to content
         </a>

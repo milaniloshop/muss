@@ -30,7 +30,7 @@ export function ScienceSection() {
         <Reveal variant="scale" className="relative h-[360px] overflow-hidden rounded-3xl border border-white/10 md:h-[480px]">
           <div data-parallax="0.12" className="absolute inset-0">
             <SceneCanvas className="h-full" camera={{ position: [0, 0, 2.2], fov: 40 }} dpr={[1, 1.25]}>
-              <FabricCloseup />
+              <FabricCloseup tier="Elite" />
             </SceneCanvas>
           </div>
         </Reveal>
