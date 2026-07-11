@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --black: #050505;
+  --charcoal: #121216;
+  --white: #f4f5f7;
+  --silver: #b8bdc8;
+  --blue-glow: #6ea0ff;
+  --blue-deep: #1a3a6e;
+  --background: var(--black);
+  --foreground: var(--white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-black: var(--black);
+  --color-charcoal: var(--charcoal);
+  --color-white: var(--white);
+  --color-silver: var(--silver);
+  --color-blue-glow: var(--blue-glow);
+  --color-blue-deep: var(--blue-deep);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-syne);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(58, 111, 247, 0.08), transparent 40%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.03), transparent 35%),
+    var(--black);
+  color: var(--white);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-syne), var(--font-outfit), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgba(110, 160, 255, 0.35);
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.hero-light {
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+.hero-light-delayed {
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+
+.scroll-line {
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(8%, 6%, 0) scale(1.08);
+  }
+}
+
+@keyframes scrollPulse {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-light,
+  .hero-light-delayed,
+  .scroll-line {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}

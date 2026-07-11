@@ -3,7 +3,7 @@ services:
     name: milan-hype-corefit
     runtime: node
     rootDir: website
-    buildCommand: npm install
+    buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /
     envVars:
@@ -11,7 +11,21 @@ services:
         value: "20"
       - key: BASE_URL
         value: https://milanhype.com
+      - key: NEXT_PUBLIC_BASE_URL
+        value: https://milanhype.com
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: NANO_BANANA_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: NANO_BANANA_MODEL
+        sync: false
+      - key: META_PIXEL_ID
+        sync: false
+      - key: META_CAPI_ACCESS_TOKEN
         sync: false
