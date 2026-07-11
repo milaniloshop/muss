@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     'node_modules/**',
     'public/cache/**',
     'scripts/**',
+    'server/**',
   ]),
 ]);
 

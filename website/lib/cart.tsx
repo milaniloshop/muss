@@ -80,18 +80,35 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const checkout = useCallback(async () => {
     if (!items.length) return;
-    const res = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        items: items.map((i) => ({ id: i.id, qty: i.qty, size: i.size, color: i.color })),
-      }),
-    });
-    const data = (await res.json()) as { url?: string; error?: string };
-    if (!res.ok || !data.url) {
-      throw new Error(data.error || 'Checkout unavailable');
+
+    // Prefer server checkout when available (Render / Node host)
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items.map((i) => ({ id: i.id, qty: i.qty, size: i.size, color: i.color })),
+        }),
+      });
+      if (res.ok) {
+        const data = (await res.json()) as { url?: string; error?: string };
+        if (data.url) {
+          window.location.href = data.url;
+          return;
+        }
+      }
+    } catch {
+      /* fall through to payment links */
     }
-    window.location.href = data.url;
+
+    // GitHub Pages static fallback — Stripe Payment Links
+    const { PAYMENT_LINKS } = await import('@/lib/products');
+    const primary = items[0];
+    const link = PAYMENT_LINKS[primary.id];
+    if (!link) {
+      throw new Error('Checkout unavailable for this product');
+    }
+    window.location.href = link;
   }, [items]);
 
   const value = useMemo<CartContextValue>(
