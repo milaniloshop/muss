@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Redirecting…</title>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var id = params.get('id');
+  var allowed = ['corefit-essential','corefit-pro','corefit-elite','corefit-signature'];
+  var dest = (id && allowed.indexOf(id) !== -1) ? ('/product/' + id + '/') : '/collection/';
+  location.replace(dest);
+})();
+</script></head><body><p>Redirecting…</p></body></html>

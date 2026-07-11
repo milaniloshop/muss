@@ -3,7 +3,6 @@ name: Deploy Milan Hype to GitHub Pages
 on:
   push:
     branches:
-      - cursor/serve-milan-hype-a3d6
       - main
   workflow_dispatch:
 
@@ -14,20 +13,37 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install & build static export
+        working-directory: website
+        run: |
+          npm ci
+          node scripts/write-legacy-redirects.mjs
+          npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/out
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: website
-
       - uses: actions/deploy-pages@v4
         id: deployment

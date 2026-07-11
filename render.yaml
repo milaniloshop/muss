@@ -1,17 +1,19 @@
+# Optional Node API host (Stripe checkout + Nano Banana)
+# milanhype.com currently deploys the Next static export to GitHub Pages.
+# Use this service when you want live /api/* endpoints.
+
 services:
   - type: web
-    name: milan-hype-corefit
+    name: milan-hype-api
     runtime: node
     rootDir: website
-    buildCommand: npm install && npm run build
-    startCommand: npm start
-    healthCheckPath: /
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /api/config
     envVars:
       - key: NODE_VERSION
         value: "20"
       - key: BASE_URL
-        value: https://milanhype.com
-      - key: NEXT_PUBLIC_BASE_URL
         value: https://milanhype.com
       - key: STRIPE_SECRET_KEY
         sync: false
@@ -22,8 +24,6 @@ services:
       - key: NANO_BANANA_API_KEY
         sync: false
       - key: GEMINI_API_KEY
-        sync: false
-      - key: NANO_BANANA_MODEL
         sync: false
       - key: META_PIXEL_ID
         sync: false

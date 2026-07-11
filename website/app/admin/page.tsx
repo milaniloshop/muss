@@ -16,8 +16,9 @@ export default function AdminPage() {
           Nano Banana image studio
         </h1>
         <p className="mt-4 max-w-2xl text-silver/75">
-          Generate premium lifestyle and product imagery, cache results, optimize for the web, and
-          regenerate assets on demand. Requires <code className="text-white">NANO_BANANA_API_KEY</code>.
+          Generate premium lifestyle and product imagery via Nano Banana. On GitHub Pages the UI is
+          available, but generation requires a Node API host with{' '}
+          <code className="text-white">NANO_BANANA_API_KEY</code>.
         </p>
       </Reveal>
       <div className="mt-10">
