@@ -30,24 +30,20 @@ const CartContext = createContext<CartContextValue | null>(null);
 const STORAGE_KEY = 'mh-corefit-cart';
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (typeof window === 'undefined') return [];
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setItems(JSON.parse(raw) as CartItem[]);
+      return raw ? (JSON.parse(raw) as CartItem[]) : [];
     } catch {
-      /* ignore */
+      return [];
     }
-    setHydrated(true);
-  }, []);
+  });
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (!hydrated) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  }, [items, hydrated]);
+  }, [items]);
 
   const addItem = useCallback((item: Omit<CartItem, 'qty'> & { qty?: number }) => {
     setItems((prev) => {

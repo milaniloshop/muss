@@ -93,7 +93,7 @@ async function optimizeImage(
   transparent: boolean,
 ): Promise<{ buffer: Buffer; mimeType: string; width: number; height: number }> {
   const maxEdge = SIZE_MAP[size] ?? 1024;
-  let pipeline = sharp(buffer).rotate().resize({
+  const pipeline = sharp(buffer).rotate().resize({
     width: maxEdge,
     height: maxEdge,
     fit: 'inside',

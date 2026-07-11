@@ -17,7 +17,7 @@ export function Header() {
   const pathname = usePathname();
   const { count, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,8 +25,6 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header
@@ -38,9 +36,10 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
         <button
           type="button"
-          className="md:hidden text-silver"
+          className="text-silver md:hidden"
           aria-label="Open menu"
-          onClick={() => setOpen((v) => !v)}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
         >
           <span className="block h-px w-6 bg-current" />
           <span className="mt-1.5 block h-px w-6 bg-current" />
@@ -50,6 +49,7 @@ export function Header() {
           href="/"
           className="font-display text-xl tracking-[0.08em] text-white md:text-2xl"
           aria-label="Milan Hype home"
+          onClick={() => setMenuOpen(false)}
         >
           Milan Hype
         </Link>
@@ -80,7 +80,7 @@ export function Header() {
       </div>
 
       <AnimatePresence>
-        {open && (
+        {menuOpen && (
           <motion.nav
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,6 +92,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className="block py-3 text-lg text-white"
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
