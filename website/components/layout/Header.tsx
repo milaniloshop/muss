@@ -69,14 +69,22 @@ export function Header() {
           ))}
         </nav>
 
-        <button
-          type="button"
-          onClick={openCart}
-          className="rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur-md transition hover:bg-white/10"
-          aria-label={`Open bag, ${count} items`}
-        >
-          Bag ({count})
-        </button>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/product/corefit-pro"
+            className="hidden min-h-11 items-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition hover:bg-[#dfb93a] md:inline-flex"
+          >
+            Shop Pro
+          </Link>
+          <button
+            type="button"
+            onClick={openCart}
+            className="min-h-11 cursor-pointer rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur-md transition hover:bg-white/10"
+            aria-label={`Open bag, ${count} items`}
+          >
+            Bag ({count})
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

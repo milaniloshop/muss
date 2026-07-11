@@ -1,14 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --black: #050505;
+  /* UI UX Pro Max — Modern Dark Cinema adapted for Milan Hype */
+  --black: #080808;
   --charcoal: #121216;
-  --white: #f4f5f7;
+  --white: #f5f5f4;
   --silver: #b8bdc8;
   --blue-glow: #6ea0ff;
   --blue-deep: #1a3a6e;
+  --accent: #c9a227;
+  --accent-deep: #a16207;
+  --primary: #1c1917;
   --background: var(--black);
   --foreground: var(--white);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
 }
 
 @theme inline {
@@ -20,8 +31,11 @@
   --color-silver: var(--silver);
   --color-blue-glow: var(--blue-glow);
   --color-blue-deep: var(--blue-deep);
-  --font-sans: var(--font-outfit);
-  --font-display: var(--font-syne);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-primary: var(--primary);
+  --font-sans: var(--font-barlow);
+  --font-display: var(--font-barlow-condensed);
 }
 
 * {
@@ -30,29 +44,37 @@
 
 html {
   color-scheme: dark;
+  touch-action: manipulation;
+  overscroll-behavior: contain;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(58, 111, 247, 0.08), transparent 40%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.03), transparent 35%),
+    radial-gradient(ellipse at 18% 0%, rgba(201, 162, 39, 0.07), transparent 38%),
+    radial-gradient(ellipse at 82% 18%, rgba(58, 111, 247, 0.08), transparent 36%),
     var(--black);
   color: var(--white);
-  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-family: var(--font-barlow), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
-  font-family: var(--font-syne), var(--font-outfit), sans-serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-barlow-condensed), var(--font-barlow), sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: none;
 }
 
 ::selection {
-  background: rgba(110, 160, 255, 0.35);
+  background: rgba(201, 162, 39, 0.35);
   color: white;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 a {
@@ -65,11 +87,11 @@ img {
 }
 
 .hero-light {
-  animation: drift 14s ease-in-out infinite alternate;
+  animation: drift 14s var(--ease-expo) infinite alternate;
 }
 
 .hero-light-delayed {
-  animation: drift 18s ease-in-out infinite alternate-reverse;
+  animation: drift 18s var(--ease-expo) infinite alternate-reverse;
 }
 
 .scroll-line {
