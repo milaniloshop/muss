@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Barlow, Barlow_Condensed } from 'next/font/google';
+import { Oswald, Manrope } from 'next/font/google';
 import { Providers } from '@/components/layout/Providers';
 import { BRAND } from '@/lib/products';
 import './globals.css';
 
-const barlow = Barlow({
-  variable: '--font-barlow',
+const body = Manrope({
+  variable: '--font-body',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: '--font-barlow-condensed',
+const display = Oswald({
+  variable: '--font-display',
   subsets: ['latin'],
   weight: ['500', '600', '700'],
   display: 'swap',
@@ -21,31 +21,30 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'https://milanhype.com'),
   title: {
-    default: `${BRAND.name} ${BRAND.productLine} | Elite Compression`,
+    default: `${BRAND.name} | Second Skin. First Weapon.`,
     template: `%s | ${BRAND.name}`,
   },
   description:
-    "Men's chest + core compression tanks by Milan Hype CoreFit. Four distinct tiers. Flatter silhouette. Invisible under every shirt.",
+    "Milan Hype CoreFit — men's performance-luxury compression tanks. Second skin. First weapon. Engineered chest + core hold.",
   keywords: [
     'men compression tank',
     'chest compression shirt men',
     'CoreFit',
     'Milan Hype',
     'premium compression wear',
-    'shapewear for men',
+    'performance luxury fitness',
   ],
   openGraph: {
     type: 'website',
     siteName: `${BRAND.name} ${BRAND.productLine}`,
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description:
-      'Elite compression apparel for men who want to look leaner and more confident.',
+    description: 'Second skin. First weapon. Performance-luxury compression for men who train like it is war.',
     images: ['/assets/images/products/corefit-hero-duo.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description: 'Elite Compression. Built for Confidence.',
+    description: 'Second skin. First weapon.',
     images: ['/assets/images/products/corefit-hero-duo.jpg'],
   },
   icons: {
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#080808',
+  themeColor: '#060607',
   colorScheme: 'dark',
   width: 'device-width',
   initialScale: 1,
@@ -66,11 +65,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html lang="en" className={`${body.variable} ${display.variable}`}>
       <body className="min-h-screen antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-black"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-ember focus:bg-obsidian focus:px-4 focus:py-2 focus:text-bone"
         >
           Skip to content
         </a>
