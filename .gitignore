@@ -1,1 +1,6 @@
 __pycache__/
+
+# Chuckle & Bliss
+chuckle-bliss/node_modules/
+chuckle-bliss/.next/
+chuckle-bliss/out/
