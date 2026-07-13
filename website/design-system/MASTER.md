@@ -1,50 +1,57 @@
 # Milan Hype CoreFit — Design System Master
 
-Source: UI UX Pro Max (`--design-system`) adapted for brand constraints.
+Source: Cinematic performance-luxury landing (2026-07) + UI UX Pro Max density/motion dials.
 
 ## Dials
-- Variance: 7/10
-- Motion: 9/10 (complex cinematic)
+- Variance: 6/10
+- Motion: 9/10 (cinematic scroll: aperture, rack-focus, parallax)
 - Density: 2/10 (spacious luxury)
 
 ## Style
-**Modern Dark Cinema** — deep black surfaces, ambient light blobs, glass headers, gold CTA accent, blue rim light for tech/performance.
+**Aggressive elegance / dark gym-gallery** — obsidian void, bone contrast, blood-orange ember as warning light, hairline etched UI, film grain.
 
 ## Colors
 | Token | Hex | Role |
 |-------|-----|------|
-| `--black` | `#080808` | Background (avoid pure #000 OLED smear) |
-| `--charcoal` | `#121216` | Surfaces |
-| `--white` | `#f5f5f4` | Primary text |
-| `--silver` | `#b8bdc8` | Secondary text |
-| `--accent` | `#c9a227` | CTA / Signature gold |
-| `--blue-glow` | `#6ea0ff` | Tech rim / Pro accent |
-| Elite accent | `#4fd1c5` | Cooling yarn |
-| Essential accent | `#9aa3b5` | Matte utility |
+| `--obsidian` / `--black` | `#060607` | Void background |
+| `--charcoal` | `#111214` | Surfaces |
+| `--bone` / `--white` | `#ebe6dc` | Primary text (WCAG body) |
+| `--gunmetal` / `--silver` | `#8b919a` | Secondary / whispered copy |
+| `--ember` / `--accent` | `#e0451a` | Display accent + CTAs (large type / borders) |
+| `--ember-deep` | `#b33412` | Hover / pressed |
+
+**Rule:** Ember on black is for large display + borders only. Body copy uses bone/gunmetal on obsidian.
 
 ## Typography
-- Display: **Barlow Condensed** (athletic impact — Sports/Fitness pairing from Pro Max)
-- Body: **Barlow**
-- Avoid: Inter / system defaults
+- Display: **Oswald** (condensed fashion × race livery)
+- Body: **Manrope** (quiet grotesk, generous line-height)
+- Avoid: Inter / system defaults / filled pill UI
 
 ## Motion
-- Easing: `cubic-bezier(0.16, 1, 0.3, 1)` (expo.out)
-- Press scale: 0.97
-- Stagger reveals ≤ 8 children
+- Easing: `cubic-bezier(0.16, 1, 0.3, 1)`
+- Section transitions: aperture / iris wipe (desktop)
+- Headers: blur-to-focus rack resolve
+- Hero fabric / imagery: scroll parallax (desktop only)
+- Collection cards: loupe-style rotate scrub
+- Left-edge ember scroll progress
+- Post-Material: reticle cursor (desktop, fine pointer)
+- Mobile: fade-ins only — no scroll-jacking
 - Respect `prefers-reduced-motion`
 
-## 3D Tank Models (distinct per tier)
-| Tier | Model language |
-|------|----------------|
-| Essential | Matte nylon, thinner panels, simpler silhouette |
-| Pro | Reinforced dual chest, silver-ion sheen, seamless sides |
-| Elite | Extended length, cooling yarn veins, precision panels |
-| Signature | Gold-thread seam, luxury clearcoat, Swiss weave sheen |
+## Landing sections
+1. Hero — wordmark ignition, “Second skin. First weapon.”
+2. The Material — spec sheet + macro fabric parallax
+3. Fit Philosophy — blueprint zones
+4. In Motion — cinematic loop block
+5. Collection — hover reveal price/fit
+6. Proof — museum placard quotes
+7. The Standard — manifesto
+8. Final CTA — inverted cooling wordmark
 
 ## UX checklist
-- [x] cursor-pointer on interactive elements
+- [x] cursor-pointer / reticle (contextual)
 - [x] min 44px touch targets
-- [x] hover 150–300ms
+- [x] hairline ghost CTAs
 - [x] focus rings
 - [x] reduced motion
-- [x] touch-action: manipulation
+- [x] dark mode only

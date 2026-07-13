@@ -30,13 +30,13 @@ export function Header() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-        scrolled ? 'border-b border-white/8 bg-black/70 backdrop-blur-xl' : 'bg-transparent',
+        scrolled ? 'border-b border-bone/10 bg-obsidian/75 backdrop-blur-xl' : 'bg-transparent',
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
         <button
           type="button"
-          className="text-silver md:hidden"
+          className="text-gunmetal md:hidden"
           aria-label="Open menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
@@ -47,7 +47,7 @@ export function Header() {
 
         <Link
           href="/"
-          className="font-display text-xl tracking-[0.08em] text-white md:text-2xl"
+          className="font-display text-xl tracking-[0.12em] text-bone md:text-2xl"
           aria-label="Milan Hype home"
           onClick={() => setMenuOpen(false)}
         >
@@ -60,8 +60,8 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm tracking-wide text-silver/80 transition hover:text-white',
-                pathname === item.href && 'text-white',
+                'text-[11px] uppercase tracking-[0.2em] text-gunmetal transition hover:text-bone',
+                pathname === item.href && 'text-bone',
               )}
             >
               {item.label}
@@ -71,15 +71,15 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/product/corefit-pro"
-            className="hidden min-h-11 items-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition hover:bg-[#dfb93a] md:inline-flex"
+            href="/collection"
+            className="btn-ghost-ember hidden !min-h-10 !px-4 !py-2 !text-[10px] md:inline-flex"
           >
-            Shop Pro
+            Enter
           </Link>
           <button
             type="button"
             onClick={openCart}
-            className="min-h-11 cursor-pointer rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur-md transition hover:bg-white/10"
+            className="min-h-11 cursor-pointer border border-bone/15 bg-transparent px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-bone transition hover:border-ember hover:text-ember"
             aria-label={`Open bag, ${count} items`}
           >
             Bag ({count})
@@ -93,13 +93,13 @@ export function Header() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="border-t border-white/8 bg-black/90 px-5 py-4 backdrop-blur-xl md:hidden"
+            className="border-t border-bone/10 bg-obsidian/95 px-5 py-4 backdrop-blur-xl md:hidden"
           >
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-3 text-lg text-white"
+                className="block py-3 text-lg text-bone"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}

@@ -1,18 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* UI UX Pro Max — Modern Dark Cinema adapted for Milan Hype */
-  --black: #080808;
-  --charcoal: #121216;
-  --white: #f5f5f4;
-  --silver: #b8bdc8;
+  /* Performance-luxury cinematic system — Milan Hype */
+  --obsidian: #060607;
+  --black: #060607;
+  --charcoal: #111214;
+  --bone: #ebe6dc;
+  --white: #ebe6dc;
+  --gunmetal: #8b919a;
+  --silver: #8b919a;
+  --ember: #e0451a;
+  --ember-deep: #b33412;
+  --ember-glow: rgba(224, 69, 26, 0.45);
+  --skin-warm: #2a221c;
   --blue-glow: #6ea0ff;
   --blue-deep: #1a3a6e;
-  --accent: #c9a227;
-  --accent-deep: #a16207;
-  --primary: #1c1917;
-  --background: var(--black);
-  --foreground: var(--white);
+  --accent: var(--ember);
+  --accent-deep: var(--ember-deep);
+  --primary: #111214;
+  --background: var(--obsidian);
+  --foreground: var(--bone);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --space-1: 8px;
   --space-2: 16px;
@@ -20,22 +27,29 @@
   --space-4: 40px;
   --space-5: 64px;
   --space-6: 96px;
+  --hairline: rgba(235, 230, 220, 0.14);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-black: var(--black);
+  --color-obsidian: var(--obsidian);
   --color-charcoal: var(--charcoal);
   --color-white: var(--white);
+  --color-bone: var(--bone);
   --color-silver: var(--silver);
+  --color-gunmetal: var(--gunmetal);
+  --color-ember: var(--ember);
+  --color-ember-deep: var(--ember-deep);
   --color-blue-glow: var(--blue-glow);
   --color-blue-deep: var(--blue-deep);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-primary: var(--primary);
-  --font-sans: var(--font-barlow);
-  --font-display: var(--font-barlow-condensed);
+  --color-skin-warm: var(--skin-warm);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 * {
@@ -46,30 +60,35 @@ html {
   color-scheme: dark;
   touch-action: manipulation;
   overscroll-behavior: contain;
+  background: var(--obsidian);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 18% 0%, rgba(201, 162, 39, 0.07), transparent 38%),
-    radial-gradient(ellipse at 82% 18%, rgba(58, 111, 247, 0.08), transparent 36%),
-    var(--black);
-  color: var(--white);
-  font-family: var(--font-barlow), system-ui, sans-serif;
+    radial-gradient(ellipse at 50% 18%, rgba(42, 34, 28, 0.55), transparent 52%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.85), transparent 55%),
+    var(--obsidian);
+  color: var(--bone);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
-  font-family: var(--font-barlow-condensed), var(--font-barlow), sans-serif;
-  letter-spacing: -0.01em;
-  text-transform: none;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 0.92;
 }
 
 ::selection {
-  background: rgba(201, 162, 39, 0.35);
-  color: white;
+  background: rgba(224, 69, 26, 0.35);
+  color: var(--bone);
 }
 
 a,
@@ -86,6 +105,126 @@ img {
   max-width: 100%;
 }
 
+/* Film grain — exposed stock whisper */
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.hairline {
+  border-color: var(--hairline);
+}
+
+/* Ember scroll progress — heart-rate monitor */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  width: 2px;
+  height: 100vh;
+  background: rgba(235, 230, 220, 0.06);
+}
+
+.scroll-progress__bar {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, transparent, var(--ember) 20%, var(--ember) 80%, transparent);
+  box-shadow: 0 0 12px var(--ember-glow);
+  transform-origin: top;
+}
+
+/* Reticle cursor (desktop, post-Material) */
+html.reticle-cursor,
+html.reticle-cursor * {
+  cursor: none !important;
+}
+
+.reticle {
+  pointer-events: none;
+  position: fixed;
+  z-index: 80;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 1px solid rgba(224, 69, 26, 0.85);
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.reticle.is-on {
+  opacity: 1;
+}
+
+.reticle::before,
+.reticle::after {
+  content: '';
+  position: absolute;
+  background: rgba(224, 69, 26, 0.9);
+}
+
+.reticle::before {
+  left: 50%;
+  top: 3px;
+  bottom: 3px;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.reticle::after {
+  top: 50%;
+  left: 3px;
+  right: 3px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* Ghost CTA — etched, not painted */
+.btn-ghost-ember {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(235, 230, 220, 0.35);
+  background: transparent;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone);
+  transition: border-color 0.35s var(--ease-expo), color 0.35s var(--ease-expo),
+    box-shadow 0.35s var(--ease-expo), background 0.35s var(--ease-expo);
+}
+
+.btn-ghost-ember:hover,
+.btn-ghost-ember:focus-visible {
+  border-color: var(--ember);
+  color: var(--ember);
+  box-shadow: 0 0 24px rgba(224, 69, 26, 0.25);
+  outline: none;
+}
+
+/* Skin-warm product grading */
+.grade-skin {
+  filter: contrast(1.05) saturate(0.92) brightness(0.92);
+}
+
 .hero-light {
   animation: drift 14s var(--ease-expo) infinite alternate;
 }
@@ -96,6 +235,10 @@ img {
 
 .scroll-line {
   animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+.ken-burns {
+  animation: kenBurns 18s var(--ease-expo) infinite alternate;
 }
 
 @keyframes drift {
@@ -116,13 +259,52 @@ img {
   }
 }
 
+@keyframes kenBurns {
+  from {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(-2%, 1%, 0);
+  }
+}
+
+@keyframes apertureIn {
+  from {
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-light,
   .hero-light-delayed,
-  .scroll-line {
+  .scroll-line,
+  .ken-burns {
     animation: none;
   }
   html {
     scroll-behavior: auto !important;
+  }
+  html.reticle-cursor,
+  html.reticle-cursor * {
+    cursor: auto !important;
+  }
+  .reticle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html.reticle-cursor,
+  html.reticle-cursor * {
+    cursor: auto !important;
+  }
+  .reticle {
+    display: none !important;
+  }
+  .scroll-progress {
+    width: 1.5px;
   }
 }

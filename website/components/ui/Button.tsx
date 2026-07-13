@@ -22,12 +22,12 @@ type AnchorProps = HTMLMotionProps<'a'> & {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    'bg-accent text-black hover:bg-[#dfb93a] focus-visible:ring-accent/50 shadow-[0_0_0_1px_rgba(201,162,39,0.25)]',
+    'bg-ember text-bone hover:bg-ember-deep focus-visible:ring-ember/50 shadow-[0_0_0_1px_rgba(224,69,26,0.35)]',
   secondary:
-    'bg-white/8 text-white backdrop-blur-md border border-white/12 hover:bg-white/14 focus-visible:ring-blue-glow/40',
-  ghost: 'bg-transparent text-white hover:bg-white/6 focus-visible:ring-white/20',
+    'bg-white/8 text-bone backdrop-blur-md border border-bone/12 hover:bg-white/14 focus-visible:ring-bone/30',
+  ghost: 'bg-transparent text-bone hover:bg-white/6 focus-visible:ring-bone/20',
   outline:
-    'bg-transparent text-white border border-white/25 hover:border-accent/60 hover:text-accent focus-visible:ring-accent/40',
+    'bg-transparent text-bone border border-bone/30 hover:border-ember hover:text-ember focus-visible:ring-ember/40 rounded-none',
 };
 
 function useMagnetic(enabled: boolean) {
@@ -65,7 +65,7 @@ export function Button({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn(
-        'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-[background,border-color,box-shadow,transform,color] duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex min-h-11 items-center justify-center gap-2 rounded-none px-7 py-3.5 text-sm font-medium tracking-[0.14em] uppercase transition-[background,border-color,box-shadow,transform,color] duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
         variants[variant],
         className,
       )}
@@ -94,7 +94,7 @@ export function ButtonLink({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={cn(
-        'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-[background,border-color,box-shadow,transform,color] duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex min-h-11 items-center justify-center gap-2 rounded-none px-7 py-3.5 text-sm font-medium tracking-[0.14em] uppercase transition-[background,border-color,box-shadow,transform,color] duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
         variants[variant],
         className,
       )}

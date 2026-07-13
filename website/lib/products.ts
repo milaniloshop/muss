@@ -6,7 +6,7 @@ export const BRAND = {
   name: 'Milan Hype',
   productLine: 'CoreFit',
   productType: "Men's Chest + Core Compression Tank",
-  tagline: 'Elite Compression. Built for Confidence.',
+  tagline: 'Second skin. First weapon.',
   shippingFreeOver: 75,
   url: 'https://milanhype.com',
 } as const;
