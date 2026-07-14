@@ -4,3 +4,8 @@ __pycache__/
 chuckle-bliss/node_modules/
 chuckle-bliss/.next/
 chuckle-bliss/out/
+
+# Sugar Nail Bar
+sugar-nail-bar/node_modules/
+sugar-nail-bar/.next/
+sugar-nail-bar/out/

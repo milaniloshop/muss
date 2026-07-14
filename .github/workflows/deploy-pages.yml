@@ -34,6 +34,16 @@ jobs:
           node scripts/write-legacy-redirects.mjs
           npm run build
 
+      - name: Build Sugar Nail Bar (subpath /sugar)
+        working-directory: sugar-nail-bar
+        env:
+          PAGES_BASE_PATH: /sugar
+        run: |
+          npm ci
+          npm run build
+          mkdir -p ../website/out/sugar
+          cp -r out/. ../website/out/sugar/
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: website/out
