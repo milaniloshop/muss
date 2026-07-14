@@ -4,3 +4,8 @@ __pycache__/
 chuckle-bliss/node_modules/
 chuckle-bliss/.next/
 chuckle-bliss/out/
+
+# Joyologie Boutique
+joyologie-boutique/node_modules/
+joyologie-boutique/.next/
+joyologie-boutique/out/

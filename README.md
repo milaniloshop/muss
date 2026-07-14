@@ -14,4 +14,12 @@ Boutique landing page (separate app) lives in [`chuckle-bliss/`](./chuckle-bliss
 cd chuckle-bliss && npm install && npm run dev
 ```
 
-Deployed via Render (`render.yaml`) with `rootDir: website` for Milan Hype. Chuckle & Bliss builds to `chuckle-bliss/out/` for any static host.
+## Joyologie Boutique
+
+Cinematic resortwear boutique landing page (separate app) lives in [`joyologie-boutique/`](./joyologie-boutique).
+
+```bash
+cd joyologie-boutique && npm install && npm run dev
+```
+
+Deployed via Render (`render.yaml`) with `rootDir: website` for Milan Hype. Chuckle & Bliss and Joyologie Boutique each build to their own `out/` for any static host.
