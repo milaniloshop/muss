@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { GALLERY, SITE } from '@/lib/site';
+import { asset } from '@/lib/asset';
 import { Reveal } from './motion';
 import { cn } from '@/lib/cn';
 
@@ -76,7 +77,7 @@ export function ShopTheLook() {
               >
                 <div className={cn('relative', item.span === 'tall' ? 'aspect-[3/4]' : 'aspect-square')}>
                   <Image
-                    src={item.src}
+                    src={asset(item.src)}
                     alt={item.alt}
                     fill
                     sizes="(max-width:768px) 50vw, 30vw"

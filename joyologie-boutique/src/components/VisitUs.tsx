@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { SITE } from '@/lib/site';
+import { asset } from '@/lib/asset';
 import { Reveal, Parallax, MaskReveal } from './motion';
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -137,7 +138,7 @@ export function VisitUs() {
             >
               <Parallax speed={0.08} className="absolute inset-0 scale-110">
                 <Image
-                  src="/images/storefront.jpg"
+                  src={asset('/images/storefront.jpg')}
                   alt="Joyologie Boutique storefront in Fountain Square, Ormond Beach"
                   fill
                   sizes="(max-width:1024px) 100vw, 45vw"

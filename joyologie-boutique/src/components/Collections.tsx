@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { COLLECTIONS } from '@/lib/site';
+import { asset } from '@/lib/asset';
 import { Reveal } from './motion';
 
 export function Collections() {
@@ -131,7 +132,7 @@ export function Collections() {
           >
             <div className="absolute inset-0 overflow-hidden">
               <Image
-                src={c.image}
+                src={asset(c.image)}
                 alt={c.alt}
                 fill
                 sizes="(max-width:768px) 82vw, 40vw"

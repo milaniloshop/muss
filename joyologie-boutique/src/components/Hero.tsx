@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { asset } from '@/lib/asset';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -95,7 +96,7 @@ export function Hero() {
         transition={{ duration: 2.4, ease: EASE }}
       >
         <Image
-          src="/images/hero-full.jpg"
+          src={asset('/images/hero-full.jpg')}
           alt="Sunlit resortwear boutique interior with a model in ivory linen"
           fill
           priority
@@ -117,7 +118,7 @@ export function Hero() {
           transition={{ duration: revealed ? 1.9 : 1.4, ease: EASE }}
         >
           <Image
-            src="/images/hero-macro.jpg"
+            src={asset('/images/hero-macro.jpg')}
             alt=""
             fill
             priority
