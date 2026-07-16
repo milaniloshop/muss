@@ -67,7 +67,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
           className="micro text-merlot"
         >
-          Est. Ormond Beach · Appointment Only
+          Est. Ormond Beach · Open Daily 9–8
         </motion.p>
 
         <motion.h1

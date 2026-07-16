@@ -66,7 +66,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-ink/12 pt-6 text-[0.72rem] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {SITE.name}. {SITE.city}, {SITE.state}.</p>
-          <p className="uppercase tracking-[0.2em]">By appointment · {SITE.phone}</p>
+          <p className="uppercase tracking-[0.2em]">{SITE.hoursSummary}</p>
         </div>
       </div>
     </footer>

@@ -16,8 +16,7 @@ export const SITE = {
     'https://www.google.com/maps/search/?api=1&query=Sugar+Nail+Bar+409+US-1+Ormond+Beach+FL+32174',
   mapsEmbed:
     'https://maps.google.com/maps?q=409%20US-1%2C%20Ormond%20Beach%2C%20FL%2032174&t=&z=15&ie=UTF8&iwloc=&output=embed',
-  hoursNote: 'By appointment only',
-  hoursDetail: 'Call, text, or book online to reserve your time.',
+  hoursSummary: 'Open Daily 9–8 · Closed Wed',
   rating: '5.0',
   instagram: 'https://www.instagram.com/sugar_nailbar/',
   instagramHandle: '@sugar_nailbar',

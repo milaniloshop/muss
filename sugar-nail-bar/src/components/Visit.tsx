@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { SITE } from '@/lib/site';
+import { businessHours, HOURS_ORDER, CLOSED_DAY } from '@/lib/hours';
 import { asset } from '@/lib/asset';
 import { Reveal, Parallax } from './motion';
 
@@ -44,7 +45,8 @@ export function Visit() {
             <Reveal delay={0.14}>
               <p className="mt-6 max-w-lg text-[1rem] leading-relaxed text-ink-soft">
                 Tucked along US-1 in Ormond Beach — a cozy, candy-lit corner made for slowing down.
-                We see guests by appointment, so every visit stays unhurried and just for you.
+                Open daily 9 to 8 (closed Wednesdays); book ahead so your chair and your drink are
+                waiting.
               </p>
             </Reveal>
 
@@ -62,16 +64,37 @@ export function Visit() {
                     <br />
                     {SITE.city}, {SITE.state} {SITE.zip}
                   </a>
+                  <a href={SITE.phoneHref} className="link-thin mt-3 block text-[0.95rem]">
+                    {SITE.phone}
+                  </a>
                 </div>
               </Reveal>
               <Reveal delay={0.24}>
                 <div>
                   <p className="micro mb-3 text-ink-soft">Hours</p>
-                  <p className="font-serif text-xl text-ink">{SITE.hoursNote}</p>
-                  <p className="mt-2 text-[0.9rem] text-ink-soft">{SITE.hoursDetail}</p>
-                  <a href={SITE.phoneHref} className="link-thin mt-3 block text-[0.95rem]">
-                    {SITE.phone}
-                  </a>
+                  <ul className="space-y-1.5">
+                    {HOURS_ORDER.map((day) => {
+                      const h = businessHours[day];
+                      const closed = h === null || day === CLOSED_DAY;
+                      return (
+                        <li
+                          key={day}
+                          className="flex items-baseline justify-between gap-4 text-[0.92rem]"
+                        >
+                          <span className="text-ink-soft">{day}</span>
+                          {closed ? (
+                            <span className="font-semibold uppercase tracking-wide text-merlot">
+                              Closed
+                            </span>
+                          ) : (
+                            <span className="text-ink">
+                              {h.open} – {h.close}
+                            </span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               </Reveal>
             </div>

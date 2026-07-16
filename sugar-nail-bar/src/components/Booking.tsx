@@ -14,13 +14,26 @@ import { Calendar } from './booking/Calendar';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// Master slot list — availability comes from demoAvailability; the rest render
-// as already-booked so the schedule feels live.
+// Master slot list across the 9 AM–8 PM window (last bookable ~7:30 PM).
+// Availability comes from demoAvailability; the rest render as already-booked
+// so the schedule feels live.
 const MASTER_SLOTS = [
-  '9:30 AM', '10:00 AM', '10:45 AM', '11:00 AM', '11:30 AM', '12:00 PM',
-  '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM',
-  '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM',
+  '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
+  '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM',
+  '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM',
+  '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM',
 ];
+
+function timeToMinutes(t: string): number {
+  const m = t.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!m) return 0;
+  let h = parseInt(m[1], 10);
+  const min = parseInt(m[2], 10);
+  const mer = m[3].toUpperCase();
+  if (mer === 'PM' && h !== 12) h += 12;
+  if (mer === 'AM' && h === 12) h = 0;
+  return h * 60 + min;
+}
 
 function prettyDate(iso: string | null) {
   if (!iso) return '';
@@ -59,6 +72,11 @@ export function Booking() {
   };
 
   const availableForDate = date ? (demoAvailability[date] ?? []) : [];
+  // Show the full window plus any available slot, sorted — available ones are
+  // clickable, the rest render as already-booked.
+  const displaySlots = Array.from(new Set([...MASTER_SLOTS, ...availableForDate])).sort(
+    (a, b) => timeToMinutes(a) - timeToMinutes(b),
+  );
 
   return (
     <section id="booking" className="relative overflow-hidden bg-cream-deep py-24 md:py-32">
@@ -184,7 +202,7 @@ export function Booking() {
                     </div>
                     <p className="mb-6 text-[0.9rem] text-ink-soft">{prettyDate(date)}</p>
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-                      {MASTER_SLOTS.map((slot) => {
+                      {displaySlots.map((slot) => {
                         const open = availableForDate.includes(slot);
                         return (
                           <button
