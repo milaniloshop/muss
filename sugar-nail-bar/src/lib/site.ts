@@ -96,6 +96,28 @@ export const PAIRINGS = [
 ] as const;
 
 /**
+ * Nail-art gallery — real client work from the salon. Each tile links to
+ * Instagram. Add more entries as new photos come in.
+ */
+export const GALLERY = [
+  {
+    src: '/images/gallery-scooby.jpg',
+    alt: 'Hand-painted Scooby-Doo cartoon nail art on long stiletto nails',
+    span: 'tall',
+  },
+  {
+    src: '/images/gallery-lines.jpg',
+    alt: 'Minimal candy-stripe line art on short round nails',
+    span: 'wide',
+  },
+  {
+    src: '/images/gallery-floral.jpg',
+    alt: 'Blue and green 3D floral nail art with gems and gold detailing',
+    span: 'tall',
+  },
+] as const;
+
+/**
  * Section 5 — Reviews. Representative of the salon's perfect 5.0 reputation and
  * the themes guests consistently mention (the drinks, the scrub, long-lasting
  * work by Julieann & Rex). Replace with live Google/Facebook text when available.

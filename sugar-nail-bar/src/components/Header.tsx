@@ -6,6 +6,7 @@ import { cn } from '@/lib/cn';
 
 const NAV = [
   { href: '#services', label: 'Services' },
+  { href: '#gallery', label: 'Our Work' },
   { href: '#pairings', label: 'Pairings' },
   { href: '#visit', label: 'Visit' },
 ];
