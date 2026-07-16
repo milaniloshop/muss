@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { REVIEWS, SITE } from '@/lib/site';
+import { REVIEWS } from '@/lib/site';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const INTERVAL = 6500;
@@ -45,7 +45,7 @@ export function Reviews() {
         <p className="micro text-coral">In Their Words</p>
         <Stars />
         <p className="mt-3 text-[0.8rem] font-medium tracking-wide text-ink-soft">
-          A perfect {SITE.rating} across Google & Facebook
+          Five-star love across Google &amp; Facebook
         </p>
 
         <div className="relative mt-10 flex min-h-[15rem] w-full items-center justify-center md:min-h-[16rem]">

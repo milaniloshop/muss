@@ -59,35 +59,35 @@ export const SERVICES = [
 export const BOOKING_SERVICES = [
   {
     id: 'manicure',
-    name: 'Classic Manicure',
-    duration: '30 min',
-    price: '$25',
+    name: 'Gel Manicure',
+    duration: '45 min',
+    price: '$35',
     image: '/images/service-manicure.jpg',
-    alt: 'Hands receiving a glossy pink manicure at a salon table',
+    alt: 'Hands receiving a glossy pink gel manicure at a salon table',
   },
   {
     id: 'pedicure',
-    name: 'Spa Pedicure',
-    duration: '45 min',
-    price: '$40',
+    name: 'Sugar Pedicure',
+    duration: '60 min',
+    price: '$45+',
     image: '/images/service-pedicure.jpg',
     alt: 'Relaxing pedicure in a massaging spa chair with rose petals',
   },
   {
     id: 'gelx',
-    name: 'Gel-X / Dip Set',
-    duration: '60 min',
-    price: '$55',
+    name: 'Gel-X / Acrylic Full Set',
+    duration: '75 min',
+    price: '$60+',
     image: '/images/service-gelx.jpg',
     alt: 'Long glossy coral-pink extension nails being finished',
   },
   {
-    id: 'paraffin',
-    name: 'Paraffin Wax Add-On',
+    id: 'addon',
+    name: 'Gel Polish Add-On',
     duration: '15 min',
-    price: '$10',
+    price: '+$15',
     image: '/images/service-headspa.jpg',
-    alt: 'A soothing warm paraffin wax treatment add-on',
+    alt: 'Glossy gel polish finish add-on',
   },
 ] as const;
 
@@ -169,26 +169,26 @@ export const GALLERY = [
 export const REVIEWS = [
   {
     quote:
-      'A mimosa in one hand, a sugar scrub on the other — and nails that still look perfect three weeks later. I will never go anywhere else.',
-    by: 'Brittany',
-    meta: 'Ormond-by-the-Sea',
+      'Just got a great gel manicure from Rex! Very relaxed environment, super clean, and I loved the house-made sugar scrubs. Very reasonable prices for the quality — will for sure be back!',
+    by: 'Emily G.',
+    meta: 'Google review',
   },
   {
     quote:
-      'It feels less like a nail appointment and more like a little treat you give yourself. The chairs, the wine, the whole vibe. Obsessed.',
-    by: 'Marisol',
-    meta: 'Ormond Beach',
+      'The most wonderful service from wonderful people! Julieann always does an amazing job, and both her and Rex are so welcoming. My nails always look amazing coming out of Sugar Nail Bar.',
+    by: 'Shannon B.',
+    meta: 'Google review',
   },
   {
     quote:
-      'Julieann is an actual artist. I am hard on my nails and this is the only place that lasts. The homemade scrub is the sweetest touch.',
-    by: 'Danielle',
-    meta: 'Daytona Beach',
+      'Beautiful and clean nail salon. Rex and Julieann do excellent work — the sweetest and most accommodating. Highly recommend.',
+    by: 'Stephanie B.',
+    meta: 'Google review',
   },
   {
     quote:
-      'Cutest little spot. Booked on a whim, left glowing with a glass of blush wine and the softest hands. Already rebooked.',
-    by: 'Priya',
-    meta: 'Port Orange',
+      'They did a phenomenal job on my nails and pedicure. I got exactly what I wanted, and the service and atmosphere were great. 10/10 recommend!',
+    by: 'Danielle C.',
+    meta: 'Google review',
   },
 ] as const;

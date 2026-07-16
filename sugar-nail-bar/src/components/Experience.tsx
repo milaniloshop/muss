@@ -25,7 +25,8 @@ export function Experience() {
               comes with a complimentary <strong className="font-semibold text-ink">mimosa,
               wine, or coffee</strong> — and finishes with our <strong className="font-semibold text-ink">
               homemade sugar scrub</strong> in the scent you choose. It&apos;s the smallest
-              luxury, done on purpose.
+              luxury, done on purpose — by <strong className="font-semibold text-ink">Julieann
+              and Rex</strong>, the husband-and-wife duo behind the bar.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
