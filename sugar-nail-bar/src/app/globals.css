@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+:root {
+  /* Base — warm champagne / cream, the color of a mimosa */
+  --cream: #fbf4e9;
+  --cream-deep: #f5e9d7;
+  --champagne: #f0e2cb;
+  --ivory: #fffaf2;
+
+  /* Primary accent — blush pink / soft coral (a fresh sugar scrub) */
+  --blush: #f0c4c0;
+  --blush-soft: #f8ddd9;
+  --coral: #e59683;
+
+  /* Contrast / CTA — deep merlot (the wine pairing) */
+  --merlot: #6f2131;
+  --merlot-deep: #571421;
+  --merlot-soft: #8a3345;
+
+  /* Shimmer — pale champagne gold, never gaudy glitter */
+  --gold: #cca85f;
+  --gold-soft: #e4cf9c;
+  --gold-glow: rgba(204, 168, 95, 0.45);
+
+  /* Type — warm deep plum-brown, grounded and cozy */
+  --ink: #3c2830;
+  --ink-soft: #6a5158;
+  --ink-faint: #9a848a;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 24px;
+  --radius-sm: 20px;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-champagne: var(--champagne);
+  --color-ivory: var(--ivory);
+  --color-blush: var(--blush);
+  --color-blush-soft: var(--blush-soft);
+  --color-coral: var(--coral);
+  --color-merlot: var(--merlot);
+  --color-merlot-deep: var(--merlot-deep);
+  --color-merlot-soft: var(--merlot-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ----- Type layers ------------------------------------------------------- */
+
+.font-serif {
+  font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+.micro {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-family: var(--font-body), sans-serif;
+}
+
+/* ----- Texture ----------------------------------------------------------- */
+
+/* ~3% paper grain on cream backgrounds — warmth without dirt */
+.paper-grain::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* Warm, softly-glowing color grade unifies all photography */
+.warm-grade {
+  filter: saturate(1.02) contrast(0.98) brightness(1.05) sepia(0.06);
+}
+
+/* ----- Surfaces & buttons ------------------------------------------------ */
+
+/* Soft, long-throw shadow — "floating in light" */
+.float-shadow {
+  box-shadow: 0 34px 80px -46px rgba(60, 40, 48, 0.5), 0 10px 34px -26px rgba(60, 40, 48, 0.28);
+}
+
+/* Sugary pink glow for interactive cards */
+.glow-hover {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.glow-hover:hover {
+  transform: scale(1.035);
+  box-shadow: 0 30px 70px -34px rgba(229, 150, 131, 0.55), 0 0 0 1px rgba(240, 196, 192, 0.5);
+}
+
+.btn-merlot {
+  position: relative;
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--merlot);
+  padding: 0.95rem 2.1rem;
+  color: var(--ivory);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 18px 44px -20px rgba(111, 33, 49, 0.6);
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+/* Warm gold-shimmer sweep on hover — champagne bubbles, not glitter */
+.btn-merlot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    var(--gold-glow) 45%,
+    rgba(255, 245, 220, 0.55) 50%,
+    var(--gold-glow) 55%,
+    transparent 80%
+  );
+  transition: transform 0.75s var(--ease);
+}
+
+.btn-merlot:hover,
+.btn-merlot:focus-visible {
+  background: var(--merlot-deep);
+  box-shadow: 0 0 0 1px var(--gold-soft), 0 22px 52px -20px var(--gold-glow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.btn-merlot:hover::after,
+.btn-merlot:focus-visible::after {
+  transform: translateX(120%);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.35s var(--ease);
+}
+
+.btn-ghost .underline-grow {
+  position: relative;
+}
+.btn-ghost .underline-grow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1.5px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 0.45s var(--ease);
+}
+.btn-ghost:hover .underline-grow::after {
+  transform: scaleX(1);
+}
+
+.link-thin {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.35s var(--ease);
+}
+.link-thin:hover {
+  color: var(--merlot);
+}
+
+/* ----- Bubbles (champagne particle motif) -------------------------------- */
+
+.bubble {
+  position: absolute;
+  bottom: -24px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 246, 224, 0.35) 45%,
+    rgba(204, 168, 95, 0.12) 70%,
+    transparent 72%
+  );
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.6);
+  animation: bubbleRise var(--dur, 12s) linear var(--delay, 0s) infinite;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--max, 0.7);
+  }
+  50% {
+    transform: translate3d(var(--drift, 10px), -52vh, 0) scale(1);
+  }
+  90% {
+    opacity: var(--max, 0.7);
+  }
+  100% {
+    transform: translate3d(0, -104vh, 0) scale(1.05);
+    opacity: 0;
+  }
+}
+
+/* ----- Scroll motion helpers -------------------------------------------- */
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bubble {
+    animation: none;
+    display: none;
+  }
+  .btn-merlot::after {
+    display: none;
+  }
+}
