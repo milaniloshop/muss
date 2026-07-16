@@ -26,6 +26,7 @@ export function Hero() {
           animate={{ scale: 1 }}
           transition={{ duration: 2.6, ease: EASE }}
         >
+          {/* Poster / fallback image — always rendered beneath the video */}
           <Image
             src={asset('/images/hero.jpg')}
             alt="A fresh blush-pink manicure beside a glass of mimosa with rising bubbles"
@@ -34,6 +35,22 @@ export function Hero() {
             sizes="100vw"
             className="warm-grade object-cover object-center"
           />
+          {/* Full-bleed real salon video background.
+              TODO: drop the real file at /public/video/hero-pinned.mp4.
+              If missing, the poster image above shows through unchanged. */}
+          {!reduce && (
+            <video
+              className="absolute inset-0 h-full w-full object-cover object-center warm-grade"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              poster={asset('/images/hero.jpg')}
+            >
+              <source src={asset('/video/hero-pinned.mp4')} type="video/mp4" />
+            </video>
+          )}
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-r from-cream/85 via-cream/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-cream/30" />
@@ -84,7 +101,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 1.35, ease: EASE }}
           className="mt-10 flex flex-wrap items-center gap-5"
         >
-          <a href={SITE.booking} target="_blank" rel="noopener noreferrer" className="btn-merlot">
+          <a href={SITE.bookingAnchor} className="btn-merlot">
             Book Your Appointment
           </a>
           <a href="#experience" className="btn-ghost text-ink">

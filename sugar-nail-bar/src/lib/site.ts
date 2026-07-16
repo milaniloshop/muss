@@ -9,8 +9,9 @@ export const SITE = {
   phone: '(321) 948-4708',
   phoneHref: 'tel:+13219484708',
   smsHref: 'sms:+13219484708',
-  booking: 'https://sugarnailbar.glossgenius.com/booking-flow',
-  services: 'https://sugarnailbar.glossgenius.com/services',
+  // Native, self-contained booking flow lives on-page (#booking).
+  // No external booking tool or redirect anywhere by design.
+  bookingAnchor: '#booking',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Sugar+Nail+Bar+409+US-1+Ormond+Beach+FL+32174',
   mapsEmbed:
@@ -51,6 +52,47 @@ export const SERVICES = [
     alt: 'A soothing head-spa scalp massage add-on',
   },
 ] as const;
+
+/**
+ * Booking flow — services with duration + price. Also feeds Step 1 of the
+ * native on-page booking flow. Prices/durations are demo values for the pitch.
+ */
+export const BOOKING_SERVICES = [
+  {
+    id: 'manicure',
+    name: 'Classic Manicure',
+    duration: '30 min',
+    price: '$25',
+    image: '/images/service-manicure.jpg',
+    alt: 'Hands receiving a glossy pink manicure at a salon table',
+  },
+  {
+    id: 'pedicure',
+    name: 'Spa Pedicure',
+    duration: '45 min',
+    price: '$40',
+    image: '/images/service-pedicure.jpg',
+    alt: 'Relaxing pedicure in a massaging spa chair with rose petals',
+  },
+  {
+    id: 'gelx',
+    name: 'Gel-X / Dip Set',
+    duration: '60 min',
+    price: '$55',
+    image: '/images/service-gelx.jpg',
+    alt: 'Long glossy coral-pink extension nails being finished',
+  },
+  {
+    id: 'paraffin',
+    name: 'Paraffin Wax Add-On',
+    duration: '15 min',
+    price: '$10',
+    image: '/images/service-headspa.jpg',
+    alt: 'A soothing warm paraffin wax treatment add-on',
+  },
+] as const;
+
+export type BookingService = (typeof BOOKING_SERVICES)[number];
 
 /**
  * Section 4 — Pick Your Pairing. Every appointment comes with a complimentary
@@ -104,16 +146,19 @@ export const GALLERY = [
     src: '/images/gallery-scooby.jpg',
     alt: 'Hand-painted Scooby-Doo cartoon nail art on long stiletto nails',
     span: 'tall',
+    toss: false,
   },
   {
     src: '/images/gallery-lines.jpg',
     alt: 'Minimal candy-stripe line art on short round nails',
     span: 'wide',
+    toss: true,
   },
   {
     src: '/images/gallery-floral.jpg',
     alt: 'Blue and green 3D floral nail art with gems and gold detailing',
     span: 'tall',
+    toss: false,
   },
 ] as const;
 

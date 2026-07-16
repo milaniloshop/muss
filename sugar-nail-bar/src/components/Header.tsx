@@ -44,7 +44,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a href={SITE.booking} target="_blank" rel="noopener noreferrer" className="btn-merlot !min-h-[44px] !px-6 !py-2.5">
+        <a href={SITE.bookingAnchor} className="btn-merlot !min-h-[44px] !px-6 !py-2.5">
           Book Now
         </a>
       </div>

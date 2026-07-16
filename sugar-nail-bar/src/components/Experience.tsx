@@ -29,12 +29,7 @@ export function Experience() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href={SITE.booking}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost mt-8 text-merlot"
-            >
+            <a href={SITE.bookingAnchor} className="btn-ghost mt-8 text-merlot">
               <span className="underline-grow">Reserve your escape</span>
               <span aria-hidden>→</span>
             </a>

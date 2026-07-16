@@ -4,8 +4,9 @@ Premium, cinematic landing page for **Sugar Nail Bar** — an appointment-only n
 409 US-1, Ormond Beach, FL, where every service comes with a complimentary mimosa, wine,
 or coffee and a homemade sugar scrub.
 
-A full brand home that upgrades their booking-only page, while keeping booking fully
-functional via a deep link to their existing GlossGenius flow.
+A full brand home that upgrades their booking-only page with a fully native,
+self-contained multi-step booking flow (no external booking tool, no redirects) —
+built as a sales demo to pitch a clean, working alternative they never have to leave.
 
 ## Run locally
 
@@ -35,16 +36,20 @@ Next.js 16 (static export) · Tailwind CSS v4 · Framer Motion.
    particles, name drift-in, staggered "Nails. Mimosas. Sugar Scrubs.", merlot CTA with a
    gold-shimmer hover sweep.
 2. **The Experience** — warm pull-quote intro to the drink + sugar-scrub concept.
-3. **Services** — soft photo card grid (Manicures, Pedicures, Gel-X/SNS/Acrylics, add-ons),
-   pink-glow scale-up on hover.
-4. **Pick Your Pairing** — horizontal drag/swipe row of pairing cards (mimosas, wines,
-   coffee, sugar-scrub scents). The wine card breaks alignment and "pours" upward with a
-   champagne-bubble trail as it scrolls into view.
-5. **Reviews** — slow auto-advancing 5★ carousel, large serif quote, name + neighborhood.
-6. **Book Your Appointment** — prominent, on-brand card deep-linking to the salon's live
-   GlossGenius booking flow (booking logic is not rebuilt).
-7. **Visit Us** — address, appointment-only note, map embed, Instagram + Facebook.
-8. **Footer** — minimal closing beat with generous whitespace.
+3. **Paraffin Promo** — native recreation of the "Complimentary Paraffin Wax Treatment"
+   offer in the site's own type/icon system (not a screenshot).
+4. **Services** — soft photo card grid, pink-glow scale-up on hover.
+5. **Our Work** — real nail-art gallery (one tile hand-placed at a slight rotation),
+   linking to Instagram.
+6. **Pick Your Pairing** — horizontal drag/swipe row of pairing cards. The wine card
+   breaks alignment and "pours" upward with a champagne-bubble trail as it scrolls in.
+7. **Reviews** — slow auto-advancing 5★ carousel, large serif quote, name + neighborhood.
+8. **Book Your Appointment** — a fully native, self-contained multi-step booking flow
+   (Service → Date → Time → Details → Confirmed) with a live-feeling mock calendar,
+   grayed-out taken slots, a celebratory confirmation, and a client-side "Add to
+   Calendar" (.ics) download. No external redirects or iframes.
+9. **Visit Us** — address, appointment-only note, map embed, Instagram + Facebook.
+10. **Footer** — minimal closing beat with generous whitespace.
 
 ### Motion & texture
 - Champagne-bubble particle motif (`Bubbles`) recurs from the hero through section
@@ -62,9 +67,11 @@ Next.js 16 (static export) · Tailwind CSS v4 · Framer Motion.
 - **Appointment only.** The salon states their published third-party hours are inaccurate,
   so the page intentionally shows "By appointment" with call/text/book rather than fixed
   hours. Update `hoursNote` / `hoursDetail` in `src/lib/site.ts` if they publish official hours.
-- **Booking** deep-links to `https://sugarnailbar.glossgenius.com/booking-flow` and the
-  services list to `.../services`. If GlossGenius later permits iframe embedding, the
-  Booking section card can host it directly.
+- **Booking is a front-end demo.** The multi-step flow lives entirely on-page and stores
+  input in React state only — no backend, payment, or calendar integration. Availability
+  is mock data in `src/lib/demoAvailability.ts` (edit to reshape the demo schedule).
+- **Hero video:** drop the real file at `public/video/hero-pinned.mp4`; until then the
+  `hero.jpg` poster shows through (see `public/video/README.md`).
 - Drink and sugar-scrub flavor names are the salon's real menu options.
 - Imagery is AI-generated placeholder matched to the brand grade; replace with real salon
   photography before launch.

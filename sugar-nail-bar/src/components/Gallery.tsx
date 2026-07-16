@@ -57,7 +57,11 @@ export function Gallery() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`See more on Instagram — ${item.alt}`}
-                className="glow-hover group block h-full overflow-hidden rounded-[24px] bg-ivory float-shadow"
+                className={cn(
+                  'glow-hover group block h-full overflow-hidden rounded-[24px] bg-ivory float-shadow',
+                  // one hand-placed tile sits slightly rotated — the "imperfection" detail
+                  item.toss && '-rotate-2 hover:rotate-0',
+                )}
               >
                 <div className={cn('relative h-full', item.span === 'tall' ? 'aspect-[3/4]' : 'aspect-[4/3]')}>
                   <Image

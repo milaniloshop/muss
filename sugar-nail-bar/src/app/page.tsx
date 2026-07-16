@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero';
 import { Experience } from '@/components/Experience';
+import { PromoParaffin } from '@/components/PromoParaffin';
 import { Services } from '@/components/Services';
 import { Gallery } from '@/components/Gallery';
 import { Pairings } from '@/components/Pairings';
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Experience />
+      <PromoParaffin />
       <Services />
       <Gallery />
       <Pairings />

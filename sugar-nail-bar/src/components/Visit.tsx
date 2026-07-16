@@ -78,7 +78,7 @@ export function Visit() {
 
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-wrap items-center gap-6">
-                <a href={SITE.booking} target="_blank" rel="noopener noreferrer" className="btn-merlot">
+                <a href={SITE.bookingAnchor} className="btn-merlot">
                   Book Your Appointment
                 </a>
                 <div className="flex items-center gap-5 text-ink">

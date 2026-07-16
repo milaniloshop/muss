@@ -21,8 +21,8 @@ export function Services() {
             </Reveal>
           </div>
           <Reveal delay={0.12}>
-            <a href={SITE.services} target="_blank" rel="noopener noreferrer" className="btn-ghost text-merlot">
-              <span className="underline-grow">Full menu & pricing</span>
+            <a href={SITE.bookingAnchor} className="btn-ghost text-merlot">
+              <span className="underline-grow">See services & book</span>
               <span aria-hidden>→</span>
             </a>
           </Reveal>
@@ -32,9 +32,7 @@ export function Services() {
           {SERVICES.map((s, i) => (
             <Reveal key={s.name} delay={0.06 * i}>
               <a
-                href={SITE.booking}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={SITE.bookingAnchor}
                 className="glow-hover group block h-full overflow-hidden rounded-[24px] bg-ivory float-shadow"
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
