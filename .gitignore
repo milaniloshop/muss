@@ -4,3 +4,8 @@ __pycache__/
 chuckle-bliss/node_modules/
 chuckle-bliss/.next/
 chuckle-bliss/out/
+
+# Alexandre Store
+alexandre-store/node_modules/
+alexandre-store/.next/
+alexandre-store/out/
