@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import type { Product } from '@/types';
 import { ProductViewer } from '@/components/3d/ProductViewer';
 import { Button } from '@/components/ui/Button';
@@ -10,12 +9,14 @@ import { formatPrice } from '@/lib/cn';
 import { useCart } from '@/lib/cart';
 import { Reveal } from '@/components/motion/Reveal';
 import { cn } from '@/lib/cn';
+import { BRAND } from '@/lib/products';
 
 export function ProductExperience({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [colorId, setColorId] = useState(product.colorOptions[0]?.id ?? 'black');
   const [size, setSize] = useState(product.sizes[1] ?? product.sizes[0]);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const show3d = (product.compressionZones?.length ?? 0) > 0 && !product.comingSoon;
 
   const color = useMemo(
     () => product.colorOptions.find((c) => c.id === colorId) ?? product.colorOptions[0],
@@ -23,15 +24,28 @@ export function ProductExperience({ product }: { product: Product }) {
   );
 
   const gallery = useMemo(() => {
-    const imgs = [color?.image, ...product.images.filter((i) => i !== color?.image)];
-    return imgs.filter(Boolean) as string[];
-  }, [color, product.images]);
+    const imgs = [color?.image, product.heroImage, ...product.images.filter((i) => i !== color?.image)];
+    return [...new Set(imgs.filter(Boolean))] as string[];
+  }, [color, product.images, product.heroImage]);
 
   return (
     <div className="mx-auto max-w-7xl px-5 pb-24 pt-28 md:px-8">
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="space-y-4">
-          <ProductViewer product={product} />
+          {show3d ? (
+            <ProductViewer product={product} />
+          ) : (
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-charcoal">
+              <Image
+                src={gallery[galleryIndex] ?? product.heroImage}
+                alt={product.title}
+                fill
+                className="object-contain p-8"
+                sizes="(max-width:1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+          )}
           <div className="grid grid-cols-4 gap-2">
             {gallery.slice(0, 4).map((src, i) => (
               <button
@@ -47,38 +61,30 @@ export function ProductExperience({ product }: { product: Product }) {
               </button>
             ))}
           </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={gallery[galleryIndex]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="relative hidden aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 md:block"
-            >
-              <Image
-                src={gallery[galleryIndex] ?? product.heroImage}
-                alt={product.title}
-                fill
-                className="object-cover"
-                sizes="(max-width:1024px) 100vw, 50vw"
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
         </div>
 
         <div>
           {product.badge && (
-            <p className="text-xs uppercase tracking-[0.2em] text-blue-glow/90">{product.badge}</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-ember">{product.badge}</p>
           )}
-          <h1 className="mt-2 font-display text-4xl text-white md:text-5xl">
-            CoreFit {product.tier}
-          </h1>
+          <h1 className="mt-2 font-display text-4xl text-white md:text-5xl">{product.title}</h1>
           <p className="mt-3 text-silver/75">{product.shortDescription}</p>
           <div className="mt-5 flex items-baseline gap-3">
             <span className="text-2xl text-white">{formatPrice(product.price)}</span>
-            <span className="text-silver/45 line-through">{formatPrice(product.compareAt)}</span>
+            {product.compareAt > 0 && (
+              <span className="text-silver/45 line-through">{formatPrice(product.compareAt)}</span>
+            )}
           </div>
+
+          {product.comingSoon && (
+            <div className="mt-6 rounded-2xl border border-ember/30 bg-ember/10 p-4 text-sm text-silver/85">
+              Placeholder slot — follow{' '}
+              <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" className="text-ember underline">
+                {BRAND.instagramHandle}
+              </a>{' '}
+              for drop alerts. Real photos and checkout go live when inventory arrives.
+            </div>
+          )}
 
           <div className="mt-8">
             <p className="text-xs uppercase tracking-[0.16em] text-silver/60">Color</p>
@@ -120,27 +126,38 @@ export function ProductExperience({ product }: { product: Product }) {
             </div>
           </div>
 
-          <Button
-            className="mt-8 w-full sm:w-auto"
-            magnetic
-            onClick={() =>
-              addItem({
-                id: product.id,
-                title: `CoreFit ${product.tier}`,
-                price: product.price,
-                size,
-                color: color?.name ?? 'Black',
-                image: color?.image ?? product.heroImage,
-              })
-            }
-          >
-            Add to bag — {formatPrice(product.price)}
-          </Button>
+          {product.comingSoon ? (
+            <a
+              href={BRAND.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost-ember mt-8 inline-flex w-full justify-center sm:w-auto"
+            >
+              Notify on Instagram — {BRAND.instagramHandle}
+            </a>
+          ) : (
+            <Button
+              className="mt-8 w-full sm:w-auto"
+              magnetic
+              onClick={() =>
+                addItem({
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  size,
+                  color: color?.name ?? 'Black',
+                  image: color?.image ?? product.heroImage,
+                })
+              }
+            >
+              Add to bag — {formatPrice(product.price)}
+            </Button>
+          )}
 
           <Reveal className="mt-10 space-y-3 border-t border-white/10 pt-8">
             {product.benefits.map((b) => (
               <p key={b} className="flex gap-3 text-sm text-silver/85">
-                <span className="text-blue-glow">◆</span>
+                <span className="text-ember">◆</span>
                 {b}
               </p>
             ))}
@@ -172,9 +189,7 @@ export function ProductExperience({ product }: { product: Product }) {
           <div className="mt-8 space-y-3">
             {product.faqs.map((faq) => (
               <details key={faq.q} className="group rounded-2xl border border-white/10 px-4 py-3">
-                <summary className="cursor-pointer list-none text-sm text-white">
-                  {faq.q}
-                </summary>
+                <summary className="cursor-pointer list-none text-sm text-white">{faq.q}</summary>
                 <p className="mt-2 text-sm text-silver/75">{faq.a}</p>
               </details>
             ))}

@@ -1,4 +1,4 @@
-export type ProductTier = 'Essential' | 'Pro' | 'Elite' | 'Signature';
+export type ProductTier = 'Essential' | 'Pro' | 'Elite' | 'Signature' | 'Apparel' | 'Sneakers';
 
 export type ColorOption = {
   id: string;
@@ -55,6 +55,8 @@ export type Product = {
   expertVerdict: string;
   expertBy: string;
   compressionZones: CompressionZone[];
+  comingSoon?: boolean;
+  category?: 'apparel' | 'sneakers';
 };
 
 export type CartItem = {

@@ -58,12 +58,12 @@ export function CinematicCollection() {
         <div className="mb-14 max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">04 — The Collection</p>
           <RackFocusHeading className="mt-4 text-4xl md:text-6xl">
-            Four tiers.
+            Coming soon.
             <br />
-            One doctrine.
+            Slots ready.
           </RackFocusHeading>
           <p className="mt-5 text-sm leading-relaxed text-gunmetal">
-            Price and fit reveal on hover — the garment leads. Inspect under the loupe as you scroll.
+            Apparel and sneaker placeholders — swap in your photos and prices when inventory lands.
           </p>
         </div>
 
@@ -85,9 +85,11 @@ export function CinematicCollection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="text-[10px] uppercase tracking-[0.24em] text-bone/55">CoreFit</p>
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-bone/55">
+                    {product.category === 'sneakers' ? 'Sneakers' : 'Apparel'}
+                  </p>
                   <h3 className="mt-1 font-display text-2xl tracking-tight text-bone normal-case">
-                    {product.tier}
+                    {product.title.replace(' — Coming Soon', '')}
                   </h3>
                   <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
                     <p className="text-sm text-bone">{formatPrice(product.price)}</p>

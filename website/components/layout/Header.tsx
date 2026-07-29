@@ -1,14 +1,18 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from '@/lib/cart';
 import { cn } from '@/lib/cn';
+import { BRAND } from '@/lib/products';
 
 const NAV = [
-  { href: '/collection', label: 'Collection' },
+  { href: '/collection', label: 'Shop' },
+  { href: '/collection?c=apparel', label: 'Apparel' },
+  { href: '/collection?c=sneakers', label: 'Sneakers' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -47,11 +51,14 @@ export function Header() {
 
         <Link
           href="/"
-          className="font-display text-xl tracking-[0.12em] text-bone md:text-2xl"
+          className="inline-flex items-center gap-2.5"
           aria-label="Milan Hype home"
           onClick={() => setMenuOpen(false)}
         >
-          Milan Hype
+          <Image src="/assets/images/logo-mh.svg" alt="" width={36} height={36} className="rounded-md" />
+          <span className="font-display text-xl tracking-[0.12em] text-bone md:text-2xl">
+            Milan Hype
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -61,7 +68,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 'text-[11px] uppercase tracking-[0.2em] text-gunmetal transition hover:text-bone',
-                pathname === item.href && 'text-bone',
+                pathname === item.href.split('?')[0] && item.href.indexOf('?') === -1 && 'text-bone',
               )}
             >
               {item.label}
@@ -70,6 +77,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href={BRAND.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden text-[10px] uppercase tracking-[0.18em] text-gunmetal transition hover:text-ember md:inline"
+          >
+            IG
+          </a>
           <Link
             href="/collection"
             className="btn-ghost-ember hidden !min-h-10 !px-4 !py-2 !text-[10px] md:inline-flex"
@@ -105,6 +120,14 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={BRAND.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 text-lg text-ember"
+            >
+              {BRAND.instagramHandle}
+            </a>
           </motion.nav>
         )}
       </AnimatePresence>

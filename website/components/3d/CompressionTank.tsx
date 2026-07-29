@@ -40,6 +40,8 @@ const TIER_LIGHT: Record<ProductTier, string> = {
   Pro: '#6ea0ff',
   Elite: '#4fd1c5',
   Signature: '#d4af37',
+  Apparel: '#e30613',
+  Sneakers: '#e30613',
 };
 
 export function FloatingTank(props: TankProps) {
