@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+:root {
+  /* Base — bleached sand / warm ivory. Negative space is a design element. */
+  --ivory: #faf5ec;
+  --sand: #f2eadb;
+  --sand-deep: #e8dccb;
+  --sand-shadow: #ded0bc;
+
+  /* Primary accent — desaturated clay-terracotta / washed coral (never "beachy-cute") */
+  --clay: #b06a4d;
+  --clay-deep: #925641;
+  --coral: #cf917a;
+
+  /* Type — deep umber-brown / near-black-olive, grounded not stark */
+  --umber: #2a2519;
+  --umber-soft: #574c3b;
+  --umber-faint: #8b7f6b;
+
+  /* Signature color moment — a muted marigold / burnt-gold, used sparingly */
+  --gold: #c48a2c;
+  --gold-deep: #a8741f;
+  --gold-glow: rgba(196, 138, 44, 0.4);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 24px;
+  --radius-sm: 20px;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-sand-deep: var(--sand-deep);
+  --color-sand-shadow: var(--sand-shadow);
+  --color-clay: var(--clay);
+  --color-clay-deep: var(--clay-deep);
+  --color-coral: var(--coral);
+  --color-umber: var(--umber);
+  --color-umber-soft: var(--umber-soft);
+  --color-umber-faint: var(--umber-faint);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --font-serif: var(--font-display);
+  --font-numeral: var(--font-condensed);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--sand);
+  color: var(--umber);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ----- Typographic layers ------------------------------------------------ */
+
+/* Display: high-contrast editorial serif, tight optical kerning */
+.font-serif {
+  font-family: var(--font-display), 'Times New Roman', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* The "engineered" Linear-style layer — condensed numerals + section labels */
+.numeral {
+  font-family: var(--font-condensed), 'Arial Narrow', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tracked-out uppercase micro-labels — the recurring wayfinding device */
+.micro {
+  font-family: var(--font-condensed), var(--font-body), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--umber-soft);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+.section-label .num {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--clay);
+  font-variant-numeric: tabular-nums;
+}
+
+.section-label .name {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--umber-soft);
+}
+
+/* ----- Texture ----------------------------------------------------------- */
+
+/* Fine linen-grain overlay at ~3-4% across ivory backgrounds */
+.linen-grain::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Global gentle film grain across the whole page — unifies all photography */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* Warm, slightly lifted color grade for photography */
+.warm-grade {
+  filter: saturate(0.92) contrast(1.02) brightness(1.03) sepia(0.1);
+}
+
+/* ----- Surfaces & buttons ------------------------------------------------ */
+
+/* Soft, long-throw shadow — "floating in light" rather than "boxed" */
+.float-shadow {
+  box-shadow: 0 40px 90px -50px rgba(42, 37, 25, 0.55), 0 12px 40px -30px rgba(42, 37, 25, 0.3);
+}
+
+.btn-gold {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--umber);
+  padding: 0.9rem 2rem;
+  color: var(--ivory);
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.5s var(--ease), color 0.5s var(--ease),
+    box-shadow 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+/* The signature color moment lives on CTA hover */
+.btn-gold:hover,
+.btn-gold:focus-visible {
+  background: var(--gold);
+  color: var(--umber);
+  box-shadow: 0 0 0 1px var(--gold), 0 20px 50px -24px var(--gold-glow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.4s var(--ease), opacity 0.4s var(--ease);
+}
+
+.btn-ghost .underline-grow {
+  position: relative;
+}
+
+.btn-ghost .underline-grow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 0.5s var(--ease);
+}
+
+.btn-ghost:hover .underline-grow::after {
+  transform: scaleX(1);
+}
+
+.link-thin {
+  color: var(--umber-soft);
+  text-decoration: none;
+  transition: color 0.4s var(--ease);
+}
+
+.link-thin:hover {
+  color: var(--gold-deep);
+}
+
+/* ----- Motion ------------------------------------------------------------ */
+
+/* Ambient, barely-perceptible continuous drift for gallery photography */
+@keyframes ambientDrift {
+  0% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.09) translate3d(-1.2%, -1.4%, 0);
+  }
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+}
+
+.drift {
+  animation: ambientDrift 26s ease-in-out infinite;
+}
+
+.drift-slow {
+  animation: ambientDrift 34s ease-in-out infinite;
+}
+
+@keyframes scrollCue {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(5px);
+  }
+}
+
+.scroll-cue {
+  animation: scrollCue 2.8s ease-in-out infinite;
+}
+
+/* Placed-by-hand imperfection — one gallery tile sits slightly rotated */
+.photo-toss {
+  transform: rotate(-2.4deg);
+}
+
+/* Hide scrollbars on the horizontal collections track */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .drift,
+  .drift-slow,
+  .scroll-cue {
+    animation: none;
+  }
+  .photo-toss {
+    transform: none;
+  }
+}
