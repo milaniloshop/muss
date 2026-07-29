@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
     shortDescription:
       'Heavyweight wide-leg skittle sweats in jeweled black — acid-wash charcoal, silver stud side seams, Valley script rhinestone graphic.',
     price: 300,
-    compareAt: 380,
+    compareAt: 420,
     collections: ['apparel', 'all'],
     badge: 'Sale',
     tierRank: 0,
@@ -120,7 +120,7 @@ export const PRODUCTS: Product[] = [
       Care: 'Cold wash inside-out · hang dry',
     },
     description:
-      "Vale Forever Skittle Sweats in Jeweled/Black — heavyweight acid-wash fleece with a baggy wide-leg cut. Silver studs run the full outer seams and hem. Front Valley script is rhinestone-set. Back has dual patch pockets and a raw mid-thigh seam. Price $300 (was $380).",
+      "Vale Forever Skittle Sweats in Jeweled/Black — heavyweight acid-wash fleece with a baggy wide-leg cut. Silver studs run the full outer seams and hem. Front Valley script is rhinestone-set. Back has dual patch pockets and a raw mid-thigh seam. Price $300 ($120 off — was $420).",
     styleIt: 'Black tee or cropped hoodie. Clean sneakers. Downtown nights.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     faqs: [
@@ -134,20 +134,20 @@ export const PRODUCTS: Product[] = [
       },
       {
         q: 'Is this on sale?',
-        a: 'Yes — $300 (compare at $380). Limited drop via Milan Hype.',
+        a: 'Yes — $300 with $120 off (compare at $420). Limited drop via Milan Hype.',
       },
     ],
     highlights: [
       { icon: '◆', title: 'Jeweled', desc: 'Silver stud seams + rhinestone Valley script' },
       { icon: '◆', title: 'Wide leg', desc: 'Oversized skittle silhouette' },
       { icon: '◆', title: 'Acid wash', desc: 'Charcoal fade, not flat black' },
-      { icon: '◆', title: 'Sale', desc: '$300 · was $380' },
+      { icon: '◆', title: 'Sale', desc: '$300 · $120 off · was $420' },
     ],
     pros: [
       'Statement jeweled detailing that photographs expensive',
       'Heavyweight fleece holds the baggy shape',
       'Front + back studio shots so you see the full piece',
-      'Sale price at $300 under $380 compare',
+      'Sale price at $300 — $120 off $420',
     ],
     cons: [
       'Oversized fit — check size notes if you prefer slim',
