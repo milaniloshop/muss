@@ -5,33 +5,34 @@ import { BRAND } from '@/lib/products';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Milan Hype — premium clothing and sneakers. Street polish. Milan heat.',
+  description: 'Milan Hype — your plug for hype streetwear and sneakers. Not a personal brand.',
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-5 pb-24 pt-28 md:px-8">
       <Reveal>
-        <p className="text-xs uppercase tracking-[0.22em] text-ember">Our story</p>
+        <p className="text-xs uppercase tracking-[0.22em] text-ember">Who we are</p>
         <h1 className="mt-3 font-display text-4xl text-white md:text-6xl">
-          Black. Red. Heat.
+          The plug. Not the brand.
         </h1>
       </Reveal>
       <Reveal delay={0.1} className="mt-8 space-y-5 text-lg leading-relaxed text-silver/80">
         <p>
-          Milan Hype is a clothing and sneakers brand — downtown attitude with premium presentation.
-          We curate apparel and pairs for people who care how they look when they walk out the door.
+          Milan Hype sells hype clothes and hits — designer denim, collabs, leather, and streetwear
+          essentials. We are a reseller storefront, not a personal clothing brand. Pieces come from
+          the market; we photograph them, price them, and move them.
         </p>
         <p>
-          No compression tanks. No padded gimmicks. Just fits and heat that match the MH standard —
-          black and red, AC Milan energy, Instagram-first culture on{' '}
+          Based around Ormond Beach with shipping and meetups. Black and red MH mark, AC Milan
+          energy, Instagram-first shopping on{' '}
           <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" className="text-ember">
             {BRAND.instagramHandle}
           </a>
           .
         </p>
         <p>
-          Products land as inventory arrives. Follow the drop. Look sharp.
+          Most listings are one size left. When it is gone, it is gone. DM to shop today.
         </p>
       </Reveal>
       <div className="mt-10 flex flex-wrap gap-3">

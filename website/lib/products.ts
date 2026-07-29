@@ -1,13 +1,12 @@
 import type { Product } from '@/types';
 
-const APPAREL = '/assets/images/products/placeholder-apparel.svg';
-const SNEAKERS = '/assets/images/products/placeholder-sneakers.svg';
+const EMPTY_ZONES: Product['compressionZones'] = [];
 
 export const BRAND = {
   name: 'Milan Hype',
-  productLine: 'Apparel & Sneakers',
-  productType: 'Premium clothing and sneakers',
-  tagline: 'Street polish. Milan heat.',
+  productLine: 'Hype Streetwear & Sneakers',
+  productType: 'Curated hype clothing and sneakers reseller',
+  tagline: 'Your plug for hype hits.',
   shippingFreeOver: 75,
   url: 'https://milanhype.com',
   instagram: 'https://www.instagram.com/milanhype_/',
@@ -17,56 +16,510 @@ export const BRAND = {
 export const COLLECTIONS = {
   all: {
     title: 'Shop Milan Hype',
-    subtitle: 'Clothing + sneakers · Curated drops',
+    subtitle: 'Hype clothing · Hits · Limited sizes',
     description:
-      'Premium streetwear and sneakers. Product photos and SKUs go live as inventory lands. Follow @Milanhype_ for first access.',
+      'We resell curated hype streetwear and sneakers — not a personal clothing brand. Real pieces, real photos, limited sizes. Follow @Milanhype_ to DM and shop.',
   },
   apparel: {
     title: 'Apparel',
-    subtitle: 'Tees · Hoodies · Outerwear · Essentials',
-    description: 'Elevated streetwear curated for everyday heat. Drops announced on Instagram first.',
+    subtitle: 'Denim · Outerwear · Collabs · Essentials',
+    description:
+      'Designer and hype apparel drops. One-size-left pieces move fast — grab what is listed.',
   },
   sneakers: {
     title: 'Sneakers',
-    subtitle: 'Iconic pairs · Limited drops · Clean heat',
-    description: 'Sneaker culture with Milan attitude. DM @Milanhype_ or join the drop list.',
+    subtitle: 'Heat pairs · Limited runs',
+    description: 'Sneaker hits as they land. DM @Milanhype_ for the current size run.',
   },
 } as const;
 
-const EMPTY_ZONES: Product['compressionZones'] = [];
+type LiveInput = {
+  id: string;
+  title: string;
+  brand: string;
+  shortDescription: string;
+  description: string;
+  price: number;
+  compareAt?: number;
+  badge: string | null;
+  tierRank: number;
+  fit: string;
+  fabric: string;
+  sizes: string[];
+  images: string[];
+  imageLabels: string[];
+  benefits: string[];
+  details: Record<string, string>;
+  styleIt: string;
+  faqs: Product['faqs'];
+  highlights: Product['highlights'];
+  pros: string[];
+  cons: string[];
+  expertVerdict: string;
+};
 
-function placeholder(
-  partial: Omit<Product, 'compressionZones' | 'colorOptions' | 'lifestyleImages' | 'highlights' | 'pros' | 'cons' | 'expertVerdict' | 'expertBy'> & {
-    category: 'apparel' | 'sneakers';
-  },
-): Product {
-  const img = partial.category === 'sneakers' ? SNEAKERS : APPAREL;
+function live(p: LiveInput): Product {
+  const hero = p.images[0];
   return {
-    ...partial,
+    id: p.id,
+    tier: 'Apparel',
+    category: 'apparel',
+    title: p.title,
+    shortDescription: p.shortDescription,
+    price: p.price,
+    compareAt: p.compareAt ?? p.price,
+    collections: ['apparel', 'all'],
+    badge: p.badge,
+    tierRank: p.tierRank,
+    comingSoon: false,
+    fit: p.fit,
+    fabric: p.fabric,
     colorOptions: [
-      { id: 'black', name: 'Black', hex: '#0a0a0a', image: img, imageAlt: img },
+      {
+        id: 'as-shown',
+        name: 'As shown',
+        hex: '#1a1a1a',
+        image: hero,
+        imageAlt: p.images[1] ?? hero,
+      },
     ],
-    lifestyleImages: [img],
-    highlights: [
-      { icon: '◆', title: 'Drop soon', desc: 'Follow @Milanhype_ for release' },
-      { icon: '◆', title: 'Curated', desc: 'Only pieces that match MH' },
-      { icon: '◆', title: 'U.S. ship', desc: 'Discreet packaging' },
-      { icon: '◆', title: 'IG support', desc: 'Fast replies on Instagram' },
-    ],
-    pros: [
-      'Instagram-first drops via @Milanhype_',
-      'Curated clothing and sneakers — no filler',
-      'Premium presentation when inventory lands',
-    ],
-    cons: ['Photos and final pricing pending — placeholder slot'],
-    expertVerdict: 'Slot reserved. Send product photos and pricing to go live.',
-    expertBy: 'Milan Hype · Awaiting inventory',
+    heroImage: hero,
+    lifestyleImages: p.images,
+    images: p.images,
+    imageSlots: p.images.map((src, i) => ({
+      filename: src.split('/').pop() || `${p.id}-${i}.svg`,
+      label: p.imageLabels[i] || `View ${i + 1}`,
+    })),
+    benefits: p.benefits,
+    details: { Brand: p.brand, ...p.details, SoldBy: 'Milan Hype · Hype reseller' },
+    description: p.description,
+    styleIt: p.styleIt,
+    sizes: p.sizes,
+    faqs: p.faqs,
+    highlights: p.highlights,
+    pros: p.pros,
+    cons: p.cons,
+    expertVerdict: p.expertVerdict,
+    expertBy: 'Milan Hype · Street plug',
     compressionZones: EMPTY_ZONES,
-    comingSoon: true,
   };
 }
 
 export const PRODUCTS: Product[] = [
+  live({
+    id: 'yproject-jpg-trompe-denim',
+    brand: 'Y/PROJECT × Jean Paul Gaultier',
+    title: "Y/PROJECT × Jean Paul Gaultier 22AW Trompe L'Oeil Denim Jacket",
+    shortDescription:
+      "22AW trompe l'oeil denim jacket — collab heat. Size L only. Other sizes sold.",
+    description:
+      "Y/PROJECT × Jean Paul Gaultier 22AW trompe l'oeil denim jacket. Size L is the only size left — all other sizes sold. Listed at $170 via Milan Hype.",
+    price: 170,
+    badge: 'L only',
+    tierRank: 1,
+    fit: 'Size L only — sold out in other sizes',
+    fabric: 'Denim · trompe l\'oeil construction',
+    sizes: ['L'],
+    images: [
+      '/assets/images/products/yproject-jpg-trompe-denim.jpg',
+      '/assets/images/products/yproject-jpg-trompe-denim-2.jpg',
+      '/assets/images/products/yproject-jpg-trompe-denim-3.jpg',
+    ],
+    imageLabels: [
+      'Front flat',
+      'On mannequin',
+      'Back',
+    ],
+    benefits: [
+      'Y/PROJECT × Jean Paul Gaultier collab',
+      "22AW trompe l'oeil denim",
+      'Size L only — other sizes sold',
+      'Hype reseller listing via Milan Hype',
+    ],
+    details: {
+      Season: '22AW',
+      Size: 'L only',
+      Condition: 'As photographed',
+      Price: '$170',
+    },
+    styleIt: 'Black tee underneath. Clean sneakers. Statement outer layer.',
+    faqs: [
+      { q: 'What sizes are left?', a: 'Size L only. Other sizes are sold.' },
+      { q: 'Is this authentic?', a: 'Listed as a curated hype reseller piece. DM @Milanhype_ with questions before checkout.' },
+    ],
+    highlights: [
+      { icon: '◆', title: 'Collab', desc: 'Y/PROJECT × JPG' },
+      { icon: '◆', title: '22AW', desc: "Trompe l'oeil denim" },
+      { icon: '◆', title: 'L only', desc: 'Other sizes sold' },
+      { icon: '◆', title: '$170', desc: 'Listed price' },
+    ],
+    pros: ['Rare collab piece', 'Only L left — scarce', 'Studio product photos when uploaded'],
+    cons: ['One size only (L)'],
+    expertVerdict: 'If you wear L, this is the Y/PROJECT × JPG trompe jacket before it disappears.',
+  }),
+  live({
+    id: 'acne-1981-trompe-jeans',
+    brand: 'Acne Studios',
+    title: "Acne Studios Trompe-l'œil 1981 Jeans",
+    shortDescription: "Acne Studios trompe-l'œil 1981 jeans. Size 34 / L only. $150.",
+    description:
+      "Acne Studios trompe-l'œil 1981 jeans. Size 34 / L is the only size available. Price $150.",
+    price: 150,
+    badge: '34 / L',
+    tierRank: 2,
+    fit: 'Size 34 / L only',
+    fabric: 'Denim · trompe-l\'œil finish',
+    sizes: ['34 / L'],
+    images: [
+      '/assets/images/products/acne-1981-trompe-jeans.jpg',
+      '/assets/images/products/acne-1981-trompe-jeans-2.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Back',
+    ],
+    benefits: [
+      "Acne Studios trompe-l'œil 1981",
+      'Size 34 / L only',
+      'Listed at $150',
+    ],
+    details: { Size: '34 / L only', Price: '$150' },
+    styleIt: 'Boxy tee or cropped jacket. Chunky sneakers.',
+    faqs: [
+      { q: 'What size is available?', a: 'Size 34 / L only.' },
+    ],
+    highlights: [
+      { icon: '◆', title: 'Acne', desc: '1981 trompe-l\'œil' },
+      { icon: '◆', title: '34 / L', desc: 'Only size left' },
+      { icon: '◆', title: '$150', desc: 'Listed price' },
+      { icon: '◆', title: 'Hit', desc: 'Designer denim' },
+    ],
+    pros: ['Acne Studios heat', 'Clear size callout'],
+    cons: ['One size only'],
+    expertVerdict: '34 / L Acne 1981 trompe jeans at $150 — grab if that is your size.',
+  }),
+  live({
+    id: 'supreme-mm6-box-logo',
+    brand: 'Supreme × MM6 Maison Margiela',
+    title: 'Supreme × MM6 Maison Margiela Box Logo Zip Hoodie',
+    shortDescription: 'Navy Supreme × MM6 zip hoodie — red box logo, white paint splatters. Size M only. $150.',
+    description:
+      'Supreme × MM6 Maison Margiela navy zip-up box logo hoodie with white paint splatters and MM6 sleeve embroidery. Size M only. Price $150.',
+    price: 150,
+    badge: 'M only',
+    tierRank: 3,
+    fit: 'Size M only',
+    fabric: 'As photographed',
+    sizes: ['M'],
+    images: [
+      '/assets/images/products/supreme-mm6-box-logo.jpg',
+      '/assets/images/products/supreme-mm6-box-logo-2.jpg',
+      '/assets/images/products/supreme-mm6-box-logo-3.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Front alt',
+      'Sleeve / MM6 detail',
+    ],
+    benefits: [
+      'Supreme × MM6 Maison Margiela',
+      'Box Logo collab',
+      'Size M only · $150',
+    ],
+    details: { Size: 'M only', Price: '$150' },
+    styleIt: 'Keep the rest quiet — let the box logo speak.',
+    faqs: [{ q: 'What size?', a: 'Size M only.' }],
+    highlights: [
+      { icon: '◆', title: 'Supreme', desc: '× MM6 Margiela' },
+      { icon: '◆', title: 'Box Logo', desc: 'Collab hit' },
+      { icon: '◆', title: 'M only', desc: 'One size left' },
+      { icon: '◆', title: '$150', desc: 'Listed price' },
+    ],
+    pros: ['Major collab name recognition', 'M-size scarcity'],
+    cons: ['Size M only'],
+    expertVerdict: 'Supreme × MM6 box logo in M at $150 — classic hype plug piece.',
+  }),
+  live({
+    id: 'acne-2010m-trompe-jeans',
+    brand: 'Acne Studios',
+    title: "Acne Studios 2010M Trompe L'Oeil Jeans",
+    shortDescription: "Acne Studios 2010M trompe l'œil jeans. Size 32 only. $180.",
+    description:
+      "Acne Studios 2010M Trompe L'Oeil jeans. Size 32 is the only size available. Price $180.",
+    price: 180,
+    badge: '32 only',
+    tierRank: 4,
+    fit: 'Size 32 only',
+    fabric: 'Denim · trompe l\'œil',
+    sizes: ['32'],
+    images: [
+      '/assets/images/products/acne-2010m-trompe-jeans.jpg',
+      '/assets/images/products/acne-2010m-trompe-jeans-2.jpg',
+    ],
+    imageLabels: [
+      'Front western trompe',
+      'Detail / boots print',
+    ],
+    benefits: [
+      'Acne Studios 2010M',
+      "Trompe l'œil denim",
+      'Size 32 only · $180',
+    ],
+    details: { Size: '32 only', Price: '$180' },
+    styleIt: 'Minimal top. Statement denim. Clean shoes.',
+    faqs: [{ q: 'What size?', a: 'Size 32 only.' }],
+    highlights: [
+      { icon: '◆', title: '2010M', desc: 'Acne Studios' },
+      { icon: '◆', title: 'Trompe', desc: "L'œil denim" },
+      { icon: '◆', title: '32', desc: 'Only size' },
+      { icon: '◆', title: '$180', desc: 'Listed price' },
+    ],
+    pros: ['Designer Acne cut', 'Clear waist size'],
+    cons: ['Size 32 only'],
+    expertVerdict: 'Acne 2010M trompe in 32 at $180 — sized for the list, not a full run.',
+  }),
+  live({
+    id: 'acne-1981-painter-decorator',
+    brand: 'Acne Studios',
+    title: 'Acne Studios 1981 Painter Printed Decorator',
+    shortDescription: 'Acne Studios 1981 painter-print decorator set energy. Size L only. $200.',
+    description:
+      'Acne Studios 1981 Painter Printed Decorator — cream base with multi-color paint splatters. Size L only. Price $200.',
+    price: 200,
+    badge: 'L only',
+    tierRank: 5,
+    fit: 'Size L only',
+    fabric: 'Painter-print denim / decorator finish',
+    sizes: ['L'],
+    images: [
+      '/assets/images/products/acne-1981-painter-decorator-3.jpg',
+      '/assets/images/products/acne-1981-painter-decorator-4.jpg',
+      '/assets/images/products/acne-1981-painter-decorator.jpg',
+      '/assets/images/products/acne-1981-painter-decorator-2.jpg',
+    ],
+    imageLabels: [
+      'Full look',
+      'Jacket + pants hang',
+      'On body lower',
+      'Side',
+    ],
+    benefits: [
+      'Acne Studios 1981 Painter print',
+      'Decorator splatters — statement piece',
+      'Size L only · $200',
+    ],
+    details: { Size: 'L only', Price: '$200' },
+    styleIt: 'Matching paint energy on top, or solid black to contrast the print.',
+    faqs: [{ q: 'What size?', a: 'Size L only.' }],
+    highlights: [
+      { icon: '◆', title: 'Painter', desc: '1981 Decorator print' },
+      { icon: '◆', title: 'Acne', desc: 'Studios hit' },
+      { icon: '◆', title: 'L only', desc: 'One size' },
+      { icon: '◆', title: '$200', desc: 'Listed price' },
+    ],
+    pros: ['Loud painter print', 'Premium Acne listing'],
+    cons: ['Size L only'],
+    expertVerdict: 'Painter Decorator in L at $200 — the loudest Acne sit on the rack.',
+  }),
+  live({
+    id: 'rolling-stones-plaid-flannel',
+    brand: 'The Rolling Stones',
+    title: 'The Rolling Stones Blue & White Plaid Flannel',
+    shortDescription:
+      'Blue/white plaid flannel with fang tongue embroidery and FALSE PERCEPTION text. Size M only. $150.',
+    description:
+      'The Rolling Stones blue and white plaid flannel with embroidered tongue-and-lips (fangs) logo, FALSE PERCEPTION back text, and distressed hem. Size M only. Price $150.',
+    price: 150,
+    badge: 'M only',
+    tierRank: 6,
+    fit: 'Size M only',
+    fabric: 'Plaid flannel · embroidered logo',
+    sizes: ['M'],
+    images: [
+      '/assets/images/products/rolling-stones-plaid-flannel.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-2.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-3.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-4.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Back logo',
+      'Logo detail',
+      'Back plaid',
+    ],
+    benefits: [
+      'Rolling Stones embroidered logo',
+      'Blue / white plaid flannel',
+      'Size M only · $150',
+    ],
+    details: { Size: 'M only', Price: '$150' },
+    styleIt: 'Over a tee, open. Or alone with black pants.',
+    faqs: [{ q: 'What size?', a: 'Size M only.' }],
+    highlights: [
+      { icon: '◆', title: 'Stones', desc: 'Embroidered logo' },
+      { icon: '◆', title: 'Plaid', desc: 'Blue & white' },
+      { icon: '◆', title: 'M only', desc: 'One size' },
+      { icon: '◆', title: '$150', desc: 'Listed price' },
+    ],
+    pros: ['Iconic logo embroidery', 'Street flannel silhouette'],
+    cons: ['Size M only'],
+    expertVerdict: 'Stones plaid in M at $150 — rock-heritage streetwear that still reads hype.',
+  }),
+  live({
+    id: 'skeleton-denim-jacket',
+    brand: 'Vintage',
+    title: 'Vintage Blue Denim Jacket — Beige Skeleton Graphic',
+    shortDescription:
+      'Vintage blue denim jacket with beige skeleton graphic. Size L only. $200.',
+    description:
+      'Vintage blue denim jacket with beige skeleton graphic across front and back. Size L only. Price $200.',
+    price: 200,
+    badge: 'L only',
+    tierRank: 7,
+    fit: 'Size L only · boxy vintage cut',
+    fabric: 'Washed denim · beige skeleton appliqué / graphic',
+    sizes: ['L'],
+    images: [
+      '/assets/images/products/skeleton-denim-jacket.svg',
+      '/assets/images/products/skeleton-denim-jacket-2.svg',
+    ],
+    imageLabels: ['Front', 'Back'],
+    benefits: [
+      'Full skeleton graphic front + back',
+      'Vintage washed blue denim',
+      'Size L only · $200',
+    ],
+    details: { Size: 'L only', Price: '$200' },
+    styleIt: 'Black pants, heavy boots. Let the bones do the talking.',
+    faqs: [{ q: 'What size?', a: 'Size L only.' }],
+    highlights: [
+      { icon: '◆', title: 'Skeleton', desc: 'Beige graphic' },
+      { icon: '◆', title: 'Vintage', desc: 'Blue denim' },
+      { icon: '◆', title: 'L only', desc: 'One size' },
+      { icon: '◆', title: '$200', desc: 'Listed price' },
+    ],
+    pros: ['Statement skeleton motif', 'Front and back graphic'],
+    cons: ['Size L only'],
+    expertVerdict: 'Skeleton denim in L at $200 — pure street graphic heat.',
+  }),
+  live({
+    id: 'polizei-leather-jacket',
+    brand: 'POLIZEI / Vetements-style',
+    title: 'POLIZEI Leather Jacket',
+    shortDescription: 'POLIZEI leather jacket. Size M only. $180.',
+    description:
+      'POLIZEI leather jacket — black leather with POLIZEI branding. Size M only. Price $180.',
+    price: 180,
+    badge: 'M only',
+    tierRank: 8,
+    fit: 'Size M only · cropped boxy leather',
+    fabric: 'Black leather',
+    sizes: ['M'],
+    images: [
+      '/assets/images/products/polizei-leather-jacket.jpg',
+      '/assets/images/products/polizei-leather-jacket-2.jpg',
+      '/assets/images/products/polizei-leather-jacket-3.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Chest / sleeve',
+      'Back',
+    ],
+    benefits: [
+      'POLIZEI branded leather',
+      'Black motorcycle / utility cut',
+      'Size M only · $180',
+    ],
+    details: { Size: 'M only', Price: '$180' },
+    styleIt: 'Black everything underneath. Industrial night-out energy.',
+    faqs: [{ q: 'What size?', a: 'Size M only.' }],
+    highlights: [
+      { icon: '◆', title: 'POLIZEI', desc: 'Leather mark' },
+      { icon: '◆', title: 'Black', desc: 'Heavy leather' },
+      { icon: '◆', title: 'M only', desc: 'One size' },
+      { icon: '◆', title: '$180', desc: 'Listed price' },
+    ],
+    pros: ['Industrial hype silhouette', 'Strong back branding'],
+    cons: ['Size M only'],
+    expertVerdict: 'POLIZEI leather in M at $180 — dark, loud, and scarce.',
+  }),
+  live({
+    id: 'vale-forever-skyfall',
+    brand: 'Vale Forever',
+    title: 'Vale Forever SKYFALL',
+    shortDescription: 'Vale Forever SKYFALL rhinestone plaid flannel. Size M. $150.',
+    description: 'Vale Forever SKYFALL — beige/blue plaid flannel with rhinestone columns, VALE USA medium tag. Size M. Price $150.',
+    price: 150,
+    badge: 'Size M',
+    tierRank: 9,
+    fit: 'Size M',
+    fabric: 'As photographed',
+    sizes: ['M'],
+    images: [
+      '/assets/images/products/vale-forever-skyfall.jpg',
+      '/assets/images/products/vale-forever-skyfall-2.jpg',
+      '/assets/images/products/vale-forever-skyfall-3.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Tag / rhinestones',
+      'Cuff detail',
+    ],
+    benefits: ['Vale Forever SKYFALL', 'Size M · $150', 'Hype bottoms / apparel hit'],
+    details: { Size: 'M', Price: '$150' },
+    styleIt: 'Pair with a clean black tee and the Skittle sweats energy from the same house.',
+    faqs: [{ q: 'What size?', a: 'Size M.' }],
+    highlights: [
+      { icon: '◆', title: 'Vale', desc: 'Forever' },
+      { icon: '◆', title: 'SKYFALL', desc: 'Drop name' },
+      { icon: '◆', title: 'M', desc: 'Available' },
+      { icon: '◆', title: '$150', desc: 'Listed price' },
+    ],
+    pros: ['Vale Forever name recognition', 'Accessible $150 entry'],
+    cons: ['Size M listing only as provided'],
+    expertVerdict: 'SKYFALL in M at $150 — Vale Forever for the feed and the street.',
+  }),
+  live({
+    id: 'project-gr-layered-sweatpants',
+    brand: 'PROJECT G/R',
+    title: 'PROJECT G/R 3 Layered Sweatpants',
+    shortDescription: 'PROJECT G/R 3 Layered Sweatpants. Sizes M and L. $150.',
+    description:
+      'PROJECT G/R 3 Layered Sweatpants — triple waistband construction with USA / 3 graphics. Sizes M and L available. Price $150.',
+    price: 150,
+    badge: 'M · L',
+    tierRank: 10,
+    fit: 'Sizes M and L available · layered waist',
+    fabric: 'Heather grey fleece / jersey · layered waistbands',
+    sizes: ['M', 'L'],
+    images: [
+      '/assets/images/products/project-gr-layered-sweatpants.jpg',
+      '/assets/images/products/project-gr-layered-sweatpants-2.jpg',
+    ],
+    imageLabels: [
+      'Front',
+      'Back',
+    ],
+    benefits: [
+      'Triple layered waistband look',
+      'Sizes M and L in stock',
+      '$150 listed',
+    ],
+    details: { Sizes: 'M and L', Price: '$150' },
+    styleIt: 'Cropped hoodie or tee. Chunky sneakers. Baggy street fit.',
+    faqs: [
+      { q: 'What sizes?', a: 'M and L are both available.' },
+    ],
+    highlights: [
+      { icon: '◆', title: '3 Layer', desc: 'Signature waist' },
+      { icon: '◆', title: 'G/R', desc: 'PROJECT hit' },
+      { icon: '◆', title: 'M · L', desc: 'Two sizes' },
+      { icon: '◆', title: '$150', desc: 'Listed price' },
+    ],
+    pros: ['Two sizes available', 'Instantly recognizable layered waist'],
+    cons: ['Wide/baggy fit — check photos'],
+    expertVerdict: 'PROJECT G/R layered sweats in M or L at $150 — one of the few multi-size hits on the list.',
+  }),
   {
     id: 'vale-forever-skittle-sweats',
     tier: 'Apparel',
@@ -78,7 +531,7 @@ export const PRODUCTS: Product[] = [
     compareAt: 420,
     collections: ['apparel', 'all'],
     badge: 'Sale',
-    tierRank: 0,
+    tierRank: 11,
     comingSoon: false,
     fit: 'Oversized wide-leg — size down for a cleaner drape',
     fabric: 'Heavyweight cotton fleece · acid-wash finish',
@@ -118,6 +571,7 @@ export const PRODUCTS: Product[] = [
       Fit: 'Oversized · wide leg',
       Fabric: 'Heavyweight cotton fleece',
       Care: 'Cold wash inside-out · hang dry',
+      SoldBy: 'Milan Hype · Hype reseller',
     },
     description:
       "Vale Forever Skittle Sweats in Jeweled/Black — heavyweight acid-wash fleece with a baggy wide-leg cut. Silver studs run the full outer seams and hem. Front Valley script is rhinestone-set. Back has dual patch pockets and a raw mid-thigh seam. Price $300 ($120 off — was $420).",
@@ -155,101 +609,9 @@ export const PRODUCTS: Product[] = [
     ],
     expertVerdict:
       'If you want one loud bottoms piece for the feed and the street, Jeweled/Black is the drop. Heavy, studded, and priced to move at $300.',
-    expertBy: 'Milan Hype · Street edit',
+    expertBy: 'Milan Hype · Street plug',
     compressionZones: EMPTY_ZONES,
   },
-  placeholder({
-    id: 'apparel-tee',
-    tier: 'Apparel',
-    category: 'apparel',
-    title: 'Essential Tee — Coming Soon',
-    shortDescription: 'Premium tee slot. Photo + price update when inventory arrives.',
-    price: 0,
-    compareAt: 0,
-    collections: ['apparel', 'all'],
-    badge: 'Coming Soon',
-    tierRank: 1,
-    fit: 'True to size',
-    fabric: 'Premium cotton — TBD',
-    heroImage: APPAREL,
-    images: [APPAREL],
-    imageSlots: [{ filename: 'apparel-tee.jpg', label: 'Front' }],
-    benefits: ['Drop alerts on @Milanhype_', 'U.S. shipping', 'Easy returns'],
-    details: { Category: 'Apparel', Status: 'Placeholder' },
-    description: 'Placeholder for the Essential Tee. Send product photos and pricing to publish.',
-    styleIt: 'Pair with sneakers from the Milan Hype drop list.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    faqs: [{ q: 'When does this drop?', a: 'Follow @Milanhype_ on Instagram for release dates.' }],
-  }),
-  placeholder({
-    id: 'apparel-hoodie',
-    tier: 'Apparel',
-    category: 'apparel',
-    title: 'Heavy Hoodie — Coming Soon',
-    shortDescription: 'Heavyweight hoodie slot ready for your photos.',
-    price: 0,
-    compareAt: 0,
-    collections: ['apparel', 'all'],
-    badge: 'Coming Soon',
-    tierRank: 2,
-    fit: 'Relaxed',
-    fabric: 'Fleece — TBD',
-    heroImage: APPAREL,
-    images: [APPAREL],
-    imageSlots: [{ filename: 'apparel-hoodie.jpg', label: 'Front' }],
-    benefits: ['Instagram-first drops', 'Curated street fits'],
-    details: { Category: 'Apparel', Status: 'Placeholder' },
-    description: 'Placeholder hoodie. Replace with real product when ready.',
-    styleIt: 'Layer over tees. Pair with clean sneakers.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    faqs: [{ q: 'How do I get notified?', a: 'Follow @Milanhype_ and turn on post notifications.' }],
-  }),
-  placeholder({
-    id: 'sneakers-signature',
-    tier: 'Sneakers',
-    category: 'sneakers',
-    title: 'Signature Drop — Coming Soon',
-    shortDescription: 'Sneaker drop slot. Send pair photos, size run, and price.',
-    price: 0,
-    compareAt: 0,
-    collections: ['sneakers', 'all'],
-    badge: 'Coming Soon',
-    tierRank: 3,
-    fit: 'See size chart when live',
-    fabric: '—',
-    heroImage: SNEAKERS,
-    images: [SNEAKERS],
-    imageSlots: [{ filename: 'sneakers-1.jpg', label: 'Pair' }],
-    benefits: ['Authenticated sourcing standards', 'Discreet packaging', 'IG support'],
-    details: { Category: 'Sneakers', Status: 'Placeholder' },
-    description: 'Placeholder for the next sneaker drop.',
-    styleIt: 'Clean soles. Downtown nights.',
-    sizes: ['8', '9', '10', '11', '12'],
-    faqs: [{ q: 'Are pairs authentic?', a: 'Full authenticity details publish with each drop.' }],
-  }),
-  placeholder({
-    id: 'sneakers-classic',
-    tier: 'Sneakers',
-    category: 'sneakers',
-    title: 'Classic Heat — Coming Soon',
-    shortDescription: 'Everyday classic sneaker slot awaiting your photos.',
-    price: 0,
-    compareAt: 0,
-    collections: ['sneakers', 'all'],
-    badge: 'Coming Soon',
-    tierRank: 4,
-    fit: 'True to size',
-    fabric: '—',
-    heroImage: SNEAKERS,
-    images: [SNEAKERS],
-    imageSlots: [{ filename: 'sneakers-2.jpg', label: 'Pair' }],
-    benefits: ['Drop list first', 'U.S. shipping'],
-    details: { Category: 'Sneakers', Status: 'Placeholder' },
-    description: 'Placeholder classic pair.',
-    styleIt: 'With black pants or washed denim.',
-    sizes: ['8', '9', '10', '11', '12'],
-    faqs: [{ q: 'Can I reserve a size?', a: 'DM @Milanhype_ to ask about the next size run.' }],
-  }),
 ];
 
 export function getProduct(id: string) {

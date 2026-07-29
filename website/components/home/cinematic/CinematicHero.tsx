@@ -66,11 +66,11 @@ export function CinematicHero() {
           >
             <Image src="/assets/images/logo-mh.svg" alt="MH" width={56} height={56} className="rounded-lg" priority />
             <span className="text-[10px] uppercase tracking-[0.28em] text-gunmetal">
-              Clothing · Sneakers · {BRAND.instagramHandle}
+              Hype reseller · {BRAND.instagramHandle}
             </span>
           </motion.div>
 
-          <h1 className="sr-only">Milan Hype — Clothing and sneakers. Street polish. Milan heat.</h1>
+          <h1 className="sr-only">Milan Hype — Your plug for hype streetwear and sneakers.</h1>
           <p
             aria-hidden
             className="font-display text-[clamp(2.75rem,12vw,8.5rem)] leading-none tracking-[-0.03em] text-ember"
@@ -95,7 +95,7 @@ export function CinematicHero() {
             transition={{ duration: 1, delay: 1.55, ease: EASE }}
             className="mt-6 max-w-md text-sm tracking-[0.04em] text-bone/80 md:text-base"
           >
-            Street polish. Milan heat. Real drops.
+            Your plug for hype hits. Limited sizes. Real pieces.
           </motion.p>
 
           <motion.div

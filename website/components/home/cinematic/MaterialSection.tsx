@@ -5,11 +5,11 @@ import { RackFocusHeading } from './RackFocusHeading';
 import { BRAND } from '@/lib/products';
 
 const SPECS = [
-  { label: 'Focus', value: 'Apparel + sneakers only' },
-  { label: 'Drops', value: 'Instagram-first releases' },
-  { label: 'Standard', value: 'Curated — no filler SKUs' },
-  { label: 'Support', value: `${BRAND.instagramHandle} DMs` },
-  { label: 'Ship', value: 'U.S. · discreet packaging' },
+  { label: 'Model', value: 'Hype reseller — not our brand' },
+  { label: 'Stock', value: 'Limited sizes · often 1 left' },
+  { label: 'Shop', value: 'Site + Instagram DMs' },
+  { label: 'Support', value: `${BRAND.instagramHandle}` },
+  { label: 'Fulfill', value: 'Ship + local meetups' },
   { label: 'Mark', value: 'MH · black & red' },
 ];
 
@@ -20,12 +20,13 @@ export function MaterialSection() {
         <div className="mb-14 max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">01 — The Store</p>
           <RackFocusHeading className="mt-4 text-4xl md:text-6xl">
-            Two lanes.
+            Hype clothes.
             <br />
-            One brand.
+            Real hits.
           </RackFocusHeading>
           <p className="mt-5 text-sm leading-relaxed text-gunmetal">
-            Clothing for the fit. Sneakers for the statement. Catalog slots are live — real photos land when you send them.
+            Apparel on the site now — denim, collabs, leather, flannels, sweats. Sneakers as they
+            land. Photos stay as the seller shot them.
           </p>
         </div>
 
@@ -35,8 +36,8 @@ export function MaterialSection() {
             className="group relative min-h-[280px] overflow-hidden border border-bone/10 bg-charcoal p-8 transition hover:border-ember/50"
           >
             <p className="text-[10px] uppercase tracking-[0.28em] text-ember">Apparel</p>
-            <h3 className="mt-4 font-display text-4xl text-bone">Tees · Hoodies · Outerwear</h3>
-            <p className="mt-3 max-w-sm text-sm text-gunmetal">Elevated essentials. Coming soon.</p>
+            <h3 className="mt-4 font-display text-4xl text-bone">Denim · Collabs · Outerwear</h3>
+            <p className="mt-3 max-w-sm text-sm text-gunmetal">Live listings with sizes and prices.</p>
             <span className="mt-8 inline-block text-[11px] uppercase tracking-[0.2em] text-bone/70 group-hover:text-ember">
               Browse →
             </span>

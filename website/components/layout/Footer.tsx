@@ -13,11 +13,11 @@ export function Footer() {
           </div>
           <p className="mt-3 max-w-md text-sm text-gunmetal">{BRAND.tagline}</p>
           <p className="mt-4 text-sm text-gunmetal/80">
-            Premium clothing and sneakers. Follow{' '}
+            Hype streetwear reseller — not a personal brand. Follow{' '}
             <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" className="text-ember hover:underline">
               {BRAND.instagramHandle}
             </a>{' '}
-            for drops.
+            or DM to shop.
           </p>
         </div>
         <div>
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-bone/10 px-5 py-6 text-center text-[10px] uppercase tracking-[0.2em] text-gunmetal md:px-8">
-        © {new Date().getFullYear()} Milan Hype · Clothing &amp; Sneakers · Ships USA
+        © {new Date().getFullYear()} Milan Hype · Hype reseller · Ship &amp; meetups
       </div>
     </footer>
   );

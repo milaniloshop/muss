@@ -58,12 +58,12 @@ export function CinematicCollection() {
         <div className="mb-14 max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">04 — The Collection</p>
           <RackFocusHeading className="mt-4 text-4xl md:text-6xl">
-            Coming soon.
+            Live heat.
             <br />
-            Slots ready.
+            Limited sizes.
           </RackFocusHeading>
           <p className="mt-5 text-sm leading-relaxed text-gunmetal">
-            Apparel and sneaker placeholders — swap in your photos and prices when inventory lands.
+            Curated hype listings with prices and sizes. Most pieces are one size left — move fast.
           </p>
         </div>
 
