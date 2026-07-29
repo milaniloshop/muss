@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
     shortDescription:
       'Heavyweight wide-leg skittle sweats in jeweled black — acid-wash charcoal, silver stud side seams, Valley script rhinestone graphic.',
     price: 300,
-    compareAt: 380,
+    compareAt: 420,
     collections: ['apparel', 'all'],
     badge: 'Sale',
     tierRank: 0,
