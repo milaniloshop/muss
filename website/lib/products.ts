@@ -67,6 +67,97 @@ function placeholder(
 }
 
 export const PRODUCTS: Product[] = [
+  {
+    id: 'vale-forever-skittle-sweats',
+    tier: 'Apparel',
+    category: 'apparel',
+    title: "Vale Forever Skittle Sweats 'Jeweled/Black'",
+    shortDescription:
+      'Heavyweight wide-leg skittle sweats in jeweled black — acid-wash charcoal, silver stud side seams, Valley script rhinestone graphic.',
+    price: 300,
+    compareAt: 380,
+    collections: ['apparel', 'all'],
+    badge: 'Sale',
+    tierRank: 0,
+    comingSoon: false,
+    fit: 'Oversized wide-leg — size down for a cleaner drape',
+    fabric: 'Heavyweight cotton fleece · acid-wash finish',
+    colorOptions: [
+      {
+        id: 'jeweled-black',
+        name: 'Jeweled/Black',
+        hex: '#1a1a1a',
+        image: '/assets/images/products/vale-forever-skittle-sweats.jpg',
+        imageAlt: '/assets/images/products/vale-forever-skittle-sweats-2.jpg',
+      },
+    ],
+    heroImage: '/assets/images/products/vale-forever-skittle-sweats.jpg',
+    lifestyleImages: [
+      '/assets/images/products/vale-forever-skittle-sweats.jpg',
+      '/assets/images/products/vale-forever-skittle-sweats-2.jpg',
+    ],
+    images: [
+      '/assets/images/products/vale-forever-skittle-sweats.jpg',
+      '/assets/images/products/vale-forever-skittle-sweats-2.jpg',
+    ],
+    imageSlots: [
+      { filename: 'vale-forever-skittle-sweats.jpg', label: 'Front — Jeweled/Black' },
+      { filename: 'vale-forever-skittle-sweats-2.jpg', label: 'Back — Jeweled/Black' },
+    ],
+    benefits: [
+      'Jeweled silver studs down both outer seams + hem',
+      'Valley cursive rhinestone graphic across the front',
+      'Acid-wash charcoal fade — premium streetwear texture',
+      'Oversized baggy wide-leg silhouette with elastic waist',
+      'Raw-edge horizontal seam detail at mid-thigh',
+    ],
+    details: {
+      Brand: 'Vale Forever',
+      Product: "Skittle Sweats 'Jeweled/Black'",
+      Color: 'Jeweled / Black',
+      Fit: 'Oversized · wide leg',
+      Fabric: 'Heavyweight cotton fleece',
+      Care: 'Cold wash inside-out · hang dry',
+    },
+    description:
+      "Vale Forever Skittle Sweats in Jeweled/Black — heavyweight acid-wash fleece with a baggy wide-leg cut. Silver studs run the full outer seams and hem. Front Valley script is rhinestone-set. Back has dual patch pockets and a raw mid-thigh seam. Price $300 (was $380).",
+    styleIt: 'Black tee or cropped hoodie. Clean sneakers. Downtown nights.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    faqs: [
+      {
+        q: 'How do these fit?',
+        a: 'Oversized and baggy by design. If you want less volume, size down one.',
+      },
+      {
+        q: 'Will the studs fall off?',
+        a: 'They are set into the seams and graphic. Wash inside-out cold and hang dry to protect the jewelry finish.',
+      },
+      {
+        q: 'Is this on sale?',
+        a: 'Yes — $300 (compare at $380). Limited drop via Milan Hype.',
+      },
+    ],
+    highlights: [
+      { icon: '◆', title: 'Jeweled', desc: 'Silver stud seams + rhinestone Valley script' },
+      { icon: '◆', title: 'Wide leg', desc: 'Oversized skittle silhouette' },
+      { icon: '◆', title: 'Acid wash', desc: 'Charcoal fade, not flat black' },
+      { icon: '◆', title: 'Sale', desc: '$300 · was $380' },
+    ],
+    pros: [
+      'Statement jeweled detailing that photographs expensive',
+      'Heavyweight fleece holds the baggy shape',
+      'Front + back studio shots so you see the full piece',
+      'Sale price at $300 under $380 compare',
+    ],
+    cons: [
+      'Oversized fit — check size notes if you prefer slim',
+      'Jeweled graphics need gentle wash care',
+    ],
+    expertVerdict:
+      'If you want one loud bottoms piece for the feed and the street, Jeweled/Black is the drop. Heavy, studded, and priced to move at $300.',
+    expertBy: 'Milan Hype · Street edit',
+    compressionZones: EMPTY_ZONES,
+  },
   placeholder({
     id: 'apparel-tee',
     tier: 'Apparel',
