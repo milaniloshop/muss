@@ -55,7 +55,7 @@ export function CartDrawer() {
 
             <div className="flex-1 overflow-y-auto px-5 py-4">
               {!items.length && (
-                <p className="text-silver/70">Your bag is empty. Start with CoreFit Pro.</p>
+                <p className="text-silver/70">Your bag is empty. Shop the hype catalog.</p>
               )}
               <ul className="space-y-4">
                 {items.map((item) => (

@@ -5,16 +5,16 @@ import { RackFocusHeading } from './RackFocusHeading';
 
 const CALLOUTS = [
   {
-    title: 'Curated drops',
-    copy: 'Only pieces that match the Milan Hype standard — no random reseller grid.',
+    title: 'Hype reseller',
+    copy: 'Not a personal brand — we plug designer and streetwear hits with limited sizes.',
   },
   {
     title: 'Instagram-first',
-    copy: 'First looks and sizing help live on @Milanhype_ before the full catalog hits.',
+    copy: 'DM @Milanhype_ to shop, ask sizing, or grab what is left before it sells.',
   },
   {
-    title: 'Street polish',
-    copy: 'Fits and pairs built for how you actually walk out the door.',
+    title: 'Real pieces',
+    copy: 'Photos as shot. Prices and sizes as listed. No filler catalog.',
   },
   {
     title: 'Black + red',
@@ -29,13 +29,13 @@ export function FitPhilosophy() {
         <div>
           <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">02 — The Philosophy</p>
           <RackFocusHeading className="mt-4 text-4xl md:text-6xl">
-            Quiet luxury.
+            Your first plug.
             <br />
-            Downtown heat.
+            Hype hits only.
           </RackFocusHeading>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-gunmetal">
-            Not compression tanks. Not padded gimmicks. A clothing and sneakers store with Milan
-            attitude and premium presentation.
+            Milan Hype resells curated streetwear and sneakers — collabs, denim, outerwear, and
+            limited sizes. Shipping and meetups available. DM to shop.
           </p>
 
           <ul className="mt-10 space-y-5">
@@ -52,7 +52,7 @@ export function FitPhilosophy() {
           <div className="text-center">
             <p className="font-display text-[7rem] leading-none tracking-tight text-bone/10">MH</p>
             <p className="mt-2 text-[10px] uppercase tracking-[0.35em] text-ember">Milan Hype</p>
-            <p className="mt-4 text-xs text-gunmetal">Apparel · Sneakers</p>
+            <p className="mt-4 text-xs text-gunmetal">Hype reseller · Ormond Beach</p>
           </div>
           <div className="absolute inset-x-0 top-0 h-1 bg-ember" aria-hidden />
           <div className="absolute inset-x-0 bottom-0 h-1 bg-ember" aria-hidden />

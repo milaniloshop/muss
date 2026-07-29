@@ -21,30 +21,30 @@ const display = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'https://milanhype.com'),
   title: {
-    default: `${BRAND.name} | Clothing & Sneakers`,
+    default: `${BRAND.name} | Hype Streetwear Reseller`,
     template: `%s | ${BRAND.name}`,
   },
   description:
-    'Milan Hype — premium clothing and sneakers. Street polish. Milan heat. Follow @Milanhype_ on Instagram.',
+    'Milan Hype — your plug for hype streetwear and sneakers. Curated hits, limited sizes. Follow @Milanhype_ on Instagram.',
   keywords: [
     'Milan Hype',
+    'hype reseller',
     'streetwear',
     'sneakers',
-    'clothing store',
+    'designer denim',
     'Milanhype_',
-    'premium apparel',
   ],
   openGraph: {
     type: 'website',
     siteName: BRAND.name,
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description: 'Premium clothing and sneakers. Street polish. Milan heat.',
+    description: 'Your plug for hype streetwear and sneakers. Limited sizes. Real pieces.',
     images: ['/assets/images/logo-mh.svg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description: 'Premium clothing and sneakers.',
+    description: 'Hype streetwear reseller — shop hits and DM @Milanhype_.',
     images: ['/assets/images/logo-mh.svg'],
   },
   icons: {
