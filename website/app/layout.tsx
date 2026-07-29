@@ -21,34 +21,34 @@ const display = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'https://milanhype.com'),
   title: {
-    default: `${BRAND.name} | Second Skin. First Weapon.`,
+    default: `${BRAND.name} | Clothing & Sneakers`,
     template: `%s | ${BRAND.name}`,
   },
   description:
-    "Milan Hype CoreFit — men's performance-luxury compression tanks. Second skin. First weapon. Engineered chest + core hold.",
+    'Milan Hype — premium clothing and sneakers. Street polish. Milan heat. Follow @Milanhype_ on Instagram.',
   keywords: [
-    'men compression tank',
-    'chest compression shirt men',
-    'CoreFit',
     'Milan Hype',
-    'premium compression wear',
-    'performance luxury fitness',
+    'streetwear',
+    'sneakers',
+    'clothing store',
+    'Milanhype_',
+    'premium apparel',
   ],
   openGraph: {
     type: 'website',
-    siteName: `${BRAND.name} ${BRAND.productLine}`,
+    siteName: BRAND.name,
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description: 'Second skin. First weapon. Performance-luxury compression for men who train like it is war.',
-    images: ['/assets/images/products/corefit-hero-duo.jpg'],
+    description: 'Premium clothing and sneakers. Street polish. Milan heat.',
+    images: ['/assets/images/logo-mh.svg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${BRAND.name} | ${BRAND.tagline}`,
-    description: 'Second skin. First weapon.',
-    images: ['/assets/images/products/corefit-hero-duo.jpg'],
+    description: 'Premium clothing and sneakers.',
+    images: ['/assets/images/logo-mh.svg'],
   },
   icons: {
-    icon: '/assets/favicon.svg',
+    icon: '/assets/images/logo-mh.svg',
   },
   robots: {
     index: true,

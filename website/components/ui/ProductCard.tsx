@@ -33,11 +33,17 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             </span>
           )}
           <div className="absolute inset-x-0 bottom-0 p-5">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-silver/80">CoreFit {product.tier}</p>
-            <h3 className="mt-1 font-display text-2xl text-white">{product.tier}</h3>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-silver/80">
+              {product.category === 'sneakers' ? 'Sneakers' : product.category === 'apparel' ? 'Apparel' : product.tier}
+            </p>
+            <h3 className="mt-1 font-display text-2xl text-white">
+              {product.title.replace(' — Coming Soon', '')}
+            </h3>
             <div className="mt-2 flex items-baseline gap-2">
               <span className="text-white">{formatPrice(product.price)}</span>
-              <span className="text-sm text-silver/50 line-through">{formatPrice(product.compareAt)}</span>
+              {product.compareAt > 0 && (
+                <span className="text-sm text-silver/50 line-through">{formatPrice(product.compareAt)}</span>
+              )}
             </div>
           </div>
         </div>

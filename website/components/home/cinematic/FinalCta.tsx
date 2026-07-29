@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useMemo, useRef } from 'react';
 import { ApertureSection } from './ApertureSection';
+import { BRAND } from '@/lib/products';
 
 const WORDMARK = 'MILAN HYPE';
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -24,11 +25,11 @@ export function FinalCta() {
           {letters.map((ch, i) => (
             <motion.span
               key={`${ch}-${i}`}
-              initial={{ opacity: 0.35, color: '#e0451a' }}
+              initial={{ opacity: 0.35, color: '#e30613' }}
               animate={
                 inView
                   ? { opacity: 1, color: '#ebe6dc' }
-                  : { opacity: 0.35, color: '#e0451a' }
+                  : { opacity: 0.35, color: '#e30613' }
               }
               transition={{ duration: 0.7, delay: 0.15 + i * 0.06, ease: EASE }}
               className="inline-block"
@@ -39,11 +40,19 @@ export function FinalCta() {
           ))}
         </p>
         <p className="mx-auto mt-6 max-w-md text-sm text-gunmetal">
-          Second skin. First weapon. Choose your hold.
+          Street polish. Milan heat. Follow {BRAND.instagramHandle} for the next drop.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a href="/collection" className="btn-ghost-ember">
-            Enter the Collection
+            Enter the Store
+          </a>
+          <a
+            href={BRAND.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost-ember !border-bone/20"
+          >
+            {BRAND.instagramHandle}
           </a>
         </div>
       </div>

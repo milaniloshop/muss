@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(amount: number) {
+  if (!amount || amount <= 0) return 'TBD';
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

@@ -1,125 +1,67 @@
 'use client';
 
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ApertureSection } from './ApertureSection';
 import { RackFocusHeading } from './RackFocusHeading';
-
-let registered = false;
+import { BRAND } from '@/lib/products';
 
 const SPECS = [
-  { label: 'Architecture', value: '4-way compression weave' },
-  { label: 'Seam system', value: 'Zero-slip seam architecture' },
-  { label: 'Hand-feel', value: 'Second-skin recovery modulus' },
-  { label: 'Visibility', value: 'Invisible under fitted shirts' },
-  { label: 'Zones', value: 'Mapped chest + core hold' },
-  { label: 'Finish', value: 'Hard-light ribbing, no foam' },
+  { label: 'Focus', value: 'Apparel + sneakers only' },
+  { label: 'Drops', value: 'Instagram-first releases' },
+  { label: 'Standard', value: 'Curated — no filler SKUs' },
+  { label: 'Support', value: `${BRAND.instagramHandle} DMs` },
+  { label: 'Ship', value: 'U.S. · discreet packaging' },
+  { label: 'Mark', value: 'MH · black & red' },
 ];
 
 export function MaterialSection() {
-  const fabricRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!registered) {
-      gsap.registerPlugin(ScrollTrigger);
-      registered = true;
-    }
-    const root = fabricRef.current;
-    if (!root) return;
-
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const mobile = window.matchMedia('(max-width: 768px)').matches;
-
-    const ctx = gsap.context(() => {
-      const layers = root.querySelectorAll('[data-fabric-layer]');
-      layers.forEach((layer, i) => {
-        if (mobile || reduce) {
-          gsap.fromTo(
-            layer,
-            { autoAlpha: 0.7 },
-            {
-              autoAlpha: 1,
-              scrollTrigger: { trigger: root, start: 'top 80%', end: 'bottom 20%', scrub: true },
-            },
-          );
-          return;
-        }
-        gsap.to(layer, {
-          yPercent: (i % 2 === 0 ? -1 : 1) * (8 + i * 4),
-          scale: 1 + i * 0.02,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: root,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      });
-    }, fabricRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <ApertureSection id="material" className="overflow-hidden bg-obsidian py-24 md:py-36">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 md:grid-cols-12 md:gap-10 md:px-8">
-        <div className="md:col-span-5">
-          <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">01 — The Material</p>
+    <ApertureSection id="categories" className="bg-obsidian py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mb-14 max-w-xl">
+          <p className="text-[10px] uppercase tracking-[0.32em] text-gunmetal">01 — The Store</p>
           <RackFocusHeading className="mt-4 text-4xl md:text-6xl">
-            Engineered
+            Two lanes.
             <br />
-            fiber.
+            One brand.
           </RackFocusHeading>
-          <p className="mt-6 max-w-sm text-sm leading-relaxed text-gunmetal md:text-[15px]">
-            Spec sheet, not sales pitch. Compression that reads as second skin under hard light —
-            weave tension, ribbing, and seams designed to disappear on the body.
+          <p className="mt-5 text-sm leading-relaxed text-gunmetal">
+            Clothing for the fit. Sneakers for the statement. Catalog slots are live — real photos land when you send them.
           </p>
-
-          <dl className="mt-10 space-y-0 border-t border-bone/10">
-            {SPECS.map((row) => (
-              <div
-                key={row.label}
-                className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-bone/10 py-4 text-sm"
-              >
-                <dt className="text-[11px] uppercase tracking-[0.18em] text-gunmetal">{row.label}</dt>
-                <dd className="text-bone/90">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <div ref={fabricRef} className="relative md:col-span-7">
-          <div className="relative aspect-[4/5] overflow-hidden border border-bone/10 bg-charcoal md:aspect-[5/4]">
-            <div data-fabric-layer className="absolute inset-0">
-              <Image
-                src="/assets/images/products/premium-hero-tank.jpg"
-                alt="Macro compression fabric under directional light"
-                fill
-                sizes="(max-width:768px) 100vw, 55vw"
-                className="grade-skin object-cover object-center opacity-90"
-              />
-            </div>
-            <div
-              data-fabric-layer
-              className="absolute -right-[8%] bottom-[-6%] h-[55%] w-[55%] overflow-hidden border border-bone/15"
-            >
-              <Image
-                src="/assets/images/products/signature-hero-tank.jpg"
-                alt="Compression ribbing close-up"
-                fill
-                sizes="40vw"
-                className="grade-skin object-cover"
-              />
-            </div>
-            <div className="vignette" />
-            <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.24em] text-bone/50">
-              Weave · stitch · tension
-            </p>
-          </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          <a
+            href="/collection?c=apparel"
+            className="group relative min-h-[280px] overflow-hidden border border-bone/10 bg-charcoal p-8 transition hover:border-ember/50"
+          >
+            <p className="text-[10px] uppercase tracking-[0.28em] text-ember">Apparel</p>
+            <h3 className="mt-4 font-display text-4xl text-bone">Tees · Hoodies · Outerwear</h3>
+            <p className="mt-3 max-w-sm text-sm text-gunmetal">Elevated essentials. Coming soon.</p>
+            <span className="mt-8 inline-block text-[11px] uppercase tracking-[0.2em] text-bone/70 group-hover:text-ember">
+              Browse →
+            </span>
+          </a>
+          <a
+            href="/collection?c=sneakers"
+            className="group relative min-h-[280px] overflow-hidden border border-bone/10 bg-charcoal p-8 transition hover:border-ember/50"
+          >
+            <p className="text-[10px] uppercase tracking-[0.28em] text-ember">Sneakers</p>
+            <h3 className="mt-4 font-display text-4xl text-bone">Drops · Classics · Heat</h3>
+            <p className="mt-3 max-w-sm text-sm text-gunmetal">Clean pairs. Limited runs. Coming soon.</p>
+            <span className="mt-8 inline-block text-[11px] uppercase tracking-[0.2em] text-bone/70 group-hover:text-ember">
+              Browse →
+            </span>
+          </a>
         </div>
+
+        <dl className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SPECS.map((s) => (
+            <div key={s.label} className="border border-bone/10 bg-obsidian/50 px-5 py-4">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-gunmetal">{s.label}</dt>
+              <dd className="mt-2 text-sm text-bone/85">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </ApertureSection>
   );
