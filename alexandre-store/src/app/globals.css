@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+:root {
+  --graphite: #1a1d22;
+  --charcoal: #252930;
+  --cloud: #f2f3f5;
+  --offwhite: #f7f8fa;
+  --blue: #2b6cff;
+  --blue-soft: rgba(43, 108, 255, 0.18);
+  --orange: #e8913a;
+  --orange-soft: rgba(232, 145, 58, 0.16);
+  --ink: #0b0d10;
+  --muted: #6b7280;
+  --line: rgba(11, 13, 16, 0.08);
+  --line-light: rgba(255, 255, 255, 0.1);
+  --shadow-cool: 0 18px 40px -24px rgba(36, 56, 96, 0.45);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-device: 18px;
+}
+
+@theme inline {
+  --color-graphite: var(--graphite);
+  --color-charcoal: var(--charcoal);
+  --color-cloud: var(--cloud);
+  --color-offwhite: var(--offwhite);
+  --color-blue: var(--blue);
+  --color-orange: var(--orange);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--offwhite);
+  color: var(--ink);
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(43, 108, 255, 0.22);
+  color: var(--ink);
+}
+
+.micro {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.font-mono-spec {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* Brushed aluminum whisper on dark sections */
+.brushed-metal {
+  position: relative;
+  background:
+    linear-gradient(180deg, #22262d 0%, #1a1d22 48%, #15181d 100%);
+}
+
+.brushed-metal::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.055;
+  background-image: repeating-linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.35) 0px,
+    rgba(255, 255, 255, 0) 1px,
+    rgba(255, 255, 255, 0) 3px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  mix-blend-mode: soft-light;
+}
+
+.brushed-metal > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--blue);
+  padding: 0.85rem 1.55rem;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 560;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 12px 28px -16px rgba(43, 108, 255, 0.85);
+  transition:
+    transform 0.35s var(--ease),
+    background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #1f5aef;
+  transform: translateY(-1px);
+  outline: none;
+  box-shadow: 0 16px 34px -14px rgba(43, 108, 255, 0.9);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: transparent;
+  padding: 0.85rem 1.55rem;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 520;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    background 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.btn-secondary-dark {
+  border-color: rgba(11, 13, 16, 0.22);
+  color: var(--ink);
+}
+
+.btn-secondary-dark:hover,
+.btn-secondary-dark:focus-visible {
+  background: rgba(11, 13, 16, 0.04);
+  border-color: rgba(11, 13, 16, 0.4);
+}
+
+.device-radius {
+  border-radius: var(--radius-device);
+}
+
+.product-card {
+  transition:
+    transform 350ms var(--ease),
+    box-shadow 350ms var(--ease);
+  box-shadow: var(--shadow-cool);
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(43, 108, 255, 0.28),
+    0 22px 48px -20px rgba(43, 108, 255, 0.45);
+}
+
+.rack-focus {
+  animation: rackFocus 3.4s var(--ease) forwards;
+}
+
+@keyframes rackFocus {
+  0% {
+    filter: blur(7px);
+    transform: scale(1.06);
+  }
+  55% {
+    filter: blur(2.5px);
+    transform: scale(1.03);
+  }
+  100% {
+    filter: blur(0);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes floatY {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.scroll-cue {
+  animation: floatY 2.4s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rack-focus,
+  .scroll-cue,
+  .product-card {
+    animation: none;
+    transition: none;
+  }
+
+  .rack-focus {
+    filter: none;
+    transform: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+}
