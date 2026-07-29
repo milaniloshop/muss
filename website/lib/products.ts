@@ -121,10 +121,15 @@ export const PRODUCTS: Product[] = [
     fabric: 'Denim · trompe l\'oeil construction',
     sizes: ['L'],
     images: [
-      '/assets/images/products/yproject-jpg-trompe-denim.svg',
-      '/assets/images/products/yproject-jpg-trompe-denim-2.svg',
+      '/assets/images/products/yproject-jpg-trompe-denim.jpg',
+      '/assets/images/products/yproject-jpg-trompe-denim-2.jpg',
+      '/assets/images/products/yproject-jpg-trompe-denim-3.jpg',
     ],
-    imageLabels: ['Front', 'Detail / back'],
+    imageLabels: [
+      'Front flat',
+      'On mannequin',
+      'Back',
+    ],
     benefits: [
       'Y/PROJECT × Jean Paul Gaultier collab',
       "22AW trompe l'oeil denim",
@@ -166,10 +171,13 @@ export const PRODUCTS: Product[] = [
     fabric: 'Denim · trompe-l\'œil finish',
     sizes: ['34 / L'],
     images: [
-      '/assets/images/products/acne-1981-trompe-jeans.svg',
-      '/assets/images/products/acne-1981-trompe-jeans-2.svg',
+      '/assets/images/products/acne-1981-trompe-jeans.jpg',
+      '/assets/images/products/acne-1981-trompe-jeans-2.jpg',
     ],
-    imageLabels: ['Front', 'Detail'],
+    imageLabels: [
+      'Front',
+      'Back',
+    ],
     benefits: [
       "Acne Studios trompe-l'œil 1981",
       'Size 34 / L only',
@@ -193,10 +201,10 @@ export const PRODUCTS: Product[] = [
   live({
     id: 'supreme-mm6-box-logo',
     brand: 'Supreme × MM6 Maison Margiela',
-    title: 'Supreme × MM6 Maison Margiela Box Logo',
-    shortDescription: 'Supreme × MM6 Maison Margiela Box Logo. Size M only. $150.',
+    title: 'Supreme × MM6 Maison Margiela Box Logo Zip Hoodie',
+    shortDescription: 'Navy Supreme × MM6 zip hoodie — red box logo, white paint splatters. Size M only. $150.',
     description:
-      'Supreme × MM6 Maison Margiela Box Logo. Size M is the only size available. Price $150.',
+      'Supreme × MM6 Maison Margiela navy zip-up box logo hoodie with white paint splatters and MM6 sleeve embroidery. Size M only. Price $150.',
     price: 150,
     badge: 'M only',
     tierRank: 3,
@@ -204,10 +212,15 @@ export const PRODUCTS: Product[] = [
     fabric: 'As photographed',
     sizes: ['M'],
     images: [
-      '/assets/images/products/supreme-mm6-box-logo.svg',
-      '/assets/images/products/supreme-mm6-box-logo-2.svg',
+      '/assets/images/products/supreme-mm6-box-logo.jpg',
+      '/assets/images/products/supreme-mm6-box-logo-2.jpg',
+      '/assets/images/products/supreme-mm6-box-logo-3.jpg',
     ],
-    imageLabels: ['Front', 'Detail'],
+    imageLabels: [
+      'Front',
+      'Front alt',
+      'Sleeve / MM6 detail',
+    ],
     benefits: [
       'Supreme × MM6 Maison Margiela',
       'Box Logo collab',
@@ -240,10 +253,13 @@ export const PRODUCTS: Product[] = [
     fabric: 'Denim · trompe l\'œil',
     sizes: ['32'],
     images: [
-      '/assets/images/products/acne-2010m-trompe-jeans.svg',
-      '/assets/images/products/acne-2010m-trompe-jeans-2.svg',
+      '/assets/images/products/acne-2010m-trompe-jeans.jpg',
+      '/assets/images/products/acne-2010m-trompe-jeans-2.jpg',
     ],
-    imageLabels: ['Front', 'Detail'],
+    imageLabels: [
+      'Front western trompe',
+      'Detail / boots print',
+    ],
     benefits: [
       'Acne Studios 2010M',
       "Trompe l'œil denim",
@@ -266,9 +282,9 @@ export const PRODUCTS: Product[] = [
     id: 'acne-1981-painter-decorator',
     brand: 'Acne Studios',
     title: 'Acne Studios 1981 Painter Printed Decorator',
-    shortDescription: 'Acne Studios 1981 Painter Printed Decorator. Size L only. $200.',
+    shortDescription: 'Acne Studios 1981 painter-print decorator set energy. Size L only. $200.',
     description:
-      'Acne Studios 1981 Painter Printed Decorator. Size L is the only size available. Price $200.',
+      'Acne Studios 1981 Painter Printed Decorator — cream base with multi-color paint splatters. Size L only. Price $200.',
     price: 200,
     badge: 'L only',
     tierRank: 5,
@@ -276,10 +292,17 @@ export const PRODUCTS: Product[] = [
     fabric: 'Painter-print denim / decorator finish',
     sizes: ['L'],
     images: [
-      '/assets/images/products/acne-1981-painter-decorator.svg',
-      '/assets/images/products/acne-1981-painter-decorator-2.svg',
+      '/assets/images/products/acne-1981-painter-decorator-3.jpg',
+      '/assets/images/products/acne-1981-painter-decorator-4.jpg',
+      '/assets/images/products/acne-1981-painter-decorator.jpg',
+      '/assets/images/products/acne-1981-painter-decorator-2.jpg',
     ],
-    imageLabels: ['On body / front', 'Detail'],
+    imageLabels: [
+      'Full look',
+      'Jacket + pants hang',
+      'On body lower',
+      'Side',
+    ],
     benefits: [
       'Acne Studios 1981 Painter print',
       'Decorator splatters — statement piece',
@@ -303,9 +326,9 @@ export const PRODUCTS: Product[] = [
     brand: 'The Rolling Stones',
     title: 'The Rolling Stones Blue & White Plaid Flannel',
     shortDescription:
-      'Blue and white plaid flannel with embroidered Rolling Stones logo. Size M only. $150.',
+      'Blue/white plaid flannel with fang tongue embroidery and FALSE PERCEPTION text. Size M only. $150.',
     description:
-      'The Rolling Stones blue and white plaid flannel shirt with embroidered logo. Size M only. Price $150.',
+      'The Rolling Stones blue and white plaid flannel with embroidered tongue-and-lips (fangs) logo, FALSE PERCEPTION back text, and distressed hem. Size M only. Price $150.',
     price: 150,
     badge: 'M only',
     tierRank: 6,
@@ -313,11 +336,17 @@ export const PRODUCTS: Product[] = [
     fabric: 'Plaid flannel · embroidered logo',
     sizes: ['M'],
     images: [
-      '/assets/images/products/rolling-stones-plaid-flannel.svg',
-      '/assets/images/products/rolling-stones-plaid-flannel-2.svg',
-      '/assets/images/products/rolling-stones-plaid-flannel-3.svg',
+      '/assets/images/products/rolling-stones-plaid-flannel.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-2.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-3.jpg',
+      '/assets/images/products/rolling-stones-plaid-flannel-4.jpg',
     ],
-    imageLabels: ['Front', 'Back / logo', 'Detail'],
+    imageLabels: [
+      'Front',
+      'Back logo',
+      'Logo detail',
+      'Back plaid',
+    ],
     benefits: [
       'Rolling Stones embroidered logo',
       'Blue / white plaid flannel',
@@ -387,11 +416,15 @@ export const PRODUCTS: Product[] = [
     fabric: 'Black leather',
     sizes: ['M'],
     images: [
-      '/assets/images/products/polizei-leather-jacket.svg',
-      '/assets/images/products/polizei-leather-jacket-2.svg',
-      '/assets/images/products/polizei-leather-jacket-3.svg',
+      '/assets/images/products/polizei-leather-jacket.jpg',
+      '/assets/images/products/polizei-leather-jacket-2.jpg',
+      '/assets/images/products/polizei-leather-jacket-3.jpg',
     ],
-    imageLabels: ['Front', 'Back', 'Detail'],
+    imageLabels: [
+      'Front',
+      'Chest / sleeve',
+      'Back',
+    ],
     benefits: [
       'POLIZEI branded leather',
       'Black motorcycle / utility cut',
@@ -414,8 +447,8 @@ export const PRODUCTS: Product[] = [
     id: 'vale-forever-skyfall',
     brand: 'Vale Forever',
     title: 'Vale Forever SKYFALL',
-    shortDescription: 'Vale Forever SKYFALL. Size M. $150.',
-    description: 'Vale Forever SKYFALL. Size M available. Price $150.',
+    shortDescription: 'Vale Forever SKYFALL rhinestone plaid flannel. Size M. $150.',
+    description: 'Vale Forever SKYFALL — beige/blue plaid flannel with rhinestone columns, VALE USA medium tag. Size M. Price $150.',
     price: 150,
     badge: 'Size M',
     tierRank: 9,
@@ -423,10 +456,15 @@ export const PRODUCTS: Product[] = [
     fabric: 'As photographed',
     sizes: ['M'],
     images: [
-      '/assets/images/products/vale-forever-skyfall.svg',
-      '/assets/images/products/vale-forever-skyfall-2.svg',
+      '/assets/images/products/vale-forever-skyfall.jpg',
+      '/assets/images/products/vale-forever-skyfall-2.jpg',
+      '/assets/images/products/vale-forever-skyfall-3.jpg',
     ],
-    imageLabels: ['Front', 'Alt'],
+    imageLabels: [
+      'Front',
+      'Tag / rhinestones',
+      'Cuff detail',
+    ],
     benefits: ['Vale Forever SKYFALL', 'Size M · $150', 'Hype bottoms / apparel hit'],
     details: { Size: 'M', Price: '$150' },
     styleIt: 'Pair with a clean black tee and the Skittle sweats energy from the same house.',
@@ -455,10 +493,13 @@ export const PRODUCTS: Product[] = [
     fabric: 'Heather grey fleece / jersey · layered waistbands',
     sizes: ['M', 'L'],
     images: [
-      '/assets/images/products/project-gr-layered-sweatpants.svg',
-      '/assets/images/products/project-gr-layered-sweatpants-2.svg',
+      '/assets/images/products/project-gr-layered-sweatpants.jpg',
+      '/assets/images/products/project-gr-layered-sweatpants-2.jpg',
     ],
-    imageLabels: ['Front', 'Back'],
+    imageLabels: [
+      'Front',
+      'Back',
+    ],
     benefits: [
       'Triple layered waistband look',
       'Sizes M and L in stock',
