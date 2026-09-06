@@ -3,6 +3,9 @@
 Use this list to buy **only** what matches the GMC truck designs you liked.  
 Compare price + shipping + voltage (US 110V vs China 220V) before ordering.
 
+**Tech Q&A (hot water, reclaim, flow, payload, bed, power):** see [`gmc-truck-followup-answers.md`](./gmc-truck-followup-answers.md)  
+**Key updates from that Q&A:** exterior stays **cold-water**; SHURflo is for **rinse reel** (Kränzle self-primes); generator should be **≥4800W running**; tools run **sequentially**.
+
 **How to use Taobao links:** they open a search for the product / closest equivalent. Sort by sales + store rating, then check: voltage, PSI/GPM, fittings, warranty.
 
 **Legend**
