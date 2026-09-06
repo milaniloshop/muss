@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GMC Truck Mobile Detailing Vision Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0d1117;
+      --steel: #1a2332;
+      --plate: #2a3548;
+      --line: #3d4f66;
+      --foam: #e8f4ff;
+      --accent: #c45c26;
+      --accent-2: #2f6fed;
+      --ok: #2bb673;
+      --warn: #e6b422;
+      --text: #e8edf5;
+      --muted: #9aabbe;
+      --card: rgba(26, 35, 50, 0.92);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1e3a5f 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #3a2114 0%, transparent 45%),
+        linear-gradient(180deg, #0a0e14 0%, #121a24 40%, #0d1117 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    header.hero {
+      display: grid;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 900px) {
+      header.hero { grid-template-columns: 1.05fr 0.95fr; align-items: end; }
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    h1 span { color: var(--accent); }
+    .lede {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 46ch;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 12px;
+    }
+    .stat b {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+    }
+    .stat span { font-size: 12px; color: var(--muted); }
+
+    .hero-shot {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      position: relative;
+    }
+    .hero-shot img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+    .hero-shot figcaption {
+      position: absolute; left: 14px; bottom: 14px;
+      background: rgba(10,14,20,0.78);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--foam);
+    }
+
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 0;
+      background: linear-gradient(180deg, rgba(10,14,20,0.96), rgba(10,14,20,0.88) 70%, transparent);
+    }
+    nav.toc a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--steel);
+      transition: 0.2s ease;
+    }
+    nav.toc a:hover { border-color: var(--accent); color: #fff; }
+
+    section { margin-bottom: 56px; }
+    h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 20px; max-width: 70ch; line-height: 1.5; }
+
+    .gallery {
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 800px) {
+      .gallery.two { grid-template-columns: 1fr 1fr; }
+      .gallery.three { grid-template-columns: 1.2fr 0.8fr; }
+    }
+    .shot {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--steel);
+    }
+    .shot img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+    .shot .cap {
+      padding: 12px 14px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .shot .cap strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 14px; }
+
+    /* Interactive layout board */
+    .board {
+      background:
+        linear-gradient(90deg, rgba(61,79,102,0.25) 1px, transparent 1px),
+        linear-gradient(rgba(61,79,102,0.25) 1px, transparent 1px),
+        var(--steel);
+      background-size: 28px 28px, 28px 28px, auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      overflow: auto;
+    }
+    .truck {
+      position: relative;
+      width: min(980px, 100%);
+      margin: 0 auto;
+      aspect-ratio: 1.55 / 1;
+      min-height: 420px;
+    }
+    .cab {
+      position: absolute;
+      left: 0; top: 18%; bottom: 18%;
+      width: 22%;
+      background: linear-gradient(135deg, #243044, #151c28);
+      border: 2px solid #4a5d78;
+      border-radius: 14px 6px 6px 14px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .bed {
+      position: absolute;
+      left: 23%; right: 0; top: 12%; bottom: 12%;
+      background:
+        linear-gradient(135deg, rgba(180,190,205,0.08), transparent 40%),
+        repeating-linear-gradient(0deg, #1b2433 0 10px, #1f2a3b 10px 20px);
+      border: 2px solid #5a6f8c;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .tail {
+      position: absolute;
+      right: -2%; top: 22%; bottom: 22%;
+      width: 3%;
+      background: #2a3548;
+      border: 2px solid #5a6f8c;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .zone {
+      position: absolute;
+      border-radius: 10px;
+      border: 1.5px dashed transparent;
+      padding: 8px;
+      cursor: pointer;
+      transition: 0.18s ease;
+      background: rgba(47, 111, 237, 0.12);
+      border-color: rgba(47, 111, 237, 0.45);
+    }
+    .zone:hover, .zone.active {
+      background: rgba(196, 92, 38, 0.22);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      z-index: 5;
+    }
+    .zone .tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+    }
+    .zone .name { font-size: 12px; line-height: 1.3; color: var(--foam); font-weight: 600; }
+
+    #z-tank { left: 3%; top: 8%; width: 28%; height: 84%; background: rgba(196,92,38,0.16); border-color: rgba(196,92,38,0.55); }
+    #z-gen { left: 34%; top: 8%; width: 20%; height: 38%; }
+    #z-washer { left: 34%; top: 52%; width: 20%; height: 40%; }
+    #z-reels { left: 57%; top: 8%; width: 18%; height: 84%; background: rgba(43,182,115,0.14); border-color: rgba(43,182,115,0.5); }
+    #z-extract { left: 78%; top: 8%; width: 19%; height: 42%; }
+    #z-tools { left: 78%; top: 55%; width: 19%; height: 37%; }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    @media (min-width: 800px) {
+      .legend { grid-template-columns: 1fr 1fr; }
+    }
+    .legend-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+    .legend-item:hover, .legend-item.active { border-color: var(--accent); }
+    .legend-item .num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--accent);
+      font-weight: 700; font-size: 13px;
+    }
+    .legend-item h3 { font-size: 14px; margin-bottom: 4px; }
+    .legend-item p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    .detail-panel {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 18px;
+      min-height: 120px;
+    }
+    .detail-panel h3 { font-size: 18px; margin-bottom: 6px; }
+    .detail-panel p { color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 10px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(47,111,237,0.15);
+      border: 1px solid rgba(47,111,237,0.35);
+      color: #cfe0ff;
+    }
+
+    table.equip {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+    table.equip th, table.equip td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    table.equip th {
+      background: #151c28;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    table.equip tr:last-child td { border-bottom: none; }
+    table.equip td.zone-col { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    table.equip tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+    }
+    @media (min-width: 800px) {
+      .flow { grid-template-columns: repeat(5, 1fr); }
+    }
+    .flow-step {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px;
+      position: relative;
+    }
+    .flow-step .n {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .flow-step h3 { font-size: 14px; margin-bottom: 6px; }
+    .flow-step p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Full vision · GMC truck bed build</div>
+        <h1>Your mobile detailing <span>shop on wheels</span></h1>
+        <p class="lede">
+          Complete visual layout for a GMC pickup truck bed — every piece of pro equipment from the research list, placed for real driveway workflow: wash, interior, polish, ceramic.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>6</b><span>equipment zones</span></div>
+          <div class="stat"><b>100</b><span>gal water capacity</span></div>
+          <div class="stat"><b>4500W</b><span>inverter power</span></div>
+        </div>
+      </div>
+      <figure class="hero-shot">
+        <img src="assets/gmc-truck-detailing-hero-overview.png" alt="GMC truck mobile detailing setup overview" />
+        <figcaption>Hero vision — full build overview</figcaption>
+      </figure>
+    </header>
+
+    <nav class="toc">
+      <a href="#vision">Vision shots</a>
+      <a href="#layout">Interactive layout</a>
+      <a href="#zones">Zone close-ups</a>
+      <a href="#equipment">Equipment map</a>
+      <a href="#workflow">Daily workflow</a>
+    </nav>
+
+    <section id="vision">
+      <h2>How it looks</h2>
+      <p class="section-sub">Photoreal vision of the finished GMC truck bed: diamond plate, powder-coated frame, generator stand, tank, reels, washer, extractor.</p>
+      <div class="gallery two">
+        <figure class="shot">
+          <img src="assets/gmc-truck-bed-topdown-layout.png" alt="Top-down truck bed layout" />
+          <div class="cap"><strong>Top-down layout</strong>Bird’s-eye placement of tank, generator, washer, dual Coxreels, extractor, and tool station.</div>
+        </figure>
+        <figure class="shot">
+          <img src="assets/gmc-truck-detailing-rear-access.png" alt="Rear access view of truck bed" />
+          <div class="cap"><strong>Rear access (tailgate down)</strong>Operator reach: reels, foam cannon, wand, chemicals — grab-and-go without climbing the bed.</div>
+        </figure>
+        <figure class="shot" style="grid-column: 1 / -1;">
+          <img src="assets/gmc-truck-detailing-in-action.png" alt="Truck in action foaming a car" />
+          <div class="cap"><strong>In action</strong>Hose off the Coxreel, thick foam pre-wash from the truck — full mobile independence, no customer water/power.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="layout">
+      <h2>Interactive bed layout</h2>
+      <p class="section-sub">Click any zone on the truck bed (or the legend below) to see what’s mounted there and why.</p>
+
+      <div class="board">
+        <div class="truck" id="truck">
+          <div class="cab">GMC cab</div>
+          <div class="bed">
+            <div class="zone active" id="z-tank" data-zone="tank">
+              <div class="tag">Zone 1</div>
+              <div class="name">100-gal water tank + straps</div>
+            </div>
+            <div class="zone" id="z-gen" data-zone="gen">
+              <div class="tag">Zone 2</div>
+              <div class="name">Champion generator</div>
+            </div>
+            <div class="zone" id="z-washer" data-zone="washer">
+              <div class="tag">Zone 3</div>
+              <div class="name">Kränzle + SHURflo</div>
+            </div>
+            <div class="zone" id="z-reels" data-zone="reels">
+              <div class="tag">Zone 4</div>
+              <div class="name">Dual Coxreels</div>
+            </div>
+            <div class="zone" id="z-extract" data-zone="extract">
+              <div class="tag">Zone 5</div>
+              <div class="name">Mytee extractor</div>
+            </div>
+            <div class="zone" id="z-tools" data-zone="tools">
+              <div class="tag">Zone 6</div>
+              <div class="name">Polish · lights · chemicals</div>
+            </div>
+          </div>
+          <div class="tail" title="Tailgate"></div>
+        </div>
+      </div>
+
+      <div class="legend" id="legend">
+        <div class="legend-item active" data-zone="tank"><div class="num">1</div><div><h3>Water system (cab wall)</h3><p>Detail King 100-gal tank, straps, fill port. Optional CR Spotless DI fill before the day.</p></div></div>
+        <div class="legend-item" data-zone="gen"><div class="num">2</div><div><h3>Power</h3><p>Champion 4500W inverter on stand / remote start — runs washer + extractor.</p></div></div>
+        <div class="legend-item" data-zone="washer"><div class="num">3</div><div><h3>Wash pump station</h3><p>Kränzle K1622TS on MEKOH shelf + SHURflo 2088 12V feed + MJJC Foam Cannon Pro V2.</p></div></div>
+        <div class="legend-item" data-zone="reels"><div class="num">4</div><div><h3>Hose management</h3><p>Coxreels 112-3-50 (pressure) + second reel for rinse / DI — Blueshine-style workflow.</p></div></div>
+        <div class="legend-item" data-zone="extract"><div class="num">5</div><div><h3>Interior cash engine</h3><p>Mytee Lite 8070 heated extractor locked in a transit tray.</p></div></div>
+        <div class="legend-item" data-zone="tools"><div class="num">6</div><div><h3>Correction & finish</h3><p>RUPES LHR15, SCANGRIP Multimatch, Detail Factory tools, Gauntlet towels, Koch-Chemie / GYEON bottles.</p></div></div>
+      </div>
+
+      <div class="detail-panel" id="detail">
+        <h3>Zone 1 — Water system</h3>
+        <p>Low-profile 100-gallon PE tank against the cab wall maximizes bed length for reels and tools. Strap into molded slots. Fill with DI water from a Blueshine-style spot-free station before jobs for spot-free rinses all day.</p>
+        <div class="chips">
+          <span class="chip">Detail King 100-gal</span>
+          <span class="chip">CR Spotless DI fill</span>
+          <span class="chip">10–15 exterior washes</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="zones">
+      <h2>Zone close-ups</h2>
+      <p class="section-sub">What the wash station and interior/polish station look like up close.</p>
+      <div class="gallery two">
+        <figure class="shot">
+          <img src="assets/gmc-zone-wash-system.png" alt="Wash system zone close-up" />
+          <div class="cap"><strong>Wash system</strong>Kränzle on shelf · Coxreel · foam cannon · stainless wand · diamond plate.</div>
+        </figure>
+        <figure class="shot">
+          <img src="assets/gmc-zone-interior-polish.png" alt="Interior and polish zone close-up" />
+          <div class="cap"><strong>Interior + polish</strong>Mytee extractor · RUPES DA · SCANGRIP light · brushes · Gauntlet towels · chemicals.</div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="equipment">
+      <h2>Equipment placement map</h2>
+      <p class="section-sub">Every researched item mapped to a truck-bed zone.</p>
+      <div style="overflow-x:auto;">
+        <table class="equip">
+          <thead>
+            <tr><th>Zone</th><th>Item</th><th>Why it sits there</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="zone-col">1 Water</td><td>Detail King 100-gal tank</td><td>Weight over rear axle / cab wall; frees rear for reach tools</td></tr>
+            <tr><td class="zone-col">1 Water</td><td>CR Spotless DIW-20 / shop DI fill</td><td>Fill tank with 0 TDS water before route</td></tr>
+            <tr><td class="zone-col">2 Power</td><td>Champion 4500W inverter</td><td>Exhaust / noise at outer edge; remote start from pocket</td></tr>
+            <tr><td class="zone-col">3 Wash</td><td>Kränzle K1622TS + MEKOH shelf</td><td>Secure mount; short hop to pressure reel</td></tr>
+            <tr><td class="zone-col">3 Wash</td><td>SHURflo 2088-343-135</td><td>Feeds washer from tank when not gravity-feeding</td></tr>
+            <tr><td class="zone-col">3 Wash</td><td>MJJC Foam Cannon Pro V2.0</td><td>Hangs on wand holder at wash station</td></tr>
+            <tr><td class="zone-col">4 Reels</td><td>Coxreels 112-3-50 / 112-3-100</td><td>Center-rear vertical frame = fastest deploy from tailgate</td></tr>
+            <tr><td class="zone-col">5 Interior</td><td>Mytee Lite 8070</td><td>Locked tray near tailgate for carry-in jobs</td></tr>
+            <tr><td class="zone-col">6 Finish</td><td>RUPES LHR15 Mark III</td><td>Padded case in tool bay; paint correction / ceramic prep</td></tr>
+            <tr><td class="zone-col">6 Finish</td><td>SCANGRIP MULTIMATCH R</td><td>Magnetic / stand light for driveway QC</td></tr>
+            <tr><td class="zone-col">6 Finish</td><td>Detail Factory brushes / pet tools</td><td>Pegboard or bin — pet upsells + soft interior finish</td></tr>
+            <tr><td class="zone-col">6 Finish</td><td>The Rag Company Gauntlet</td><td>Clean towel bin, sealed from wet zone</td></tr>
+            <tr><td class="zone-col">6 Finish</td><td>Koch-Chemie, GYEON, CarPro, Gtechniq…</td><td>Gallon rack + spray holders, labeled, upright</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <h2>How a job flows from this truck</h2>
+      <p class="section-sub">Same techniques from the research — now mapped to your GMC layout.</p>
+      <div class="flow">
+        <div class="flow-step"><div class="n">01</div><h3>Park & power</h3><p>Remote-start Champion. Drop tailgate. Unclip Coxreels.</p></div>
+        <div class="flow-step"><div class="n">02</div><h3>Foam pre-wash</h3><p>MJJC on Kränzle → thick foam → dwell → rinse from tank water.</p></div>
+        <div class="flow-step"><div class="n">03</div><h3>Contact + DI rinse</h3><p>Mitt wash, then spot-free DI rinse so you skip towel spotting.</p></div>
+        <div class="flow-step"><div class="n">04</div><h3>Interior money</h3><p>Pet tools → vacuum → Mytee extract on seats/carpet.</p></div>
+        <div class="flow-step"><div class="n">05</div><h3>Polish / ceramic</h3><p>SCANGRIP inspect → RUPES correct → coat with graphene/ceramic.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      Built from the consolidated equipment research (Blueshine + Paz / 2026 standards) as a GMC truck-bed vision board.
+      Open this file locally: <code>docs/research/gmc-truck-vision/index.html</code>
+    </footer>
+  </div>
+
+  <script>
+    const copy = {
+      tank: {
+        title: "Zone 1 — Water system",
+        body: "Low-profile 100-gallon PE tank against the cab wall maximizes bed length for reels and tools. Strap into molded slots. Fill with DI water from a Blueshine-style spot-free station before jobs for spot-free rinses all day.",
+        chips: ["Detail King 100-gal", "CR Spotless DI fill", "10–15 exterior washes"]
+      },
+      gen: {
+        title: "Zone 2 — Power",
+        body: "Champion 4500W dual-fuel inverter on a raised stand with remote start. Place toward the outer bed edge for exhaust clearance and vibration isolation. ~3500W running covers Kränzle + Mytee (not always both at full load — sequence loads).",
+        chips: ["Champion 4500W", "Remote start", "Pure sine / clean power"]
+      },
+      washer: {
+        title: "Zone 3 — Wash pump station",
+        body: "Kränzle mounted on a MEKOH-style shelf so it cannot walk in transit. SHURflo 2088 feeds from the tank. MJJC Foam Cannon Pro V2 hangs on a wand holder for instant pre-wash foam.",
+        chips: ["Kränzle K1622TS", "SHURflo 2088", "MJJC Foam Cannon Pro V2"]
+      },
+      reels: {
+        title: "Zone 4 — Hose management",
+        body: "Vertical dual Coxreels (pressure + rinse/DI) centered toward the tailgate — the Blueshine / Coxreels workflow. Deploy in seconds, crank back without hose spaghetti on the customer’s driveway.",
+        chips: ["Coxreels 112-3-50", "Pressure + rinse", "Tailgate reach"]
+      },
+      extract: {
+        title: "Zone 5 — Interior cash engine",
+        body: "Mytee Lite 8070 heated extractor sits in a custom transit tray near the tailgate for quick carry-in. This is the upsell machine: carpets, seats, flood recovery.",
+        chips: ["Mytee Lite 8070", "Heated extract", "Transit tray"]
+      },
+      tools: {
+        title: "Zone 6 — Correction & finish",
+        body: "Dry/clean zone: RUPES LHR15 in a padded case, SCANGRIP Multimatch for paint inspection, Detail Factory brushes and pet tools, Gauntlet drying towels, and upright chemical bottles (Koch-Chemie, GYEON, CarPro, Gtechniq).",
+        chips: ["RUPES LHR15", "SCANGRIP Multimatch", "Detail Factory", "Gauntlet towels"]
+      }
+    };
+
+    const detail = document.getElementById("detail");
+    const zones = [...document.querySelectorAll(".zone")];
+    const items = [...document.querySelectorAll(".legend-item")];
+
+    function select(key) {
+      zones.forEach(z => z.classList.toggle("active", z.dataset.zone === key));
+      items.forEach(i => i.classList.toggle("active", i.dataset.zone === key));
+      const c = copy[key];
+      detail.innerHTML = `<h3>${c.title}</h3><p>${c.body}</p><div class="chips">${c.chips.map(x => `<span class="chip">${x}</span>`).join("")}</div>`;
+    }
+
+    zones.forEach(z => z.addEventListener("click", () => select(z.dataset.zone)));
+    items.forEach(i => i.addEventListener("click", () => select(i.dataset.zone)));
+  </script>
+</body>
+</html>

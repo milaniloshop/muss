@@ -1,5 +1,7 @@
 # Mobile Car Detailing Equipment Research (2026)
 
+**GMC truck vision board:** open [`gmc-truck-vision/index.html`](./gmc-truck-vision/index.html) for photoreal renders + interactive 6-zone bed layout of this full equipment list on a GMC pickup.
+
 **Sources reviewed:** Instagram (via public viewers + business listings), Blueshine Detailing Supplies (Commerce/Gardena, CA), @pazdetailings (Miami-Dade), broader 2026 detailing community.
 
 **Account notes**
