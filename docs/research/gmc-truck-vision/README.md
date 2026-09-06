@@ -2,6 +2,11 @@
 
 Interactive vision board + photoreal renders for a **GMC pickup truck bed** build using the consolidated equipment research.
 
+## Buy list (Taobao vs Amazon)
+
+Ready-to-order shopping list for this exact build:  
+[`../gmc-truck-buy-list-taobao-amazon.md`](../gmc-truck-buy-list-taobao-amazon.md)
+
 ## Open the vision board
 
 Open locally in a browser:
